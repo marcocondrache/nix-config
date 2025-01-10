@@ -7,23 +7,24 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
-    home-manager.url = "github:nix-home/home-manager";
+    home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     {
-      self,
       nix-darwin,
       home-manager,
+      ...
     }:
     let
-      hostname = "marcocondrache";
+      hostname = "marcocondraches-Macbook";
       username = "marcocondrache";
       system = "aarch64-darwin";
     in {
       darwinConfigurations.${hostname} = nix-darwin.lib.darwinSystem {
         inherit system;
+
         modules = [
           ./configuration.nix
           home-manager.darwinModules.home-manager
