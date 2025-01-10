@@ -1,0 +1,49 @@
+# General system and editor files
+*.swp
+*.swo
+*.bak
+*.tmp
+*~
+
+# macOS system files
+.DS_Store
+
+# Directory indexing
+.idea/
+.vscode/
+
+# Logs and temporary files
+logs/
+*.log
+
+# Nix build outputs
+/result
+/result*
+
+# Nix specific files
+*.drv
+*.lock
+*.gcroots/
+.nix-defexpr/
+.nix-profile/
+.nix-channels
+.cache/
+
+# Optional: Ignore private secrets or environment-specific files
+secrets/
+.env
+
+# Generated files
+*.o
+*.so
+*.d
+*.a
+*.hi
+*.pyc
+*.pyo
+*.class
+
+# Other Nix files
+*.check
+*.lockfile
+flake.lock
