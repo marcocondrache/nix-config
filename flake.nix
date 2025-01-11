@@ -25,14 +25,15 @@
         {
           host,
           user ? "marcocondrache",
+          system ? "aarch64-darwin",
         }:
         let
           settings = {
-            inherit host user;
+            inherit host user system;
           };
         in
         nix-darwin.lib.darwinSystem {
-          system = "aarch64-darwin";
+          inherit system;
           modules = [
             (./hosts + "/${host}")
             home-manager.darwinModules.home-manager
