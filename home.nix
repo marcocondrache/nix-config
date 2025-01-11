@@ -1,11 +1,13 @@
-{ pkgs, username, ... }: {
-  home.username = username;
-  home.homeDirectory = "/Users/${username}";
+{ pkgs, ... }:
+{
+  #home.username = username;
+  #home.homeDirectory = "/Users/${username}";
 
   home.packages = with pkgs; [
     bun
-    
-    code-cursor
+
+    # only available to linux
+    # code-cursor
     raycast
   ];
 

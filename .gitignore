@@ -46,4 +46,3 @@ secrets/
 # Other Nix files
 *.check
 *.lockfile
-flake.lock

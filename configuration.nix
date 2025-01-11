@@ -1,8 +1,4 @@
-{
-  pkgs,
-  username,
-  ...
-}:
+{ pkgs, settings, ... }:
 {
   system.stateVersion = 5;
 
@@ -10,7 +6,10 @@
   services.nix-daemon.enable = true;
   nix = {
     package = pkgs.nix;
-    settings.experimental-features = [ "nix-command" "flakes" ];
+    settings.experimental-features = [
+      "nix-command"
+      "flakes"
+    ];
   };
 
   environment.systemPackages = with pkgs; [
@@ -18,8 +17,14 @@
     nixfmt-rfc-style
   ];
 
-  users.users.${username} = {
-    name = username;
-    home = "/Users/${username}";
+  nixpkgs.config.allowUnfreePredicate =
+    pkg:
+    builtins.elem (pkgs.lib.getName pkg) [
+      "raycast"
+    ];
+
+  users.users.${settings.username} = {
+    name = settings.username;
+    home = "/Users/${settings.username}";
   };
 }
