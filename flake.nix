@@ -15,18 +15,20 @@
     {
       nix-darwin,
       home-manager,
+      #nixpkgs,
       ...
     }:
     let
-      username = "marcocondrache";
+      #lib = nixpkgs.lib // home-manager.lib;
 
-      createDarwinConfig =
+      mkDarwinConfig =
         {
           host,
-          system ? "aarch64-darwin",
+          username ? "marcocondrache",
+          arch ? "aarch64-darwin",
         }:
         nix-darwin.lib.darwinSystem {
-          inherit system;
+          system = arch;
           modules = [
             (./hosts + "/${host}")
             home-manager.darwinModules.home-manager
@@ -34,25 +36,29 @@
               networking.hostName = host;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = import ./home + "/${username}" + "/${host}.nix";
+              home-manager.users.${username} = import (./home + "/${username}" + "/${host}.nix");
             }
           ];
           specialArgs = {
-            inherit host username system;
+            inherit
+              host
+              username
+              arch
+              ;
           };
         };
     in
     {
       darwinConfigurations = {
         # Personal laptop
-        quemo = createDarwinConfig {
+        quemo = mkDarwinConfig {
           host = "quemo";
         };
 
         # Work laptop
-        xawed = createDarwinConfig {
-          host = "xawed";
-        };
+        # xawed = mkDarwinConfig {
+        #   host = "xawed";
+        # };
       };
     };
 }
