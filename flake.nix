@@ -25,27 +25,25 @@
         {
           host,
           username ? "marcocondrache",
-          arch ? "aarch64-darwin",
         }:
+        let
+          settings = {
+            inherit host username;
+          };
+        in
         nix-darwin.lib.darwinSystem {
-          system = arch;
+          system = "aarch64-darwin";
           modules = [
             (./hosts + "/${host}")
             home-manager.darwinModules.home-manager
             {
-              networking.hostName = host;
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
               home-manager.users.${username} = import (./home + "/${username}" + "/${host}.nix");
+              home-manager.extraSpecialArgs = settings;
             }
           ];
-          specialArgs = {
-            inherit
-              host
-              username
-              arch
-              ;
-          };
+          specialArgs = settings;
         };
     in
     {

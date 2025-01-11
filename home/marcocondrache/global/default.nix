@@ -1,11 +1,11 @@
 {
-  host,
-  username,
   lib,
+  username,
+  ...
 }:
 {
   home = {
     inherit username;
-    homeDirectory = "/Users/${username}";
+    stateVersion = lib.mkDefault "24.11";
   };
 }
