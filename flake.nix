@@ -24,11 +24,11 @@
       mkDarwinConfig =
         {
           host,
-          username ? "marcocondrache",
+          user ? "marcocondrache",
         }:
         let
           settings = {
-            inherit host username;
+            inherit host user;
           };
         in
         nix-darwin.lib.darwinSystem {
@@ -39,7 +39,7 @@
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.${username} = import (./home + "/${username}" + "/${host}.nix");
+              home-manager.users.${user} = import (./home + "/${user}" + "/${host}.nix");
               home-manager.extraSpecialArgs = settings;
             }
           ];

@@ -1,11 +1,11 @@
 {
   lib,
-  username,
+  user,
   ...
 }:
 {
   home = {
-    inherit username;
+    username = user;
     stateVersion = lib.mkDefault "24.11";
   };
 }

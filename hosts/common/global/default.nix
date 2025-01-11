@@ -1,4 +1,7 @@
 {
+  ...
+}:
+{
   imports = [
     ./nix.nix
   ];
