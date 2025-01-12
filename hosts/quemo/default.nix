@@ -1,5 +1,4 @@
 {
-  host,
   user,
   ...
 }:
@@ -7,13 +6,9 @@
   imports = [
     ../common/global
     ../common/users/${user}
-  ];
 
-  networking = {
-    hostName = host;
-    computerName = host;
-    localHostName = host;
-  };
+    ../common/optional/darwin
+  ];
 
   system = {
     stateVersion = 5;
@@ -43,5 +38,4 @@
     };
   };
 
-  security.pam.enableSudoTouchIdAuth = true;
 }

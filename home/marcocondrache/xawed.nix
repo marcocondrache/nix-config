@@ -1,5 +1,4 @@
 {
-  pkgs,
   ...
 }:
 {
@@ -9,7 +8,7 @@
     ./features/web
   ];
 
-  home.packages = with pkgs; [
-    teams
-  ];
+  # home.packages = with pkgs; [
+  #   teams
+  # ];
 }
