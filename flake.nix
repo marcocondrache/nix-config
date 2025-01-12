@@ -7,6 +7,9 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    sops-nix.url = "github:Mic92/sops-nix";
+    sops-nix.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
   };
@@ -15,6 +18,7 @@
     {
       nix-darwin,
       home-manager,
+      sops-nix,
       ...
     }:
     let
@@ -39,6 +43,9 @@
               home-manager.useUserPackages = true;
               home-manager.backupFileExtension = "backup";
               home-manager.users.${user} = import (./home + "/${user}" + "/${host}.nix");
+              home-manager.sharedModules = [
+                sops-nix.homeManagerModules.sops
+              ];
               home-manager.extraSpecialArgs = settings;
             }
           ];
