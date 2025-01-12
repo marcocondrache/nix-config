@@ -55,9 +55,9 @@
         };
 
         # Work laptop
-        # xawed = mkDarwinConfig {
-        #   host = "xawed";
-        # };
+        xawed = mkDarwinConfig {
+          host = "xawed";
+        };
       };
     };
 }
