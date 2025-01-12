@@ -7,7 +7,7 @@
 
   programs.git = {
     extraConfig = {
-      user.signingkey = "CA28E81C05CBB973";
+      user.signingkey = "6CD235683B220034";
       commit.gpgsign = true;
     };
   };
