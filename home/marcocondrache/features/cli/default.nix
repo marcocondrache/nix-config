@@ -2,6 +2,7 @@
   imports = [
     ./gh.nix
     ./git.nix
-    ./ghostty.nix
+    # Package is broken
+    #./ghostty.nix
   ];
 }

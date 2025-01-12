@@ -5,7 +5,7 @@
 }:
 {
   imports = [
-    ./features/cli
+    ../features/cli
   ];
 
   home = {
