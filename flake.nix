@@ -15,12 +15,9 @@
     {
       nix-darwin,
       home-manager,
-      #nixpkgs,
       ...
     }:
     let
-      #lib = nixpkgs.lib // home-manager.lib;
-
       mkDarwinConfig =
         {
           host,
