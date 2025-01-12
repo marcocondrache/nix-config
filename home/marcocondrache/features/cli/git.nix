@@ -9,7 +9,7 @@
     package = lib.mkDefault pkgs.gitAndTools.gitFull;
 
     userName = "Marco Mihai Condrache";
-    extraDefault = {
+    extraConfig = {
       init.defaultBranch = "main";
     };
   };

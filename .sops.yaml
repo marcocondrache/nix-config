@@ -1,7 +1,7 @@
 keys:
   # Users
   - &users:
-    - &marcocondrache 1636DEECFBE2718E869DCAC7DD0BEEB396071F25
+    - &marcocondrache 4A635CD360D1AE1E64067700CA28E81C05CBB973
 
 creation_rules:
   - path_regex: hosts/quemo/secrets.ya?ml$
