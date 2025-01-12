@@ -7,7 +7,7 @@
     ../common/global
     ../common/users/${user}
 
-    ../common/optional/darwin
+    ../common/optional/darwin.nix
   ];
 
   system = {
