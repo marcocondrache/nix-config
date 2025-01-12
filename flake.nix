@@ -22,6 +22,21 @@
       ...
     }:
     let
+      mkHomeManagerConfig =
+        {
+          settings,
+        }:
+        {
+          useGlobalPkgs = true;
+          useUserPackages = true;
+          backupFileExtension = "backup";
+          users.${settings.user} = import (./home + "/${settings.user}" + "/${settings.host}.nix");
+          sharedModules = [
+            sops-nix.homeManagerModules.sops
+          ];
+          extraSpecialArgs = settings;
+        };
+
       mkDarwinConfig =
         {
           host,
@@ -39,14 +54,9 @@
             (./hosts + "/${host}")
             home-manager.darwinModules.home-manager
             {
-              home-manager.useGlobalPkgs = true;
-              home-manager.useUserPackages = true;
-              home-manager.backupFileExtension = "backup";
-              home-manager.users.${user} = import (./home + "/${user}" + "/${host}.nix");
-              home-manager.sharedModules = [
-                sops-nix.homeManagerModules.sops
-              ];
-              home-manager.extraSpecialArgs = settings;
+              home-manager = mkHomeManagerConfig {
+                inherit settings;
+              };
             }
           ];
           specialArgs = settings;

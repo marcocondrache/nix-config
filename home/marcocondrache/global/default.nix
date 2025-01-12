@@ -2,6 +2,7 @@
   lib,
   host,
   user,
+  config,
   ...
 }:
 {
@@ -17,6 +18,9 @@
   sops = {
     defaultSopsFile = ../../hosts/${host}/secrets.yaml;
     defaultSopsFormat = "yaml";
+    gnupg = {
+      home = config.home.homeDirectory;
+    };
   };
 
   programs = {
