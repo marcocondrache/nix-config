@@ -12,6 +12,9 @@
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    op-shell-plugins.url = "github:1Password/shell-plugins";
+    op-shell-plugins.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -19,6 +22,7 @@
       nix-darwin,
       home-manager,
       sops-nix,
+      op-shell-plugins,
       ...
     }:
     let
@@ -33,6 +37,7 @@
           users.${settings.user} = import (./home + "/${settings.user}" + "/${settings.host}.nix");
           sharedModules = [
             sops-nix.homeManagerModules.sops
+            op-shell-plugins.hmModules.default
           ];
           extraSpecialArgs = settings;
         };
