@@ -1,15 +1,19 @@
 {
+  lib,
+  ...
+}:
+{
   programs.zsh = {
-    enable = true;
+    enable = lib.mkDefault true;
 
     autosuggestion = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
 
     syntaxHighlighting = {
-      enable = true;
+      enable = lib.mkDefault true;
     };
 
-    enableCompletion = true;
+    enableCompletion = lib.mkDefault true;
   };
 }

@@ -1,5 +1,9 @@
 {
+  lib,
+  ...
+}:
+{
   programs.htop = {
-    enable = true;
+    enable = lib.mkDefault true;
   };
 }

@@ -1,9 +1,11 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 {
   programs._1password-shell-plugins = {
-    enable = true;
-    plugins = with pkgs; [
-      gh
-    ];
+    enable = lib.mkDefault true;
+    plugins =
+      with pkgs;
+      lib.mkDefault [
+        gh
+      ];
   };
 }
