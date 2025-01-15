@@ -6,5 +6,6 @@
     ./1password.nix
     # Package is broken
     #./ghostty.nix
+    ./zsh.nix
   ];
 }
