@@ -31,6 +31,25 @@
         NewWindowTarget = "Home";
       };
 
+      NSGlobalDomain = {
+        KeyRepeat = 1;
+        InitialKeyRepeat = 15;
+
+        AppleKeyboardUIMode = 3;
+        AppleInterfaceStyle = "Dark";
+
+        NSDocumentSaveNewDocumentsToCloud = false;
+      };
+
+      WindowManager = {
+        EnableStandardClickToShowDesktop = false;
+      };
+
+      screencapture = {
+        # Save screenshots to clipboard instead of the default location
+        target = "clipboard";
+      };
+
       controlcenter = {
         BatteryShowPercentage = true;
       };
