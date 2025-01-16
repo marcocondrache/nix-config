@@ -10,9 +10,12 @@ jobs:
         os: [ubuntu-latest, macos-latest]
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v4
+      - name: Check Nix flake inputs
+        uses: DeterminateSystems/flake-checker-action@main
       - name: Install Nix
         uses: DeterminateSystems/nix-installer-action@main
+      - uses: DeterminateSystems/magic-nix-cache-action@main
       - name: Install omnix
         run: nix --accept-flake-config profile install "github:juspay/omnix"
       - name: Run builds
