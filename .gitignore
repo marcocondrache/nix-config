@@ -22,7 +22,6 @@ logs/
 
 # Nix specific files
 *.drv
-*.lock
 *.gcroots/
 .nix-defexpr/
 .nix-profile/
