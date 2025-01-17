@@ -2,7 +2,9 @@
   description = "Marco's system configuration";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    # Dangerous, but it's the only way to get bun fixed
+    # https://discourse.nixos.org/t/icu-symbol-not-found-with-node-and-bun/58566/3
+    nixpkgs.url = "github:NixOS/nixpkgs?ref=staging-next";
 
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
