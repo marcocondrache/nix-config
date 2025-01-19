@@ -8,5 +8,7 @@
     gc = {
       automatic = true;
     };
+
+    channel.enable = false;
   };
 }

@@ -9,28 +9,23 @@
     nix-darwin.url = "github:LnL7/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
+    hardware.url = "github:nixos/nixos-hardware";
+
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    colmena.url = "github:zhaofengli/colmena";
-    colmena.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
     inputs@{
       self,
       nixpkgs,
-      colmena,
-      nix-darwin,
-      home-manager,
-      sops-nix,
       ...
     }:
     let
-      lib = import ./lib inputs // nixpkgs.lib;
+      lib = import ./lib { inherit self inputs; };
     in
     {
       inherit lib;
@@ -47,17 +42,30 @@
         };
       };
 
-      colmenaHive = colmena.lib.makeHive self.outputs.colmena;
-      colmena = lib.mkColmenaConfig {
-        workers = {
-          host = "ivoyo";
-          count = 2;
-        };
+      colmena =
+        {
+          meta = {
+            nixpkgs = import nixpkgs {
+              system = "aarch64-linux";
+            };
+          };
 
-        masters = {
-          host = "ajavo";
-          count = 1;
+          default = {
+            imports = [
+              inputs.hardware.nixosModules.raspberry-pi-4
+            ];
+          };
+        }
+        // lib.mkColmenaConfig {
+          workers = {
+            host = "ivoyo";
+            count = 4;
+          };
+
+          masters = {
+            host = "ajavo";
+            count = 1;
+          };
         };
-      };
     };
 }

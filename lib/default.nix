@@ -1,8 +1,6 @@
 {
   self,
-  nix-darwin,
-  home-manager,
-  sops-nix,
+  inputs,
   ...
 }:
 {
@@ -16,7 +14,7 @@
       backupFileExtension = "backup";
       users.${settings.user} = import (../home + "/${settings.user}" + "/${settings.host}.nix");
       sharedModules = [
-        sops-nix.homeManagerModules.sops
+        inputs.sops-nix.homeManagerModules.sops
       ];
       extraSpecialArgs = settings;
     };
@@ -32,11 +30,11 @@
         inherit host user system;
       };
     in
-    nix-darwin.lib.darwinSystem {
+    inputs.nix-darwin.lib.darwinSystem {
       inherit system;
       modules = [
         (../hosts + "/${host}")
-        home-manager.darwinModules.home-manager
+        inputs.home-manager.darwinModules.home-manager
         {
           home-manager = self.lib.mkHomeManagerConfig {
             inherit settings;
@@ -55,12 +53,18 @@
       isMaster ? false,
     }:
     {
-      inherit host user system;
-
-      deployment.tags = [
-        "worker"
-        "master"
+      imports = [
+        (../hosts + "/${host}")
       ];
+
+      deployment = {
+        allowLocalDeployment = false;
+        buildOnTarget = true;
+        tags = [
+          "worker"
+          "master"
+        ];
+      };
     };
 
   mkColmenaConfig =
