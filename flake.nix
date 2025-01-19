@@ -50,7 +50,7 @@
             };
           };
 
-          default = {
+          defaults = {
             imports = [
               inputs.hardware.nixosModules.raspberry-pi-4
             ];
@@ -59,7 +59,7 @@
         // lib.mkColmenaConfig {
           workers = {
             host = "ivoyo";
-            count = 4;
+            count = 1;
           };
 
           masters = {

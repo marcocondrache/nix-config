@@ -60,10 +60,9 @@
       deployment = {
         allowLocalDeployment = false;
         buildOnTarget = true;
-        tags = [
-          "worker"
-          "master"
-        ];
+        targetUser = user;
+        targetHost = "${host}-${toString index}";
+        tags = if isMaster then [ "master" ] else [ "worker" ];
       };
     };
 
