@@ -6,6 +6,7 @@
     ./gpg.nix
     ./htop.nix
     ./k9s.nix
+    ./docker.nix
     # Package is broken
     #./ghostty.nix
     ./zsh.nix
