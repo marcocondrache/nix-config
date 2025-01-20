@@ -14,4 +14,9 @@
   };
 
   security.pam.enableSudoTouchIdAuth = true;
+
+  users.users.marcocondrache = {
+    name = "marcocondrache";
+    home = "/Users/marcocondrache";
+  };
 }

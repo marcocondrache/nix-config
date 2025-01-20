@@ -3,6 +3,10 @@
   ...
 }:
 {
+  imports = [
+    ./nixos.nix
+  ];
+
   boot = {
     kernelPackages = pkgs.linuxKernel.packages.linux_rpi4;
     kernelParams = [
