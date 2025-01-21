@@ -3,7 +3,7 @@
   ...
 }:
 {
-  programs.htop = {
+  programs.btop = {
     enable = lib.mkDefault true;
   };
 }

@@ -4,7 +4,7 @@
     ./gh.nix
     ./git.nix
     ./gpg.nix
-    ./htop.nix
+    ./btop.nix
     ./k9s.nix
     ./docker.nix
     # Package is broken
