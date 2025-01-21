@@ -1,9 +1,19 @@
 {
   self,
   inputs,
+  mkPkgs,
   ...
 }:
 {
+  mkPkgs =
+    system:
+    import inputs.nixpkgs {
+      inherit system;
+      overlays = [
+        (final: prev: import ./pkgs { pkgs = prev; })
+      ];
+    };
+
   mkHomeManagerConfig =
     {
       settings,
@@ -29,22 +39,28 @@
       system ? "aarch64-darwin",
     }:
     let
+      pkgs = mkPkgs system;
       settings = {
         inherit host user system;
       };
     in
     inputs.nix-darwin.lib.darwinSystem {
       inherit system;
+
+      specialArgs = settings // {
+        inherit pkgs;
+      };
+
       modules = [
         (../hosts + "/${host}")
         inputs.home-manager.darwinModules.home-manager
         {
+          nixpkgs.pkgs = pkgs;
           home-manager = self.lib.mkHomeManagerConfig {
             inherit settings;
           };
         }
       ];
-      specialArgs = settings;
     };
 
   mkColmenaHost =
@@ -55,11 +71,15 @@
       system ? "aarch64-linux",
       isMaster ? false,
     }:
+    let
+      pkgs = mkPkgs system;
+    in
     {
       imports = [
         (../hosts + "/${host}")
       ];
 
+      nixpkgs.pkgs = pkgs;
       deployment = {
         allowLocalDeployment = false;
         buildOnTarget = true;
@@ -97,6 +117,5 @@
         };
       }) mastersCount;
     in
-
     builtins.listToAttrs (workersDefinition ++ mastersDefinition);
 }
