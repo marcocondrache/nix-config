@@ -14,13 +14,8 @@ stdenvNoCC.mkDerivation {
   # Xcode needs to be installed before we can build anything that requires it
   phases = [ "installPhase" ];
 
+  # TODO: understand if we need to purchase Xcode
   installPhase = ''
-    # First ensure we're logged into the App Store
-    if ! mas account >/dev/null; then
-      echo "Please sign in to the App Store first"
-      exit 1
-    fi
-
     # Install Xcode
     mas install 497799835 || true  # true because mas exits with error if already installed
 
