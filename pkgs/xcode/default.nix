@@ -16,6 +16,8 @@ stdenvNoCC.mkDerivation {
 
   # TODO: understand if we need to purchase Xcode
   installPhase = ''
+    runHook preInstall
+
     # Install Xcode
     mas install 497799835 || true  # true because mas exits with error if already installed
 
@@ -24,6 +26,8 @@ stdenvNoCC.mkDerivation {
 
     # Create the derivation output directory
     mkdir -p $out
+
+    runHook postInstall
   '';
 
   meta = {
