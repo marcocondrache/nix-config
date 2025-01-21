@@ -3,5 +3,5 @@
   ...
 }:
 {
-  xcode = pkgs.callPackage ./xcode.nix { };
+  xcode = pkgs.callPackage ./xcode { };
 }

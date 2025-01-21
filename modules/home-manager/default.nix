@@ -1,3 +1,4 @@
+{ system, ... }:
 let
   sharedModules = {
     fonts = import ./fonts.nix;
@@ -9,7 +10,7 @@ let
 
   platformModules =
     if
-      builtins.elem builtins.currentSystem [
+      builtins.elem system [
         "aarch64-darwin"
         "x86_64-darwin"
       ]

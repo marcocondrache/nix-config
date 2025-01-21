@@ -8,8 +8,9 @@
     system:
     import inputs.nixpkgs {
       inherit system;
+      config.allowUnfree = true;
       overlays = [
-        (final: prev: import ./pkgs { pkgs = prev; })
+        (final: prev: import ../pkgs { pkgs = prev; })
       ];
     };
 
@@ -18,7 +19,7 @@
       settings,
     }:
     let
-      modules = import ../modules/home-manager;
+      modules = import ../modules/home-manager { inherit (settings) system; };
     in
     {
       useGlobalPkgs = true;

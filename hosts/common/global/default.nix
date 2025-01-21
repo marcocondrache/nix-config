@@ -12,10 +12,4 @@
     nil
     nixfmt-rfc-style
   ];
-
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
 }
