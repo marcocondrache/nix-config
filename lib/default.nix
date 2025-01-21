@@ -1,7 +1,6 @@
 {
   self,
   inputs,
-  mkPkgs,
   ...
 }:
 {
@@ -39,6 +38,8 @@
       system ? "aarch64-darwin",
     }:
     let
+      inherit (self.lib) mkPkgs;
+
       pkgs = mkPkgs system;
       settings = {
         inherit host user system;
@@ -72,7 +73,7 @@
       isMaster ? false,
     }:
     let
-      pkgs = mkPkgs system;
+      pkgs = self.lib.mkPkgs system;
     in
     {
       imports = [
