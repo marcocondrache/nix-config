@@ -7,6 +7,8 @@
     ./features/cli
     ./features/desktop
     ./features/web
+
+    ./features/desktop/xcode.nix
   ];
 
   programs.zsh = {
