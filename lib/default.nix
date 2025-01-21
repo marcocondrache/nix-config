@@ -8,6 +8,9 @@
     {
       settings,
     }:
+    let
+      modules = import ../modules/home-manager;
+    in
     {
       useGlobalPkgs = true;
       useUserPackages = true;
@@ -15,7 +18,7 @@
       users.${settings.user} = import (../home + "/${settings.user}" + "/${settings.host}.nix");
       sharedModules = [
         inputs.sops-nix.homeManagerModules.sops
-      ];
+      ] ++ (builtins.attrValues modules);
       extraSpecialArgs = settings;
     };
 
