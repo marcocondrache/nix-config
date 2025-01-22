@@ -19,7 +19,7 @@
       settings,
     }:
     let
-      modules = import ../modules/home-manager { inherit (settings) system; };
+      modules = import ../modules/home-manager;
     in
     {
       useGlobalPkgs = true;
@@ -56,8 +56,22 @@
       modules = [
         (../hosts + "/${host}")
         inputs.home-manager.darwinModules.home-manager
+        inputs.nix-homebrew.darwinModules.nix-homebrew
         {
           nixpkgs.pkgs = pkgs;
+
+          nix-homebrew = {
+            inherit user;
+
+            taps = {
+              "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
+            };
+
+            enable = true;
+            autoMigrate = true;
+            mutableTaps = false;
+          };
+
           home-manager = self.lib.mkHomeManagerConfig {
             inherit settings;
           };

@@ -1,4 +1,5 @@
 {
+  lib,
   host,
   ...
 }:
@@ -11,6 +12,19 @@
 
   system = {
     stateVersion = 5;
+  };
+
+  homebrew = {
+    enable = lib.mkDefault true;
+
+    onActivation = {
+      cleanup = "zap";
+      autoUpdate = true;
+    };
+
+    global = {
+      autoUpdate = false;
+    };
   };
 
   security.pam.enableSudoTouchIdAuth = true;

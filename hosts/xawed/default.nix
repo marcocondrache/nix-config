@@ -7,6 +7,12 @@
     ../common/optional/darwin.nix
   ];
 
+  homebrew = {
+    masApps = {
+      Xcode = 497799835;
+    };
+  };
+
   system = {
     defaults = {
       dock = {
