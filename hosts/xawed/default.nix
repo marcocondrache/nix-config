@@ -11,6 +11,8 @@
 
   users.users.marcocondrache.home = "/Users/marcocondrache";
 
+  security.pam.enableSudoTouchIdAuth = true;
+
   system = {
     stateVersion = 5;
 
