@@ -4,16 +4,6 @@
   ...
 }:
 {
-  mkPkgs =
-    system:
-    import inputs.nixpkgs {
-      inherit system;
-      config.allowUnfree = true;
-      overlays = [
-        (final: prev: import ../pkgs { pkgs = prev; })
-      ];
-    };
-
   mkHomeManagerConfig =
     {
       settings,
@@ -39,9 +29,6 @@
       system ? "aarch64-darwin",
     }:
     let
-      inherit (self.lib) mkPkgs;
-
-      pkgs = mkPkgs system;
       settings = {
         inherit host user system;
       };
@@ -49,17 +36,13 @@
     inputs.nix-darwin.lib.darwinSystem {
       inherit system;
 
-      specialArgs = settings // {
-        inherit pkgs;
-      };
+      specialArgs = settings;
 
       modules = [
         (../hosts + "/${host}")
         inputs.home-manager.darwinModules.home-manager
         inputs.nix-homebrew.darwinModules.nix-homebrew
         {
-          nixpkgs.pkgs = pkgs;
-
           nix-homebrew = {
             inherit user;
 
@@ -87,15 +70,11 @@
       system ? "aarch64-linux",
       isMaster ? false,
     }:
-    let
-      pkgs = self.lib.mkPkgs system;
-    in
     {
       imports = [
         (../hosts + "/${host}")
       ];
 
-      nixpkgs.pkgs = pkgs;
       deployment = {
         allowLocalDeployment = false;
         buildOnTarget = true;

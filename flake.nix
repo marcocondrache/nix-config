@@ -54,7 +54,10 @@
       colmena =
         {
           meta = {
-            nixpkgs = lib.mkPkgs "aarch64-linux";
+            nixpkgs = import inputs.nixpkgs {
+              system = "aarch64-linux";
+              config.allowUnfree = true;
+            };
           };
 
           defaults = {
