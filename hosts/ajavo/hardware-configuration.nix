@@ -4,7 +4,7 @@
 }:
 {
   imports = [
-    ./nixos.nix
+    ../../common/optional/nixos.nix
   ];
 
   boot = {

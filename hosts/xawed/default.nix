@@ -5,13 +5,8 @@
   imports = [
     ../common/global
     ../common/optional/darwin.nix
+    ../common/optional/ios-sdk.nix
   ];
-
-  homebrew = {
-    masApps = {
-      Xcode = 497799835;
-    };
-  };
 
   system = {
     defaults = {
