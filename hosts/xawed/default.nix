@@ -9,6 +9,8 @@
     ../common/users/marcocondrache
   ];
 
+  users.users.marcocondrache.home = "/Users/marcocondrache";
+
   system = {
     stateVersion = 5;
 

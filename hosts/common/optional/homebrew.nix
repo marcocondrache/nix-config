@@ -1,7 +1,6 @@
 {
   lib,
   inputs,
-  settings,
   ...
 }:
 {
@@ -11,7 +10,8 @@
 
   # Installation of homebrew
   nix-homebrew = {
-    inherit (settings) user;
+    # TODO: make this dynamic
+    user = "marcocondrache";
 
     taps = {
       "homebrew/homebrew-bundle" = inputs.homebrew-bundle;

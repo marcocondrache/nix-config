@@ -4,8 +4,10 @@
 {
   imports = [
     ../common/global
-    ../common/optional/darwin.nix
+    ../common/users/marcocondrache
   ];
+
+  users.users.marcocondrache.home = "/Users/marcocondrache";
 
   system = {
     defaults = {
