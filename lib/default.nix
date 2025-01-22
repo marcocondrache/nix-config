@@ -4,61 +4,22 @@
   ...
 }:
 {
-  mkHomeManagerConfig =
-    {
-      settings,
-    }:
-    let
-      modules = import ../modules/home-manager;
-    in
-    {
-      useGlobalPkgs = true;
-      useUserPackages = true;
-      backupFileExtension = "backup";
-      users.${settings.user} = import (../home + "/${settings.user}" + "/${settings.host}.nix");
-      sharedModules = [
-        inputs.sops-nix.homeManagerModules.sops
-      ] ++ (builtins.attrValues modules);
-      extraSpecialArgs = settings;
-    };
-
   mkDarwinConfig =
     {
       host,
-      user ? "marcocondrache",
       system ? "aarch64-darwin",
     }:
-    let
-      settings = {
-        inherit host user system;
-      };
-    in
     inputs.nix-darwin.lib.darwinSystem {
       inherit system;
 
-      specialArgs = settings;
+      specialArgs = {
+        inherit host;
+        inherit inputs;
+      };
 
       modules = [
-        (../hosts + "/${host}")
         inputs.home-manager.darwinModules.home-manager
-        inputs.nix-homebrew.darwinModules.nix-homebrew
-        {
-          nix-homebrew = {
-            inherit user;
-
-            taps = {
-              "homebrew/homebrew-bundle" = inputs.homebrew-bundle;
-            };
-
-            enable = true;
-            autoMigrate = true;
-            mutableTaps = false;
-          };
-
-          home-manager = self.lib.mkHomeManagerConfig {
-            inherit settings;
-          };
-        }
+        (../hosts + "/${host}")
       ];
     };
 

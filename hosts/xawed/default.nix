@@ -4,11 +4,14 @@
 {
   imports = [
     ../common/global
-    ../common/optional/darwin.nix
+    ../common/optional/homebrew.nix
     ../common/optional/ios-sdk.nix
+    ../common/users/marcocondrache
   ];
 
   system = {
+    stateVersion = 5;
+
     defaults = {
       dock = {
         autohide = true;
