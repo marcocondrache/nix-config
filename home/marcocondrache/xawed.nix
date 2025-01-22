@@ -8,7 +8,8 @@
     ./features/desktop
     ./features/web
 
-    ./features/desktop/xcode.nix
+    # TODO: understand how to delay the installation of xcode
+    # ./features/desktop/xcode.nix
   ];
 
   programs.zsh = {

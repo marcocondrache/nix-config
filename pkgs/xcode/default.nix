@@ -11,7 +11,6 @@ stdenvNoCC.mkDerivation {
     mas
   ];
 
-  # Xcode needs to be installed before we can build anything that requires it
   phases = [ "installPhase" ];
 
   # TODO: understand if we need to purchase Xcode
