@@ -7,6 +7,7 @@
     ./btop.nix
     ./k9s.nix
     ./docker.nix
+    ./yubikey.nix
     # Package is broken
     #./ghostty.nix
     ./zsh.nix
