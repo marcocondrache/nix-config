@@ -1,14 +1,27 @@
 {
   nix = {
-    settings.experimental-features = [
-      "nix-command"
-      "flakes"
-    ];
+    settings = {
+      warn-dirty = false;
 
-    gc = {
+      experimental-features = [
+        "nix-command"
+        "flakes"
+      ];
+    };
+
+    optimise = {
       automatic = true;
     };
 
-    channel.enable = false;
+    gc = {
+      automatic = true;
+
+      # Keep last 3 generations
+      options = "--delete-older-than +3";
+    };
+
+    channel = {
+      enable = false;
+    };
   };
 }
