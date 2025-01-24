@@ -1,6 +1,10 @@
 {
   ...
 }:
+let
+  workEnv = "$HOME/Work";
+  personalEnv = "$HOME/Personal";
+in
 {
   imports = [
     ./global
@@ -9,13 +13,20 @@
     ./features/web
   ];
 
-  programs.git.includes = [ { path = "local.conf"; } ];
+  programs.git.includes = [
+    {
+      condition = "gitdir:${workEnv}";
+      contents = {
+        commit.gpgsign = false;
+      };
+    }
+  ];
 
   programs.zsh = {
     dirHashes = {
       # cd ~work or ~personal
-      work = "$HOME/Work";
-      personal = "$HOME/Personal";
+      work = workEnv;
+      personal = personalEnv;
     };
   };
 }

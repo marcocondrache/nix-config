@@ -13,7 +13,8 @@
     userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
     extraConfig = {
       init.defaultBranch = "main";
-      commit.gpgSign = lib.mkDefault true;
+      # Temporary disable gpg signing
+      commit.gpgSign = lib.mkDefault false;
       gpg.program = "${config.programs.gpg.package}/bin/gpg2";
     };
   };
