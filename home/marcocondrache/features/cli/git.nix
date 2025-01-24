@@ -1,6 +1,7 @@
 {
   lib,
   pkgs,
+  config,
   ...
 }:
 {
@@ -12,6 +13,8 @@
     userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
     extraConfig = {
       init.defaultBranch = "main";
+      commit.gpgSign = lib.mkDefault true;
+      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
     };
   };
 }

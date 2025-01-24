@@ -9,6 +9,8 @@
     ./features/web
   ];
 
+  programs.git.includes = [ { path = "local.conf"; } ];
+
   programs.zsh = {
     dirHashes = {
       # cd ~work or ~personal
@@ -16,8 +18,4 @@
       personal = "$HOME/Personal";
     };
   };
-
-  # home.packages = with pkgs; [
-  #   teams
-  # ];
 }

@@ -4,6 +4,7 @@
     ./gh.nix
     ./git.nix
     ./gpg.nix
+    ./fzf.nix
     ./btop.nix
     ./k9s.nix
     ./docker.nix
