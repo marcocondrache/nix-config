@@ -10,6 +10,8 @@
   users.users.marcocondrache.home = "/Users/marcocondrache";
 
   system = {
+    stateVersion = 5;
+
     defaults = {
       dock = {
         autohide = true;
