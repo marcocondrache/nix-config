@@ -12,6 +12,7 @@ in
   imports = [
     ./nix.nix
     ./locale.nix
+    ./fish.nix
   ];
 
   system = {
