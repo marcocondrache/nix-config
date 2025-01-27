@@ -41,6 +41,10 @@ in
     ] ++ (builtins.attrValues homeModules);
   };
 
+  environment.shells = [
+    pkgs.fish
+  ];
+
   environment.systemPackages = with pkgs; [
     nil
     nixfmt-rfc-style
