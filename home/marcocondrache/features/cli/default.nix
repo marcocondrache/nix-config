@@ -11,7 +11,7 @@
     ./yubikey.nix
     # Package is broken
     #./ghostty.nix
-    ./zsh.nix
+    ./fish.nix
   ];
 
   # General packages that don't need configuration
