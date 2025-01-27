@@ -18,5 +18,10 @@
   home.packages = with pkgs; [
     colmena
     kubectl
+
+    eza
+
+    nil
+    nixfmt-rfc-style
   ];
 }

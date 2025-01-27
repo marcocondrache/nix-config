@@ -44,9 +44,4 @@ in
   environment.shells = [
     pkgs.fish
   ];
-
-  environment.systemPackages = with pkgs; [
-    nil
-    nixfmt-rfc-style
-  ];
 }
