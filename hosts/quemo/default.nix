@@ -10,7 +10,7 @@
   users.users.marcocondrache.home = "/Users/marcocondrache";
 
   system = {
-    stateVersion = 5;
+    stateVersion = 6;
 
     defaults = {
       dock = {
