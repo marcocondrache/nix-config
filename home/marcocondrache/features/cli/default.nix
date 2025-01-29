@@ -16,7 +16,6 @@
 
   # General packages that don't need configuration
   home.packages = with pkgs; [
-    colmena
     kubectl
 
     eza

@@ -14,8 +14,6 @@
       ssh-to-age
       gnupg
       age
-
-      colmena
     ];
   };
 }

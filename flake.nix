@@ -48,32 +48,5 @@
           host = "xawed";
         };
       };
-
-      colmena =
-        {
-          meta = {
-            nixpkgs = import inputs.nixpkgs {
-              system = "aarch64-linux";
-              config.allowUnfree = true;
-            };
-          };
-
-          defaults = {
-            imports = [
-              inputs.hardware.nixosModules.raspberry-pi-4
-            ];
-          };
-        }
-        // lib.mkColmenaConfig {
-          workers = {
-            host = "ivoyo";
-            count = 1;
-          };
-
-          masters = {
-            host = "ajavo";
-            count = 1;
-          };
-        };
     };
 }
