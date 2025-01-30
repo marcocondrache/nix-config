@@ -18,6 +18,23 @@ in
 
     functions = {
       fish_greeting = "";
+
+      cd_git_root = ''
+        if git rev-parse --git-dir &>/dev/null
+          cd (git rev-parse --show-toplevel)
+        else
+          echo "Not in a git repository"
+          return 1
+        end
+      '';
+
+      cd = ''
+        if test "$argv" = "..."
+          cd_git_root
+        else
+          builtin cd $argv
+        end
+      '';
     };
   };
 }
