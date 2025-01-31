@@ -11,11 +11,23 @@
 
     userName = "Marco Mihai Condrache";
     userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
+    signing = {
+      key = null;
+      # TODO: enable this
+      signByDefault = lib.mkDefault false;
+      gpgPath = "${config.programs.gpg.package}/bin/gpg2";
+    };
+
     extraConfig = {
       init.defaultBranch = "main";
-      # Temporary disable gpg signing
-      commit.gpgSign = lib.mkDefault false;
-      gpg.program = "${config.programs.gpg.package}/bin/gpg2";
+
+      diff.algorithm = "histogram";
+      merge.conflictStyle = "zdiff3";
+      push.autoSetupRemote = true;
     };
+
+    ignores = [
+      ".npmrc"
+    ];
   };
 }

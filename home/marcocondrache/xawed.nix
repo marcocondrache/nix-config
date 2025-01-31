@@ -17,7 +17,7 @@ in
     {
       condition = "gitdir:${workEnv}";
       contents = {
-        commit.gpgsign = false;
+        commit.gpgSign = false;
       };
     }
   ];
