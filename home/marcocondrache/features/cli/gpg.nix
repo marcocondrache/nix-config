@@ -13,5 +13,8 @@
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
+
+    maxCacheTtl = 120;
+    defaultCacheTtl = 60;
   };
 }

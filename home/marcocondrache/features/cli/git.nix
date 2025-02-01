@@ -12,9 +12,8 @@
     userName = "Marco Mihai Condrache";
     userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
     signing = {
-      key = null;
-      # TODO: enable this
-      signByDefault = lib.mkDefault false;
+      key = "209101AD5F0E04C6";
+      signByDefault = lib.mkDefault true;
       gpgPath = "${config.programs.gpg.package}/bin/gpg2";
     };
 
