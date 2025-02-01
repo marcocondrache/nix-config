@@ -1,10 +1,19 @@
 { lib, ... }:
 let
-  _gpg-autostart = ''
+  gpg-autostart = ''
     gpgconf --launch gpg-agent
+  '';
+
+  # https://github.com/nix-community/home-manager/pull/5901
+  # temporary until PR is merged
+  gpg-agent-env = ''
+    set -gx SSH_AUTH_SOCK (gpgconf --list-dirs agent-ssh-socket | string collect; or echo)
   '';
 in
 {
+  programs.fish.loginShellInit = gpg-autostart;
+  programs.fish.interactiveShellInit = gpg-agent-env;
+
   programs.gpg = {
     enable = lib.mkDefault true;
     publicKeys = [
