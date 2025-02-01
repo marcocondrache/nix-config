@@ -3,7 +3,7 @@
 }:
 let
   workEnv = "$HOME/Work";
-  personalEnv = "$HOME/Personal";
+  _personalEnv = "$HOME/Personal";
 in
 {
   imports = [
@@ -21,12 +21,4 @@ in
       };
     }
   ];
-
-  programs.zsh = {
-    dirHashes = {
-      # cd ~work or ~personal
-      work = workEnv;
-      personal = personalEnv;
-    };
-  };
 }
