@@ -4,8 +4,8 @@
 {
   imports = [
     ../common/global
-    ../common/optional/homebrew.nix
-    ../common/optional/ios-sdk.nix
+    ../common/optional/darwin-homebrew.nix
+    ../common/optional/darwin-ios-sdk.nix
     ../common/users/marcocondrache
   ];
 
