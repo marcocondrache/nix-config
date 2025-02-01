@@ -12,6 +12,7 @@
     # Package is broken
     #./ghostty.nix
     ./fish.nix
+    ./ssh.nix
   ];
 
   # General packages that don't need configuration
