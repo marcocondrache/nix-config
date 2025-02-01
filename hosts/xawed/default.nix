@@ -6,6 +6,7 @@
     ../common/global
     ../common/optional/darwin-homebrew.nix
     ../common/optional/darwin-ios-sdk.nix
+    ../common/optional/darwin-gnupg.nix
     ../common/users/marcocondrache
   ];
 

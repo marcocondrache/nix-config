@@ -1,12 +1,10 @@
 { lib, ... }:
 let
-  gpg-autostart = ''
+  _gpg-autostart = ''
     gpgconf --launch gpg-agent
   '';
 in
 {
-  programs.fish.loginShellInit = gpg-autostart;
-
   programs.gpg = {
     enable = lib.mkDefault true;
     publicKeys = [
