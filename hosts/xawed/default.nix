@@ -9,8 +9,6 @@
     ../common/users/marcocondrache
   ];
 
-  users.users.marcocondrache.home = "/Users/marcocondrache";
-
   security.pam.enableSudoTouchIdAuth = true;
 
   system = {

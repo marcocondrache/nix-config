@@ -32,20 +32,24 @@
       ...
     }:
     let
-      lib = import ./lib { inherit self inputs; };
+      lib = import ./lib { inherit self inputs nixpkgs; };
     in
     {
       inherit lib;
 
       darwinConfigurations = {
         # Personal laptop
-        quemo = lib.mkDarwinConfig {
+        quemo = lib.mkSystem {
           host = "quemo";
+          system = "aarch64-darwin";
+          darwin = true;
         };
 
         # Work laptop
-        xawed = lib.mkDarwinConfig {
+        xawed = lib.mkSystem {
           host = "xawed";
+          system = "aarch64-darwin";
+          darwin = true;
         };
       };
     };
