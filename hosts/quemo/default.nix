@@ -4,7 +4,7 @@
 {
   imports = [
     ../common/global
-    ../common/users/marcocondrache
+    ../common/users/marcocondrache/darwin.nix
   ];
 
   users.users.marcocondrache.home = "/Users/marcocondrache";

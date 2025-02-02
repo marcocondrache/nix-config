@@ -6,7 +6,7 @@
     ../common/global
     ../common/optional/darwin-homebrew.nix
     ../common/optional/darwin-ios-sdk.nix
-    ../common/users/marcocondrache
+    ../common/users/marcocondrache/darwin.nix
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
