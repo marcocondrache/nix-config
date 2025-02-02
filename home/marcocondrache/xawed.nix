@@ -18,6 +18,7 @@ in
       condition = "gitdir:${workEnv}";
       contents = {
         commit.gpgSign = false;
+        feature.manyFiles = true;
       };
     }
   ];
