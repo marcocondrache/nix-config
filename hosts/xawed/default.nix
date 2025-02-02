@@ -47,7 +47,6 @@
       };
 
       screencapture = {
-        # Save screenshots to clipboard instead of the default location
         target = "clipboard";
       };
 
