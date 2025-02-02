@@ -1,6 +1,8 @@
 { pkgs, ... }:
 {
   imports = [
+    ./direnv.nix
+    ./bun.nix
     ./gh.nix
     ./git.nix
     ./gpg.nix
