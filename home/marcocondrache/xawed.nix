@@ -10,7 +10,6 @@ in
     ./global
     ./features/cli
     ./features/desktop
-    ./features/web
   ];
 
   programs.git.includes = [
