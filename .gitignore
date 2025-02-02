@@ -30,6 +30,7 @@ logs/
 
 # Optional: Ignore private secrets or environment-specific files
 secrets/
+.direnv
 .env
 
 # Generated files

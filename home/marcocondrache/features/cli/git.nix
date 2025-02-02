@@ -34,6 +34,7 @@
 
     ignores = [
       ".npmrc"
+      ".direnv"
     ];
   };
 }
