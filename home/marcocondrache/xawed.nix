@@ -2,8 +2,8 @@
   ...
 }:
 let
-  workEnv = "$HOME/Work";
-  _personalEnv = "$HOME/Personal";
+  workEnv = "~/Work";
+  _personalEnv = "~/Personal";
 in
 {
   imports = [
@@ -14,7 +14,7 @@ in
 
   programs.git.includes = [
     {
-      condition = "gitdir:${workEnv}";
+      condition = "gitdir/i:${workEnv}/**";
       contents = {
         commit.gpgSign = false;
         feature.manyFiles = true;
