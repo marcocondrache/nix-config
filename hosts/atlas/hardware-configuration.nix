@@ -9,7 +9,7 @@
     ];
 
   boot.initrd.availableKernelModules = [ "virtio_scsi" "sr_mod" ];
-  boot.initrd.kernelModules = [ "dm-snapshot" ];
+  boot.initrd.kernelModules = [ ];
   boot.kernelModules = [ ];
   boot.extraModulePackages = [ ];
 

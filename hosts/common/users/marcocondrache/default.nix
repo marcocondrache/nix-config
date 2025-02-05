@@ -11,6 +11,7 @@
     shell = pkgs.fish;
 
     isNormalUser = true;
+    extraGroups = [ "wheel" ];
     openssh.authorizedKeys.keys = lib.splitString "\n" (
       builtins.readFile ../../../../home/marcocondrache/ssh.pub
     );
