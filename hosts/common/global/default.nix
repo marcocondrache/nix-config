@@ -3,6 +3,7 @@
   host,
   pkgs,
   inputs,
+  darwin,
   ...
 }:
 let
@@ -19,11 +20,7 @@ in
     stateVersion = lib.mkDefault "25.05";
   };
 
-  networking = {
-    hostName = host;
-    computerName = host;
-    localHostName = host;
-  };
+  networking.hostName = host;
 
   nixpkgs = {
     config = {
@@ -36,9 +33,14 @@ in
     useUserPackages = true;
     backupFileExtension = "backup";
 
-    sharedModules = [
-      inputs.sops-nix.homeManagerModules.sops
-    ] ++ (builtins.attrValues homeModules);
+    sharedModules =
+      [
+        inputs.sops-nix.homeManagerModules.sops
+      ]
+      ++ (lib.optionals (!darwin) [
+        inputs.impermanence.nixosModules.home-manager.impermanence
+      ])
+      ++ (builtins.attrValues homeModules);
   };
 
   environment.shells = [

@@ -11,13 +11,16 @@
     nix-homebrew.url = "github:zhaofengli-wip/nix-homebrew";
     nix-homebrew.inputs.nixpkgs.follows = "nixpkgs";
 
-    hardware.url = "github:nixos/nixos-hardware";
-
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
+
+    impermanence.url = "github:nix-community/impermanence";
+
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
 
     # Taps
     homebrew-bundle = {
@@ -56,6 +59,13 @@
           host = "xawed";
           system = "aarch64-darwin";
           darwin = true;
+        };
+      };
+
+      nixosConfigurations = {
+        atlas = lib.mkSystem {
+          host = "atlas";
+          system = "aarch64-linux";
         };
       };
     };

@@ -1,4 +1,5 @@
 {
+  host,
   ...
 }:
 {
@@ -10,6 +11,10 @@
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
+  networking = {
+    computerName = host;
+    localHostName = host;
+  };
 
   system = {
     stateVersion = 6;
