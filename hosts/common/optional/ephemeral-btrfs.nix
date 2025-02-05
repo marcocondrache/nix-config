@@ -1,6 +1,7 @@
-{ lib, ... }:
-{
-  boot.initrd.postResumeCommands = lib.mkAfter ''
+{ lib, config, ... }:
+let
+  phase1Systemd = config.boot.initrd.systemd.enable;
+  script = ''
     mkdir /btrfs_tmp
     mount /dev/pool/root /btrfs_tmp
     if [[ -e /btrfs_tmp/root ]]; then
@@ -24,4 +25,22 @@
     btrfs subvolume create /btrfs_tmp/root
     umount /btrfs_tmp
   '';
+in
+{
+  boot.initrd = {
+    supportedFilesystems = [ "btrfs" ];
+    postDeviceCommands = lib.mkIf (!phase1Systemd) (lib.mkBefore script);
+    systemd.services.restore-root = lib.mkIf phase1Systemd {
+      description = "Rollback btrfs rootfs";
+      wantedBy = [ "initrd.target" ];
+      requires = [ "dev-pool-root.device" ];
+      after = [
+        "dev-pool-root.device"
+      ];
+      before = [ "sysroot.mount" ];
+      unitConfig.DefaultDependencies = "no";
+      serviceConfig.Type = "oneshot";
+      script = script;
+    };
+  };
 }
