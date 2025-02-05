@@ -7,6 +7,7 @@
     ../common/users/marcocondrache
     ../common/optional/persistence.nix
     ../common/optional/systemd-initrd.nix
+    ../common/optional/ephemeral-btrfs.nix
   ];
 
   boot.loader.grub = {
