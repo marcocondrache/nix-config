@@ -1,91 +1,27 @@
+{ lib, ... }:
 {
-  lib,
-  config,
-  ...
-}:
-let
-  hostname = config.networking.hostName;
-  wipeScript = ''
-    mkdir /tmp -p
-    MNTPOINT=$(mktemp -d)
-    (
-      mount -t btrfs -o subvol=/ /dev/disk/by-label/${hostname} "$MNTPOINT"
-      trap 'umount "$MNTPOINT"' EXIT
+  boot.initrd.postResumeCommands = lib.mkAfter ''
+    mkdir /btrfs_tmp
+    mount /dev/pool/root /btrfs_tmp
+    if [[ -e /btrfs_tmp/root ]]; then
+        mkdir -p /btrfs_tmp/old_roots
+        timestamp=$(date --date="@$(stat -c %Y /btrfs_tmp/root)" "+%Y-%m-%-d_%H:%M:%S")
+        mv /btrfs_tmp/root "/btrfs_tmp/old_roots/$timestamp"
+    fi
 
-      echo "Creating needed directories"
-      mkdir -p "$MNTPOINT"/persist/var/{log,lib/{nixos,systemd}}
-      if [ -e "$MNTPOINT/persist/dont-wipe" ]; then
-        echo "Skipping wipe"
-      else
-        echo "Cleaning root subvolume"
-        btrfs subvolume list -o "$MNTPOINT/root" | cut -f9 -d ' ' | sort |
-        while read -r subvolume; do
-          btrfs subvolume delete "$MNTPOINT/$subvolume"
-        done && btrfs subvolume delete "$MNTPOINT/root"
+    delete_subvolume_recursively() {
+        IFS=$'\n'
+        for i in $(btrfs subvolume list -o "$1" | cut -f 9- -d ' '); do
+            delete_subvolume_recursively "/btrfs_tmp/$i"
+        done
+        btrfs subvolume delete "$1"
+    }
 
-        echo "Restoring blank subvolume"
-        btrfs subvolume snapshot "$MNTPOINT/root-blank" "$MNTPOINT/root"
-      fi
-    )
+    for i in $(find /btrfs_tmp/old_roots/ -maxdepth 1 -mtime +30); do
+        delete_subvolume_recursively "$i"
+    done
+
+    btrfs subvolume create /btrfs_tmp/root
+    umount /btrfs_tmp
   '';
-  phase1Systemd = config.boot.initrd.systemd.enable;
-in
-{
-  boot.initrd = {
-    supportedFilesystems = [ "btrfs" ];
-    postDeviceCommands = lib.mkIf (!phase1Systemd) (lib.mkBefore wipeScript);
-    systemd.services.restore-root = lib.mkIf phase1Systemd {
-      description = "Rollback btrfs rootfs";
-      wantedBy = [ "initrd.target" ];
-      requires = [ "dev-disk-by\\x2dlabel-${hostname}.device" ];
-      after = [
-        "dev-disk-by\\x2dlabel-${hostname}.device"
-        "systemd-cryptsetup@${hostname}.service"
-      ];
-      before = [ "sysroot.mount" ];
-      unitConfig.DefaultDependencies = "no";
-      serviceConfig.Type = "oneshot";
-      script = wipeScript;
-    };
-  };
-
-  fileSystems = {
-    "/" = lib.mkDefault {
-      device = "/dev/disk/by-label/${hostname}";
-      fsType = "btrfs";
-      options = [
-        "subvol=root"
-        "compress=zstd"
-      ];
-    };
-
-    "/nix" = lib.mkDefault {
-      device = "/dev/disk/by-label/${hostname}";
-      fsType = "btrfs";
-      options = [
-        "subvol=nix"
-        "noatime"
-        "compress=zstd"
-      ];
-    };
-
-    "/persist" = lib.mkDefault {
-      device = "/dev/disk/by-label/${hostname}";
-      fsType = "btrfs";
-      neededForBoot = true;
-      options = [
-        "subvol=persist"
-        "compress=zstd"
-      ];
-    };
-
-    "/swap" = lib.mkDefault {
-      device = "/dev/disk/by-label/${hostname}";
-      fsType = "btrfs";
-      options = [
-        "subvol=swap"
-        "noatime"
-      ];
-    };
-  };
 }

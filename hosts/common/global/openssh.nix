@@ -1,8 +1,9 @@
 {
+  lib,
   ...
 }:
 {
   services.openssh = {
-    enable = true;
+    enable = lib.mkDefault true;
   };
 }

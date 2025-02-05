@@ -5,7 +5,8 @@
 
     ../common/global
     ../common/users/marcocondrache
-    ../common/optional/openssh.nix
+    ../common/optional/persistence.nix
+    ../common/optional/systemd-initrd.nix
   ];
 
   boot.loader.grub = {

@@ -10,6 +10,8 @@
     ../common/users/marcocondrache/darwin.nix
   ];
 
+  services.openssh.enable = false;
+
   security.pam.enableSudoTouchIdAuth = true;
   networking = {
     computerName = host;
