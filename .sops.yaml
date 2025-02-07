@@ -3,6 +3,9 @@ keys:
   - &users:
     - &marcocondrache B88BEFC2DA78218F568EA53E209101AD5F0E04C6
 
+  - &hosts:
+    - &atlas age1fd3cpl94vd7j4wpz6260kflwtwyz79w0vvf2le6lllx8y8ele47qg77sc9
+
 creation_rules:
   - path_regex: hosts/quemo/secrets.ya?ml$
     key_groups:
@@ -14,5 +17,7 @@ creation_rules:
           - *marcocondrache
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
+      - age:
+          - *atlas
       - pgp:
           - *marcocondrache
