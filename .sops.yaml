@@ -1,14 +1,18 @@
 keys:
   # Users
   - &users:
-    - &marcocondrache 4A635CD360D1AE1E64067700CA28E81C05CBB973
+    - &marcocondrache B88BEFC2DA78218F568EA53E209101AD5F0E04C6
 
 creation_rules:
   - path_regex: hosts/quemo/secrets.ya?ml$
     key_groups:
-    - pgp:
-      - *marcocondrache
+      - pgp:
+          - *marcocondrache
   - path_regex: hosts/xawed/secrets.ya?ml$
     key_groups:
-    - pgp:
-      - *marcocondrache
+      - pgp:
+          - *marcocondrache
+  - path_regex: hosts/common/secrets.ya?ml$
+    key_groups:
+      - pgp:
+          - *marcocondrache
