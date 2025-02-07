@@ -37,7 +37,18 @@
       ...
     }:
     let
-      lib = import ./lib { inherit self inputs nixpkgs; } // nixpkgs.lib;
+      inherit (self) outputs;
+
+      lib =
+        import ./lib {
+          inherit
+            self
+            inputs
+            nixpkgs
+            outputs
+            ;
+        }
+        // nixpkgs.lib;
       eachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
       pkgsFor = lib.genAttrs (import systems) (system: nixpkgs.legacyPackages.${system});
     in

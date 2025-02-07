@@ -1,6 +1,7 @@
 {
   nixpkgs,
   inputs,
+  outputs,
 }:
 {
   host,
@@ -9,6 +10,9 @@
 }:
 let
   lib = nixpkgs.lib;
+
+  # TODO: Add darwin hosts
+  hosts = lib.attrNames (outputs.nixosConfigurations);
 
   hostConfig = import (../hosts + "/${host}");
   systemFunction = if darwin then inputs.nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
@@ -26,6 +30,7 @@ systemFunction {
     inherit host;
     inherit inputs;
     inherit darwin;
+    inherit hosts;
   };
 
   modules =
