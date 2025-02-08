@@ -18,9 +18,6 @@
     efiInstallAsRemovable = true;
   };
 
-  users.users.root.openssh.authorizedKeys.keys = lib.splitString "\n" (
-    builtins.readFile ../../home/marcocondrache/ssh.pub
-  );
-
+  security.sudo.wheelNeedsPassword = false;
   system.stateVersion = "25.05";
 }

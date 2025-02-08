@@ -16,12 +16,12 @@ cleanup() {
 
 trap cleanup EXIT
 
-install -d -m755 "$TEMP/etc/ssh"
+install -d -m755 "$TEMP/persist/etc/ssh"
 
-cp ssh_host_ed25519_key "$TEMP/etc/ssh/ssh_host_ed25519_key"
-cp ssh_host_ed25519_key.pub "$TEMP/etc/ssh/ssh_host_ed25519_key.pub"
+cp ssh_host_ed25519_key "$TEMP/persist/etc/ssh/ssh_host_ed25519_key"
+cp ssh_host_ed25519_key.pub "$TEMP/persist/etc/ssh/ssh_host_ed25519_key.pub"
 
-chmod 600 "$TEMP/etc/ssh/ssh_host_ed25519_key"
-chmod 644 "$TEMP/etc/ssh/ssh_host_ed25519_key.pub"
+chmod 600 "$TEMP/persist/etc/ssh/ssh_host_ed25519_key"
+chmod 644 "$TEMP/persist/etc/ssh/ssh_host_ed25519_key.pub"
 
 nixos-anywhere --extra-files "$TEMP" --flake github:marcocondrache/nix-config#$HOST --target-host root@$ADDRESS --build-on-remote
