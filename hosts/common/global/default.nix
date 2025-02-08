@@ -33,14 +33,9 @@ in
     useUserPackages = true;
     backupFileExtension = "backup";
 
-    sharedModules =
-      [
-        inputs.sops-nix.homeManagerModules.sops
-      ]
-      ++ (lib.optionals (!darwin) [
-        inputs.impermanence.nixosModules.home-manager.impermanence
-      ])
-      ++ (builtins.attrValues homeModules);
+    sharedModules = [
+      inputs.sops-nix.homeManagerModules.sops
+    ] ++ (builtins.attrValues homeModules);
   };
 
   environment.shells = [
