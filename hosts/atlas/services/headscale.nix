@@ -21,6 +21,8 @@
   services.nginx = {
     virtualHosts = {
       "tailscale.marcocondrache.com" = {
+        forceSSL = true;
+        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:${toString config.services.headscale.port}";
           proxyWebsockets = true;
