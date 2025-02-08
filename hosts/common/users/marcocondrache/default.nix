@@ -18,9 +18,15 @@
     );
   };
 
-  sops.secrets.marcocondrache-password = {
-    sopsFile = ../../secrets.yaml;
-    neededForUsers = true;
+  sops = {
+    gnupg = {
+      home = config.home.homeDirectory;
+    };
+
+    secrets.marcocondrache-password = {
+      sopsFile = ../../secrets.yaml;
+      neededForUsers = true;
+    };
   };
 
   home-manager.users.marcocondrache = import ../../../../home/marcocondrache/${config.networking.hostName}.nix;
