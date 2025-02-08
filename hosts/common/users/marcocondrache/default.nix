@@ -4,10 +4,14 @@
   config,
   ...
 }:
+let
+  home = "/home/marcocondrache";
+in
 {
   users.users.marcocondrache = {
+    inherit home;
+
     name = "marcocondrache";
-    home = lib.mkDefault "/home/marcocondrache";
     shell = pkgs.fish;
 
     isNormalUser = true;
@@ -18,15 +22,13 @@
     );
   };
 
-  sops = {
-    gnupg = {
-      home = config.home.homeDirectory;
-    };
+  sops.secrets.marcocondrache-password = {
+    sopsFile = ../../secrets.yaml;
+    neededForUsers = true;
+  };
 
-    secrets.marcocondrache-password = {
-      sopsFile = ../../secrets.yaml;
-      neededForUsers = true;
-    };
+  sops.gnupg = {
+    inherit home;
   };
 
   home-manager.users.marcocondrache = import ../../../../home/marcocondrache/${config.networking.hostName}.nix;
