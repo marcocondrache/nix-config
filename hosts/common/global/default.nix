@@ -3,6 +3,7 @@
   host,
   pkgs,
   inputs,
+  hosts,
   darwin,
   ...
 }:
@@ -32,6 +33,10 @@ in
     useGlobalPkgs = true;
     useUserPackages = true;
     backupFileExtension = "backup";
+
+    extraSpecialArgs = {
+      inherit hosts darwin;
+    };
 
     sharedModules = [
       inputs.sops-nix.homeManagerModules.sops

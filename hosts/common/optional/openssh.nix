@@ -15,13 +15,6 @@
     ];
   };
 
-  # programs.ssh = {
-  #   knownHosts = lib.genAttrs hosts (hostname: {
-  #     publicKeyFile = ../../${hostname}/ssh_host_ed25519_key.pub;
-  #     hostNames = [ "${hostname}.marcocondrache.com" ];
-  #   });
-  # };
-
   security.pam.sshAgentAuth = {
     enable = true;
     authorizedKeysFiles = [ "/etc/ssh/authorized_keys.d/%u" ];
