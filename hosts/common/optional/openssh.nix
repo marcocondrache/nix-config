@@ -8,8 +8,6 @@
     enable = lib.mkDefault true;
     settings = {
       PasswordAuthentication = true;
-      PermitRootLogin = "no";
-
       StreamLocalBindUnlink = "yes";
     };
 
