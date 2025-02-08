@@ -6,10 +6,6 @@
 {
   services.openssh = {
     enable = lib.mkDefault true;
-    settings = {
-      PasswordAuthentication = true;
-      StreamLocalBindUnlink = "yes";
-    };
 
     hostKeys = [
       {
