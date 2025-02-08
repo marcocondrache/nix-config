@@ -19,6 +19,7 @@
   home.packages = with pkgs; [
     kubectl
     hcloud
+    speedtest-cli
     just
 
     eza
