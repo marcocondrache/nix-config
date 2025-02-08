@@ -22,7 +22,7 @@ in
         host = lib.concatStringsSep " " (
           lib.flatten (
             map (host: [
-              "${host}.marcocondrache.com"
+              "${host}.ts.marcocondrache.com"
             ]) hosts
           )
         );
