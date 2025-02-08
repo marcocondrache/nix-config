@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./disk-configuration.nix
@@ -16,6 +17,10 @@
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
+
+  users.users.root.openssh.authorizedKeys.keys = lib.splitString "\n" (
+    builtins.readFile ../../home/marcocondrache/ssh.pub
+  );
 
   system.stateVersion = "25.05";
 }

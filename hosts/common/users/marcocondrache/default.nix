@@ -12,7 +12,8 @@
 
     isNormalUser = true;
     extraGroups = [ "wheel" ];
-    hashedPasswordFile = config.sops.secrets.marcocondrache-password.path;
+    # TODO: Remove this
+    hashedPassword = "$y$j9T$ewkEGtoiyVqkkk6Bbp/Fi.$gJT7FL7KIJLrOu7LhMoBdyIVlOI.0IP8TBU19pU2gK1";
     openssh.authorizedKeys.keys = lib.splitString "\n" (
       builtins.readFile ../../../../home/marcocondrache/ssh.pub
     );
