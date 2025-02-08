@@ -1,5 +1,7 @@
 {
   imports = [
+    ./services
+
     ./disk-configuration.nix
     ./hardware-configuration.nix
 
@@ -11,6 +13,7 @@
     ../common/optional/ephemeral-btrfs.nix
     ../common/optional/tailscale.nix
     ../common/optional/sops.nix
+    ../common/optional/nginx.nix
   ];
 
   boot.loader.grub = {
