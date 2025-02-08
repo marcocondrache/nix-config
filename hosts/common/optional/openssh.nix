@@ -1,11 +1,15 @@
 {
   lib,
-  hosts,
   ...
 }:
 {
   services.openssh = {
     enable = lib.mkDefault true;
+
+    settings = {
+      StreamLocalBindUnlink = "yes";
+      GatewayPorts = "clientspecified";
+    };
 
     hostKeys = [
       {
