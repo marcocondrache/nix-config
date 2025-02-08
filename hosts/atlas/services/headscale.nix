@@ -24,7 +24,7 @@
         forceSSL = true;
         locations."/" = {
           proxyPass = "http://localhost:${toString config.services.headscale.port}";
-          proxyWebsocket = true;
+          proxyWebsockets = true;
         };
       };
     };
