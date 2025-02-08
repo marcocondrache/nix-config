@@ -5,11 +5,9 @@
   ...
 }:
 {
+  users.mutableUsers = false;
   users.users.marcocondrache = {
-    name = "marcocondrache";
-    home = lib.mkDefault "/home/marcocondrache";
     shell = pkgs.fish;
-
     isNormalUser = true;
     extraGroups = [ "wheel" ];
     hashedPasswordFile = config.sops.secrets.marcocondrache-password.path;
