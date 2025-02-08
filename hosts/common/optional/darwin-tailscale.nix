@@ -1,5 +1,7 @@
 {
-  services.tailscale = {
-    enable = true;
+  homebrew = {
+    masApps = {
+      Tailscale = 1475387142;
+    };
   };
 }
