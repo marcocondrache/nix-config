@@ -41,20 +41,7 @@ This configuration embraces a stateless system design where the root filesystem 
 
 ```bash
 # Install Nix
-sh <(curl -L https://nixos.org/nix/install)
-
-# Enable Flakes
-mkdir -p ~/.config/nix
-echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-```
-
-### NixOS setup
-
-```nix
-# In your configuration.nix
-{ pkgs, ... }: {
-  nix.settings.experimental-features = [ "nix-command" "flakes" ];
-}
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
 ```
 
 ### Quick start
@@ -66,30 +53,6 @@ git clone https://github.com/marcocondrache/nix-config.git && cd nix-config
 # Apply configuration
 nix run nix-darwin -- switch --flake .#hostname     # For Darwin
 sudo nixos-rebuild switch --flake .#hostname        # For NixOS
-```
-
-### System maintenance
-
-```bash
-# Update all packages
-nix flake update
-
-# Update specific input
-nix flake lock --update-input nixpkgs
-
-# Check system closure size
-nix path-info -Sh /run/current-system
-```
-
-### Managing secrets
-
-```bash
-# Create or edit secrets
-sops secrets/newsecret.yaml
-sops secrets/existing.yaml
-
-# Rotate keys
-sops updatekeys secrets/secret.yaml
 ```
 
 ## Contributing
