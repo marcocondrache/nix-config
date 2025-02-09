@@ -1,4 +1,4 @@
-# Nix System Configuration
+# Nix configuration
 
 [![Built with Nix](https://img.shields.io/badge/Built_With-Nix-5277C3.svg?logo=nixos&labelColor=73C3D5)](https://nixos.org)
 
@@ -15,7 +15,7 @@ This repository contains my personal system configurations using [Nix Flakes](ht
 - Single **BTRFS** partition with snapshot management
 - Declarative configuration for all services
 
-## Repository Structure
+## Repository structure
 
 ```
 nix-config
@@ -27,17 +27,17 @@ nix-config
 └── scripts/          # Utility scripts
 ```
 
-## Secrets Management
+## Secrets management
 
 Secrets are encrypted using both a **GPG** key (stored on **YubiKey**) and each host's **SSH** key, requiring only one of them to decrypt. This dual-key approach allows for both interactive editing using the YubiKey and automated decryption during system activation using the host's SSH key. The setup uses `sops-nix` to handle the encryption and decryption process transparently.
 
-## System Impermanence
+## System impermanence
 
 This configuration embraces a stateless system design where the root filesystem is reset to a clean state on every boot. Through the `impermanence` module, specific directories can be marked for persistence - an opt-in approach to state management. The underlying **BTRFS** filesystem handles snapshots and rollbacks, providing both the benefits of a clean system and the safety of easy recovery.
 
-## Getting Started
+## Getting started
 
-### Darwin Setup
+### Darwin setup
 
 ```bash
 # Install Nix
@@ -48,7 +48,7 @@ mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 ```
 
-### NixOS Setup
+### NixOS setup
 
 ```nix
 # In your configuration.nix
@@ -57,7 +57,7 @@ echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
 }
 ```
 
-### Quick Start
+### Quick start
 
 ```bash
 # Clone and enter repository
@@ -68,7 +68,7 @@ nix run nix-darwin -- switch --flake .#hostname     # For Darwin
 sudo nixos-rebuild switch --flake .#hostname        # For NixOS
 ```
 
-### System Maintenance
+### System maintenance
 
 ```bash
 # Update all packages
@@ -81,7 +81,7 @@ nix flake lock --update-input nixpkgs
 nix path-info -Sh /run/current-system
 ```
 
-### Managing Secrets
+### Managing secrets
 
 ```bash
 # Create or edit secrets
@@ -106,7 +106,6 @@ This configuration is provided under the **MIT License**. You are free to use, m
 
 ## Acknowledgments
 
-**Special thanks to:**
 - The **NixOS** community for creating an amazing system
 - The **Nix Darwin** team for macOS support
 - The **Home Manager** project for user environment management
