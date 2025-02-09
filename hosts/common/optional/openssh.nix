@@ -8,6 +8,7 @@
 
     settings = {
       StreamLocalBindUnlink = "yes";
+      PermitRootLogin = "no";
       GatewayPorts = "clientspecified";
     };
 
