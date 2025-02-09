@@ -2,7 +2,6 @@
   lib,
   host,
   pkgs,
-  inputs,
   hosts,
   darwin,
   ...

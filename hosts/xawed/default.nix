@@ -11,8 +11,6 @@
     ../common/optional/darwin-tailscale.nix
   ];
 
-  services.openssh.enable = false;
-
   security.pam.enableSudoTouchIdAuth = true;
   networking = {
     computerName = host;
