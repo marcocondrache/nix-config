@@ -10,6 +10,7 @@
     ./btop.nix
     ./k9s.nix
     ./docker.nix
+    ./lazygit.nix
     ./yubikey.nix
     ./fish.nix
     ./ssh.nix
