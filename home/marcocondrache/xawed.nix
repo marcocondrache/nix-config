@@ -20,7 +20,7 @@ in
 
   programs.git.includes = [
     {
-      condition = "gitdir/i:${workEnv}/**";
+      condition = "gitdir:${workEnv}/";
       contents = {
         commit.gpgSign = false;
         feature.manyFiles = true;
