@@ -4,6 +4,7 @@
     ./spotify.nix
     ./raycast.nix
     ./hoppscotch.nix
+    ./cursor.nix
     ./fonts.nix
   ];
 }

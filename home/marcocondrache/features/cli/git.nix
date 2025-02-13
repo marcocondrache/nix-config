@@ -25,9 +25,6 @@
 
       commit.verbose = true;
 
-      core.fsmonitor = true;
-      core.untrackedCache = true;
-
       push.autoSetupRemote = true;
       branch.sort = "committerdate";
     };
