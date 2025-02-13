@@ -12,6 +12,12 @@ in
     ./features/desktop
   ];
 
+  programs.lazygit = {
+    settings.services = {
+      "dev.azure.com" = "azuredevops:dev.azure.com/danfoss";
+    };
+  };
+
   programs.git.includes = [
     {
       condition = "gitdir/i:${workEnv}/**";
