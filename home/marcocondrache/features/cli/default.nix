@@ -13,6 +13,7 @@
     ./lazygit.nix
     ./yubikey.nix
     ./fish.nix
+    ./zellij.nix
     ./ssh.nix
   ];
 

@@ -6,15 +6,25 @@
     settings = {
       theme = "sandbox";
 
+      macos-titlebar-style = "transparent";
+
       font-family = "Hack";
       font-size = 14;
 
-      window-padding-balance = true;
-      window-padding-x = 10;
-      window-padding-y = 10;
+      # window-padding-balance = true;
+      # window-padding-x = 10;
+      # window-padding-y = 10;
 
-      macos-titlebar-style = "transparent";
-      adjust-cell-height = "35%";
+      # adjust-cell-height = "35%";
+
+      keybind = [
+        "cmd+t=unbind"
+        "cmd+n=unbind"
+        "cmd+c=unbind"
+        "cmd+w=unbind"
+        "cmd+opt+left=unbind"
+        "cmd+opt+right=unbind"
+      ];
     };
 
     themes = {
