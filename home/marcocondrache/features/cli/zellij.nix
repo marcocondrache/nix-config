@@ -1,6 +1,6 @@
 let
-  primary_modifier = "Ctrl";
-  secondary_modifier = "Super";
+  primary_modifier = "Super";
+  secondary_modifier = "Ctrl";
 in
 {
   programs.zellij = {
@@ -178,8 +178,6 @@ in
             bind "${secondary_modifier} k" "${secondary_modifier} Up" { MoveFocus "Up"; }
             bind "${secondary_modifier} =" "${secondary_modifier} +" { Resize "Increase"; }
             bind "${secondary_modifier} -" { Resize "Decrease"; }
-            bind "${secondary_modifier} [" { PreviousSwapLayout; }
-            bind "${secondary_modifier} ]" { NextSwapLayout; }
         }
         shared_except "locked" "renametab" "renamepane" {
             bind "Enter" { SwitchToMode "Locked"; }
