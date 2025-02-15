@@ -16,16 +16,9 @@
       # window-padding-y = 10;
 
       # adjust-cell-height = "35%";
-
-      keybind = [
-        "cmd+t=unbind"
-        "cmd+n=unbind"
-        "cmd+c=unbind"
-        "cmd+w=unbind"
-        "cmd+opt+left=unbind"
-        "cmd+opt+right=unbind"
-      ];
     };
+
+    clearDefaultKeybinds = true;
 
     themes = {
       sandbox = {
