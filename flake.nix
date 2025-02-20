@@ -49,13 +49,9 @@
             ;
         }
         // nixpkgs.lib;
-      eachSystem = f: lib.genAttrs (import systems) (system: f pkgsFor.${system});
-      pkgsFor = lib.genAttrs (import systems) (system: nixpkgs.legacyPackages.${system});
     in
     {
       inherit lib;
-
-      devShells = eachSystem (pkgs: import ./shell.nix { inherit pkgs; });
 
       darwinConfigurations = {
         # Personal laptop
