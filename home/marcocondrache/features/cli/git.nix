@@ -13,8 +13,9 @@
     userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
     signing = {
       key = "209101AD5F0E04C6";
+      format = "openpgp";
       signByDefault = lib.mkDefault true;
-      gpgPath = "${config.programs.gpg.package}/bin/gpg2";
+      signer = "${config.programs.gpg.package}/bin/gpg2";
     };
 
     extraConfig = {

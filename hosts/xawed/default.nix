@@ -7,7 +7,6 @@
     ../common/global
     ../common/users/marcocondrache/darwin.nix
     ../common/optional/darwin-homebrew.nix
-    ../common/optional/darwin-ios-sdk.nix
     ../common/optional/darwin-tailscale.nix
   ];
 
