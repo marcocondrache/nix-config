@@ -16,7 +16,7 @@
       window-padding-x = 10;
       window-padding-y = 10;
 
-      adjust-cell-height = "35%";
+      adjust-cell-height = "20%";
 
       keybind = [
         # Pane management
