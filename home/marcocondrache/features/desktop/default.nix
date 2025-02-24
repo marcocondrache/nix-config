@@ -5,7 +5,6 @@
     ./raycast.nix
     ./ghostty.nix
     ./hoppscotch.nix
-    ./cursor.nix
     ./fonts.nix
   ];
 }
