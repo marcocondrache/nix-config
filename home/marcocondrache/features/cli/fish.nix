@@ -13,6 +13,7 @@ in
 
     shellAbbrs = rec {
       ls = lib.mkIf (hasPackage "eza") "eza";
+      cd = lib.mkIf (hasPackage "zoxide") "z";
       lg = lib.mkIf (hasPackage "lazygit") "lazygit";
       exa = ls;
     };

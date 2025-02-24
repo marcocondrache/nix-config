@@ -30,6 +30,10 @@
       branch.sort = "committerdate";
     };
 
+    delta = {
+      enable = true;
+    };
+
     ignores = [
       ".npmrc"
       ".direnv"
