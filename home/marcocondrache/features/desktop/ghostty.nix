@@ -7,15 +7,71 @@
       theme = "sandbox";
 
       macos-titlebar-style = "transparent";
+      macos-option-as-alt = "left";
 
       font-family = "Hack";
       font-size = 14;
 
-      # window-padding-balance = true;
-      # window-padding-x = 10;
-      # window-padding-y = 10;
+      window-padding-balance = true;
+      window-padding-x = 10;
+      window-padding-y = 10;
 
-      # adjust-cell-height = "35%";
+      adjust-cell-height = "35%";
+
+      keybind = [
+        # Pane management
+        "super+n=new_split:auto"
+        "super+shift+n=new_split:right"
+        "super+shift+d=new_split:down"
+        "super+x=close_surface"
+        "super+f=toggle_fullscreen"
+
+        # Pane navigation
+        "super+h=goto_split:left"
+        "super+j=goto_split:down"
+        "super+k=goto_split:up"
+        "super+l=goto_split:right"
+        "super+left=goto_split:left"
+        "super+down=goto_split:down"
+        "super+up=goto_split:up"
+        "super+right=goto_split:right"
+
+        # Pane resizing
+        "super+shift+h=resize_split:left,10"
+        "super+shift+j=resize_split:down,10"
+        "super+shift+k=resize_split:up,10"
+        "super+shift+l=resize_split:right,10"
+        "super+shift+left=resize_split:left,10"
+        "super+shift+down=resize_split:down,10"
+        "super+shift+up=resize_split:up,10"
+        "super+shift+right=resize_split:right,10"
+
+        # Tab management
+        "super+t=new_tab"
+        "super+w=close_tab"
+        "super+1=goto_tab:1"
+        "super+2=goto_tab:2"
+        "super+3=goto_tab:3"
+        "super+4=goto_tab:4"
+        "super+5=goto_tab:5"
+        "super+6=goto_tab:6"
+        "super+7=goto_tab:7"
+        "super+8=goto_tab:8"
+        "super+9=goto_tab:9"
+        "super+ctrl+left=previous_tab"
+        "super+ctrl+right=next_tab"
+
+        # Scrollback/search
+        "super+s=scroll_page_up"
+        "super+d=scroll_page_down"
+        "super+/=inspector:toggle"
+        "super+c=copy_to_clipboard"
+        "super+v=paste_from_clipboard"
+        "super+shift+c=clear_screen"
+
+        # Window management
+        "super+q=quit"
+      ];
     };
 
     clearDefaultKeybinds = true;

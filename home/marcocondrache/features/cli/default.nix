@@ -13,7 +13,8 @@
     ./lazygit.nix
     ./yubikey.nix
     ./fish.nix
-    ./zellij.nix
+    # TODO: opt out temporary
+    # ./zellij.nix
     ./ssh.nix
   ];
 
