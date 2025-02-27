@@ -11,6 +11,20 @@
     ../common/optional/darwin-builder.nix
   ];
 
+  nix.linux-builder = {
+    maxJobs = 4;
+    config = {
+      virtualisation = {
+        darwin-builder = {
+          diskSize = 40 * 1024;
+          memorySize = 8 * 1024;
+        };
+
+        cores = 6;
+      };
+    };
+  };
+
   security.pam.enableSudoTouchIdAuth = true;
   networking = {
     computerName = host;
