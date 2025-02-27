@@ -8,6 +8,7 @@
     ../common/users/marcocondrache/darwin.nix
     ../common/optional/darwin-homebrew.nix
     ../common/optional/darwin-tailscale.nix
+    ../common/optional/darwin-builder.nix
   ];
 
   security.pam.enableSudoTouchIdAuth = true;
