@@ -9,8 +9,10 @@
     ../common/optional/persistence.nix
     ../common/optional/systemd-initrd.nix
     ../common/optional/ephemeral-btrfs.nix
+    ../common/optional/tailscale-exit-node.nix
     ../common/optional/sops.nix
-    ../common/optional/k3s-server.nix
+    ../common/optional/litestream.nix
+    ../common/optional/nginx.nix
   ];
 
   boot.loader.grub = {
