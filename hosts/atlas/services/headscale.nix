@@ -5,6 +5,11 @@
     address = "127.0.0.1";
     port = 8080;
     settings = {
+      database = {
+        sqlite = {
+          path = "/var/lib/headscale/db.sqlite";
+        };
+      };
       server_url = "https://tailscale.marcocondrache.com";
       dns = {
         override_local_dns = true;
@@ -15,6 +20,17 @@
           "1.0.0.1"
         ];
       };
+    };
+  };
+
+  services.litestream = {
+    settings = {
+      dbs = [
+        {
+          path = "/var/lib/headscale/db.sqlite";
+          replicas = [ ];
+        }
+      ];
     };
   };
 
