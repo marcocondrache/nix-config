@@ -74,6 +74,11 @@
           host = "atlas";
           system = "aarch64-linux";
         };
+
+        athena = lib.mkSystem {
+          host = "athena";
+          system = "aarch64-linux";
+        };
       };
     };
 }
