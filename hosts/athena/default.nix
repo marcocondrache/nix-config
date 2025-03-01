@@ -11,7 +11,7 @@
     ../common/optional/ephemeral-btrfs.nix
     ../common/optional/tailscale-exit-node.nix
     ../common/optional/sops.nix
-    ../common/optional/litestream.nix
+    # ../common/optional/litestream.nix
     ../common/optional/nginx.nix
   ];
 
