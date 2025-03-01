@@ -16,12 +16,12 @@
     ];
   };
 
-  services.litestream = {
-    dbs = [
-      {
-        path = "/var/lib/rancher/k3s/server/db/state.db";
-        replicas = [ ];
-      }
-    ];
-  };
+  # services.litestream = {
+  #   dbs = [
+  #     {
+  #       path = "/var/lib/rancher/k3s/server/db/state.db";
+  #       replicas = [ ];
+  #     }
+  #   ];
+  # };
 }

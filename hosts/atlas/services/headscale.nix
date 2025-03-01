@@ -23,16 +23,16 @@
     };
   };
 
-  services.litestream = {
-    settings = {
-      dbs = [
-        {
-          path = "/var/lib/headscale/db.sqlite";
-          replicas = [ ];
-        }
-      ];
-    };
-  };
+  # services.litestream = {
+  #   settings = {
+  #     dbs = [
+  #       {
+  #         path = "/var/lib/headscale/db.sqlite";
+  #         replicas = [ ];
+  #       }
+  #     ];
+  #   };
+  # };
 
   services.nginx = {
     virtualHosts = {
