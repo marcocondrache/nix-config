@@ -1,4 +1,9 @@
-{ config, lib, ... }:
+{
+  config,
+  pkgs,
+  lib,
+  ...
+}:
 {
   sops.secrets.k3s-token = {
     sopsFile = ../secrets.yaml;
@@ -11,6 +16,8 @@
   environment.persistence = {
     "/persist".directories = [ "/var/lib/rancher" ];
   };
+
+  systemd.services.k3s.path = [ pkgs.tailscale ];
 
   # TODO: find a way to provision node external ip from tailscale
   services.k3s = {
