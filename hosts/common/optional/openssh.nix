@@ -10,9 +10,6 @@
       StreamLocalBindUnlink = "yes";
       PermitRootLogin = "no";
       GatewayPorts = "clientspecified";
-
-      # TODO: Remove
-      StrictModes = false;
     };
 
     hostKeys = [
