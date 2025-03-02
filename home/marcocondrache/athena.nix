@@ -1,6 +1,5 @@
 {
   imports = [
     ./global
-    ./features/cli
   ];
 }
