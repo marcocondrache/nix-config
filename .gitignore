@@ -8,10 +8,6 @@
 # macOS system files
 .DS_Store
 
-# Directory indexing
-.idea/
-.vscode/
-
 # Logs and temporary files
 logs/
 *.log

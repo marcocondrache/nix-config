@@ -21,14 +21,8 @@
 
   # General packages that don't need configuration
   home.packages = with pkgs; [
-    devbox
-
-    kubectl
-    hcloud
-    speedtest-cli
-    just
-
     eza
+    devbox
 
     nil
     nixfmt-rfc-style
