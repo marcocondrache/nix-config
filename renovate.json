@@ -8,6 +8,9 @@
         ":timezone(Europe/Rome)"
     ],
     "dependencyDashboardTitle": "Renovate Dashboard 🤖",
+    "enabledManagers": [
+        "nix"
+    ],
     "suppressNotifications": [
         "prEditedNotification",
         "prIgnoreNotification"
@@ -15,9 +18,6 @@
     "ignorePaths": [
         "**/*.sops.*"
     ],
-    "nix": {
-        "enabled": true
-    },
     "lockFileMaintenance": {
         "enabled": true,
         "automerge": true,
