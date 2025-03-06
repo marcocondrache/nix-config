@@ -4,7 +4,7 @@
     "sops@latest",
     "ssh-to-age@latest",
     "gnupg@latest",
-    "age@latest",
+    "age@1.2.1",
     "nixos-anywhere@latest"
   ],
   "shell": {}
