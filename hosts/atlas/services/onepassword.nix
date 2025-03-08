@@ -35,6 +35,6 @@ in
     ];
 
     # TODO: https://github.com/1Password/connect/issues/32
-    mode = 444;
+    mode = "444";
   };
 }
