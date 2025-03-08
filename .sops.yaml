@@ -8,6 +8,13 @@ keys:
     - &athena age1gmz08ryz60hv2c0svm3flsq5h80llgspt3rutvqgy239scjq89js59zmpm
 
 creation_rules:
+  - path_regex: hosts/atlas/secrets.ya?ml$
+    key_groups:
+      - age:
+        - *atlas
+        pgp:
+        - *marcocondrache
+
   - path_regex: hosts/common/secrets.ya?ml$
     key_groups:
       - age:
