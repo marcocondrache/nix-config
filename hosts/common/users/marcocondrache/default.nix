@@ -9,7 +9,10 @@
   users.users.marcocondrache = {
     shell = pkgs.fish;
     isNormalUser = true;
-    extraGroups = [ "wheel" ];
+    extraGroups = [
+      "wheel"
+      "podman"
+    ];
     hashedPasswordFile = config.sops.secrets.marcocondrache-password.path;
     openssh.authorizedKeys.keys = lib.splitString "\n" (
       builtins.readFile ../../../../home/marcocondrache/ssh.pub
