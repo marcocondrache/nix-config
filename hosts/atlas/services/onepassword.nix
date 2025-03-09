@@ -29,8 +29,6 @@ in
   services.nginx = {
     virtualHosts = {
       "connect.marcocondrache.com" = {
-        forceSSL = true;
-        enableACME = true;
         locations."/" = {
           proxyPass = "http://localhost:8080";
           proxyWebsockets = true;
