@@ -17,7 +17,7 @@ let
 in
 {
   programs.fish.loginShellInit = gpg-autostart;
-  programs.fish.interactiveShellInit = gpg-agent-env;
+  programs.fish.interactiveShellInit = lib.mkIf darwin gpg-agent-env;
 
   programs.gpg = {
     enable = lib.mkDefault true;
