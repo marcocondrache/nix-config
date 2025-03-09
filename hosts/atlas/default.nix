@@ -8,13 +8,13 @@
     ../common/global
     ../common/users/marcocondrache
     ../common/optional/openssh.nix
+    ../common/optional/fail2ban.nix
     ../common/optional/persistence.nix
     ../common/optional/systemd-initrd.nix
     ../common/optional/ephemeral-btrfs.nix
     ../common/optional/tailscale-exit-node.nix
     ../common/optional/sops.nix
     ../common/optional/podman.nix
-    # ../common/optional/litestream.nix
     ../common/optional/nginx.nix
   ];
 

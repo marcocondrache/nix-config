@@ -26,6 +26,25 @@ in
     };
   };
 
+  services.nginx = {
+    virtualHosts = {
+      "connect.marcocondrache.com" = {
+        forceSSL = true;
+        enableACME = true;
+        locations."/" = {
+          proxyPass = "http://localhost:8080";
+          proxyWebsockets = true;
+        };
+      };
+    };
+
+    tailscaleAuth = {
+      virtualHosts = [
+        "connect.marcocondrache.com"
+      ];
+    };
+  };
+
   sops.secrets.onepassword-credentials = {
     sopsFile = ../secrets.yaml;
 

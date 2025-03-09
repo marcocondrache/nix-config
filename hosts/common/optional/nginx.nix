@@ -6,6 +6,10 @@
     recommendedProxySettings = true;
     recommendedGzipSettings = true;
     recommendedOptimisation = true;
+
+    tailscaleAuth = {
+      enable = true;
+    };
   };
 
   networking.firewall.allowedTCPPorts = [
