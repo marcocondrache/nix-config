@@ -16,6 +16,7 @@
     ../common/optional/sops.nix
     ../common/optional/podman.nix
     ../common/optional/nginx.nix
+    ../common/optional/nginx-cf.nix
   ];
 
   boot.loader.grub = {
