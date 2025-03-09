@@ -5,13 +5,13 @@ let
   cfipv4 = fileToList (
     pkgs.fetchurl {
       url = "https://www.cloudflare.com/ips-v4";
-      sha256 = "90e01b18eb32b7409496bc2b9f0ac9038f83462cf94c5cbcd57a1a8a40163071";
+      sha256 = "f02c6d83bc01ab0ae8577160e036d700c7455359bce054df884e5d7d9e4e9e7b";
     }
   );
   cfipv6 = fileToList (
     pkgs.fetchurl {
       url = "https://www.cloudflare.com/ips-v6";
-      sha256 = "6daf3f5a4e22a6b98f1af3ee8a666c20dc9733f5df0f133d3c4732a9eb3818d4";
+      sha256 = "9e9d39e3e83bad00c4decafd53c63fa62029f3d95db68de937d2be28234ca0a9";
     }
   );
 in
