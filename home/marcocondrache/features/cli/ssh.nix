@@ -30,7 +30,7 @@ in
         remoteForwards = [
           {
             # TODO: find a better way to do this on darwin systems
-            bind.address = ''/home/%u/.gnupg-sockets/S.gpg-agent'';
+            bind.address = ''/%d/.gnupg-sockets/S.gpg-agent'';
             host.address = ''${gpgSocket}'';
           }
         ];
