@@ -12,13 +12,21 @@
       };
       server_url = "https://tailscale.marcocondrache.com";
       dns = {
-        override_local_dns = true;
-        base_domain = "ts.marcocondrache.com";
         magic_dns = true;
+        base_domain = "ts.marcocondrache.com";
         nameservers.global = [
           "1.1.1.1"
           "1.0.0.1"
         ];
+        search_domains = [
+          "marcocondrache.com"
+        ];
+      };
+      log = {
+        level = "warn";
+      };
+      logtail = {
+        enabled = false;
       };
     };
   };
