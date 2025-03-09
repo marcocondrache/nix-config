@@ -7,8 +7,10 @@
     enable = lib.mkDefault true;
 
     settings = {
-      StreamLocalBindUnlink = "yes";
+      PasswordAuthentication = false;
       PermitRootLogin = "no";
+
+      StreamLocalBindUnlink = "yes";
       GatewayPorts = "clientspecified";
     };
 
@@ -18,5 +20,9 @@
         type = "ed25519";
       }
     ];
+  };
+
+  security.pam.sshAgentAuth = {
+    enable = true;
   };
 }
