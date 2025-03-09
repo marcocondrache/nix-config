@@ -24,5 +24,7 @@
     efiInstallAsRemovable = true;
   };
 
+  security.sudo.wheelNeedsPassword = false;
+
   system.stateVersion = "25.05";
 }
