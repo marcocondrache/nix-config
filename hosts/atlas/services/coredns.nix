@@ -1,25 +1,12 @@
-{ pkgs, ... }:
 {
   services.coredns = {
     enable = true;
-    package = pkgs.coredns.override {
-      externalPlugins = [
-        {
-          name = "tailscale";
-          repo = "github.com/damomurf/coredns-tailscale";
-          version = "v0.3.13";
-        }
-      ];
-
-      vendorHash = "";
-    };
 
     config = ''
-      ts.marcocondrache.com:53 {
-        tailscale ts.marcocondrache.com
-
-        log
-        errors
+      ts.marcocondrache.com {
+        rewrite name regex (.*)\.ts\.marcocondrache\.com {1}.tailnet.com
+        forward . 100.100.100.100
+        cache
       }
     '';
   };
