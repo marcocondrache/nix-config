@@ -1,6 +1,6 @@
 {
   imports = [
-    ./headscale.nix
+    ./coredns.nix
     ./onepassword.nix
   ];
 }

@@ -2,11 +2,14 @@
 {
   services.tailscale = {
     enable = true;
+    openFirewall = true;
     useRoutingFeatures = lib.mkDefault "client";
-    extraUpFlags = [ "--login-server=https://tailscale.marcocondrache.com" ];
+    authKeyFile = config.sops.secrets.tailscale-key.path;
   };
 
-  networking.firewall.allowedUDPPorts = [ config.services.tailscale.port ];
+  sops.secrets.tailscale-key = {
+    sopsFile = ../secrets.yaml;
+  };
 
   environment.persistence = {
     "/persist".directories = [ "/var/lib/tailscale" ];
