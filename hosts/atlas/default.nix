@@ -15,6 +15,7 @@
     ../common/optional/tailscale-exit-node.nix
     ../common/optional/sops.nix
     ../common/optional/podman.nix
+    ../common/optional/acme.nix
     ../common/optional/nginx.nix
     ../common/optional/nginx-cf.nix
   ];
