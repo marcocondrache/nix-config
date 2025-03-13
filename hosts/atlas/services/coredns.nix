@@ -28,5 +28,20 @@
       '';
     };
 
+  systemd.services.coredns = {
+    serviceConfig = {
+      User = "coredns";
+      Group = "coredns";
+      DynamicUser = false;
+    };
+  };
+
+  users.groups.coredns = { };
+  users.users.coredns = {
+    group = "coredns";
+    isSystemUser = true;
+    extraGroups = [ "acme" ];
+  };
+
   networking.firewall.allowedTCPPorts = [ 443 ];
 }
