@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   security.acme.certs = {
     "ts.marcocondrache.com" = {
@@ -32,7 +32,7 @@
     serviceConfig = {
       User = "coredns";
       Group = "coredns";
-      DynamicUser = false;
+      DynamicUser = lib.mkForce false;
     };
   };
 
