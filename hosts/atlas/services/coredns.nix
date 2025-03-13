@@ -15,7 +15,7 @@
       enable = true;
 
       config = ''
-        https://ts.marcocondrache.com {
+        https://ts.marcocondrache.com { 
           tls ${certDir}/cert.pem ${certDir}/key.pem ${certDir}/chain.pem
 
           rewrite stop {
@@ -28,5 +28,5 @@
       '';
     };
 
-  networking.firewall.allowedUDPPorts = [ 53 ];
+  networking.firewall.allowedTCPPorts = [ 443 ];
 }
