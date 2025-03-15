@@ -1,4 +1,4 @@
-{ lib, ... }:
+{ lib, config, ... }:
 {
   users.groups.adguard = { };
   users.users.adguard = {
@@ -49,18 +49,25 @@
         enable_dnssec = true;
       };
 
-      tls = {
-        enabled = true;
-        server_name = "dns.marcocondrache.com";
+      tls =
+        let
+          certDir = config.security.acme.certs."dns.marcocondrache.com".directory;
+        in
+        {
+          enabled = true;
+          server_name = "dns.marcocondrache.com";
 
-        port_https = 0;
-        port_dns_over_tls = 853;
-        port_dns_over_quic = 853;
+          port_https = 0;
+          port_dns_over_tls = 853;
+          port_dns_over_quic = 853;
 
-        allow_unencrypted_doh = true;
+          allow_unencrypted_doh = true;
 
-        strict_sni_check = true;
-      };
+          certificate_path = "${certDir}/cert.pem";
+          private_key_path = "${certDir}/key.pem";
+
+          strict_sni_check = true;
+        };
 
       os = {
         user = "adguard";
