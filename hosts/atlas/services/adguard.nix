@@ -1,7 +1,8 @@
 { lib, config, ... }:
 let
   port = 8081;
-  domain = "dns.cloud.marcocondrache.com";
+  domain = "dns.marcocondrache.com";
+  adminDomain = "adguard.cloud.marcocondrache.com";
 in
 {
   users.groups.adguard = { };
@@ -14,7 +15,10 @@ in
 
   security.acme.certs = {
     "${domain}" = {
-      reloadServices = [ "adguardhome" ];
+      reloadServices = [
+        "adguardhome"
+        "nginx"
+      ];
     };
   };
 
@@ -27,7 +31,6 @@ in
     inherit port;
 
     settings = {
-
       dns = {
         bind_hosts = [ "0.0.0.0" ];
 
@@ -89,15 +92,38 @@ in
 
   services.nginx = {
     virtualHosts = {
+      localhost = {
+        locations."/dns-query" = {
+          proxyPass = "http://localhost:${toString port}";
+          proxyWebsockets = true;
+        };
+      };
+
       "${domain}" = {
         forceSSL = true;
         useACMEHost = domain;
 
         locations."/dns-query" = {
-          proxyPass = "https://localhost:${toString port}";
+          proxyPass = "http://localhost:${toString port}";
           proxyWebsockets = true;
         };
       };
+
+      "${adminDomain}" = {
+        forceSSL = true;
+        useACMEHost = config.services.nginx.virtualHosts.localhost.useACMEHost;
+
+        locations."/" = {
+          proxyPass = "http://localhost:${toString port}";
+          proxyWebsockets = true;
+        };
+      };
+    };
+
+    tailscaleAuth = {
+      virtualHosts = [
+        "${adminDomain}"
+      ];
     };
   };
 
