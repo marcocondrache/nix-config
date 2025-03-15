@@ -19,13 +19,15 @@ in
   };
 
   services.adguardhome = {
-    inherit port;
-
     enable = true;
     openFirewall = false;
     mutableSettings = false;
 
+    host = "127.0.0.1";
+    inherit port;
+
     settings = {
+
       dns = {
         upstream_dns = [
           "https://1.1.1.1/dns-query"
@@ -57,8 +59,7 @@ in
           enabled = true;
           server_name = domain;
 
-          force_https = true;
-
+          port_https = 0;
           port_dns_over_tls = 853;
           port_dns_over_quic = 853;
 
