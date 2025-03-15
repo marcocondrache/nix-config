@@ -23,7 +23,7 @@ in
 
     enable = true;
     openFirewall = false;
-    mutableSettigs = false;
+    mutableSettings = false;
 
     settings = {
       dns = {
