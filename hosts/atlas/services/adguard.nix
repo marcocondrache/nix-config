@@ -29,6 +29,8 @@ in
     settings = {
 
       dns = {
+        bind_hosts = [ "0.0.0.0" ];
+
         upstream_dns = [
           "https://1.1.1.1/dns-query"
           "https://1.0.0.1/dns-query"
