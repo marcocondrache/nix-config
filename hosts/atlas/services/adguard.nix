@@ -1,4 +1,8 @@
 { lib, config, ... }:
+let
+  port = 8081;
+  domain = "dns.cloud.marcocondrache.com";
+in
 {
   users.groups.adguard = { };
   users.users.adguard = {
@@ -9,24 +13,20 @@
   };
 
   security.acme.certs = {
-    "dns.marcocondrache.com" = {
+    "${domain}" = {
       reloadServices = [ "adguardhome" ];
     };
   };
 
   services.adguardhome = {
+    inherit port;
+
     enable = true;
     openFirewall = false;
-    mutableSettings = false;
+    mutableSettigs = false;
 
     settings = {
-      http = {
-        address = "0.0.0.0:8081";
-      };
-
       dns = {
-        bind_hosts = [ "0.0.0.0" ];
-
         upstream_dns = [
           "https://1.1.1.1/dns-query"
           "https://1.0.0.1/dns-query"
@@ -51,17 +51,17 @@
 
       tls =
         let
-          certDir = config.security.acme.certs."dns.marcocondrache.com".directory;
+          certDir = config.security.acme.certs."${domain}".directory;
         in
         {
           enabled = true;
-          server_name = "dns.marcocondrache.com";
+          server_name = domain;
 
-          port_https = 0;
+          port_https = port;
           port_dns_over_tls = 853;
           port_dns_over_quic = 853;
 
-          allow_unencrypted_doh = true;
+          allow_unencrypted_doh = false;
 
           certificate_path = "${certDir}/cert.pem";
           private_key_path = "${certDir}/key.pem";
@@ -85,20 +85,15 @@
 
   services.nginx = {
     virtualHosts = {
-      "dns.marcocondrache.com" = {
+      "${domain}" = {
         forceSSL = true;
-        useACMEHost = "dns.marcocondrache.com";
-        locations."/" = {
-          proxyPass = "http://localhost:8081";
+        useACMEHost = domain;
+
+        locations."/dns-query" = {
+          proxyPass = "https://localhost:${toString port}";
           proxyWebsockets = true;
         };
       };
-    };
-
-    tailscaleAuth = {
-      virtualHosts = [
-        "dns.marcocondrache.com"
-      ];
     };
   };
 
