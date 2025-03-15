@@ -1,6 +1,6 @@
 {
   imports = [
-    ./coredns.nix
+    ./adguard.nix
     ./onepassword.nix
   ];
 }
