@@ -4,12 +4,13 @@
   users.users.adguard = {
     isSystemUser = true;
     group = "adguard";
+
+    extraGroups = [ "acme" ];
   };
 
   security.acme.certs = {
     "dns.marcocondrache.com" = {
       reloadServices = [ "adguardhome" ];
-      group = "adguard";
     };
   };
 
@@ -66,6 +67,10 @@
         group = "adguard";
       };
     };
+  };
+
+  environment.persistence = {
+    "/persist".directories = [ "/var/lib/AdGuardHome" ];
   };
 
   networking.firewall.allowedTCPPorts = [ 853 ];
