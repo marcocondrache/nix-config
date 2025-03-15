@@ -1,4 +1,4 @@
-{ config, ... }:
+{ config, lib, ... }:
 {
   services.nginx = {
     enable = true;
@@ -11,6 +11,8 @@
       enable = true;
     };
   };
+
+  users.users.nginx.extraGroups = lib.mkIf config.security.acme.acceptTerms [ "acme" ];
 
   networking.firewall.allowedTCPPorts = [
     config.services.nginx.defaultHTTPListenPort
