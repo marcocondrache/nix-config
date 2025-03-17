@@ -14,12 +14,6 @@ in
   programs.fish = {
     enable = true;
 
-    shellAliases = {
-      tailscale = lib.mkIf hasTailscale ''
-        /Applications/Tailscale.app/Contents/MacOS/Tailscale
-      '';
-    };
-
     shellAbbrs = rec {
       ls = lib.mkIf (hasPackage "eza") "eza";
       cd = lib.mkIf (hasPackage "zoxide") "z";
@@ -29,6 +23,10 @@ in
 
     functions = {
       fish_greeting = "";
+
+      tailscale = lib.mkIf hasTailscale ''
+        /Applications/Tailscale.app/Contents/MacOS/Tailscale $argv
+      '';
 
       cd_git_root = ''
         if git rev-parse --git-dir &>/dev/null
