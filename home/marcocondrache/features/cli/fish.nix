@@ -1,15 +1,24 @@
 {
   lib,
   config,
+  darwin,
+  osConfig,
   ...
 }:
 let
   packageNames = map (p: p.pname or p.name or null) config.home.packages;
+  hasTailscale = darwin && osConfig.homebrew.enable && osConfig.homebrew.masApps.Tailscale != null;
   hasPackage = name: lib.any (x: x == name) packageNames;
 in
 {
   programs.fish = {
     enable = true;
+
+    shellAliases = {
+      tailscale = lib.mkIf hasTailscale ''
+        /Applications/Tailscale.app/Contents/MacOS/Tailscale
+      '';
+    };
 
     shellAbbrs = rec {
       ls = lib.mkIf (hasPackage "eza") "eza";
