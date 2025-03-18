@@ -9,10 +9,14 @@
     extraFlags = [
       "--disable=traefik"
       "--disable=coredns"
+      "--disable=local-storage"
       "--disable=servicelb"
+      "--disable=metrics-server"
       "--flannel-backend=none"
       "--disable-network-policy"
       "--disable-kube-proxy"
+      "--disable-helm-controller"
+      "--embedded-registry"
     ];
   };
 
