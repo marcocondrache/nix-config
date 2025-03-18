@@ -14,8 +14,6 @@
     ./yubikey.nix
     ./fish.nix
     ./zoxide.nix
-    # TODO: opt out temporary
-    # ./zellij.nix
     ./ssh.nix
   ];
 

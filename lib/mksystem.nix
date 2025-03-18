@@ -28,9 +28,9 @@ systemFunction {
 
   specialArgs = {
     inherit host;
-    inherit inputs;
-    inherit darwin;
     inherit hosts;
+    inherit darwin;
+    inherit inputs;
   };
 
   modules =
