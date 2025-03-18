@@ -19,6 +19,11 @@
 
   systemd.services.k3s.path = [ pkgs.tailscale ];
 
+  networking.firewall.allowedTCPPorts = [
+    6443
+    5001 # spegel
+  ];
+
   # TODO: find a way to provision node external ip from tailscale
   services.k3s = {
     enable = true;
