@@ -13,14 +13,13 @@
     ../common/optional/tailscale.nix
     ../common/optional/sops.nix
     ../common/optional/k3s-server.nix
+    ../common/optional/sudo.nix
   ];
 
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
-
-  security.sudo.wheelNeedsPassword = false;
 
   system.stateVersion = "25.05";
 }

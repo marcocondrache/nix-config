@@ -18,14 +18,13 @@
     ../common/optional/acme.nix
     ../common/optional/nginx.nix
     ../common/optional/nginx-cf.nix
+    ../common/optional/sudo.nix
   ];
 
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
   };
-
-  security.sudo.wheelNeedsPassword = false;
 
   system.stateVersion = "25.05";
 }

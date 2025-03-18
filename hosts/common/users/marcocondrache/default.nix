@@ -19,10 +19,6 @@
     );
   };
 
-  environment.systemPackages = with pkgs; [
-    ghostty.terminfo
-  ];
-
   sops.secrets.marcocondrache-password = {
     sopsFile = ../../secrets.yaml;
     neededForUsers = true;
