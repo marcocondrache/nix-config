@@ -29,6 +29,7 @@ in
   services.nginx = {
     virtualHosts = {
       "connect.marcocondrache.com" = {
+        acmeRoot = null;
         forceSSL = true;
         enableACME = true;
 
