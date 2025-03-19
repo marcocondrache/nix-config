@@ -1,5 +1,6 @@
 { config, ... }:
 let
+  domain = "connect.marcocondrache.com";
   data_dir = "/home/opuser/.op/data";
   credentials_file = "/home/opuser/.op/1password-credentials.json";
 in
@@ -26,12 +27,15 @@ in
     };
   };
 
+  security.acme.certs."${domain}" = {
+    reloadServices = [ "nginx" ];
+  };
+
   services.nginx = {
     virtualHosts = {
-      "connect.marcocondrache.com" = {
-        acmeRoot = null;
+      "${domain}" = {
         forceSSL = true;
-        enableACME = true;
+        useACMEHost = domain;
 
         locations."/" = {
           proxyPass = "http://localhost:8080";
@@ -42,7 +46,7 @@ in
 
     tailscaleAuth = {
       virtualHosts = [
-        "connect.marcocondrache.com"
+        domain
       ];
     };
   };
