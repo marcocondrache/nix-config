@@ -27,15 +27,13 @@ in
     };
   };
 
-  security.acme.certs."${domain}" = {
-    reloadServices = [ "nginx" ];
-  };
-
   services.nginx = {
     virtualHosts = {
       "${domain}" = {
+        acmeRoot = null;
+        enableACME = true;
+
         forceSSL = true;
-        useACMEHost = domain;
 
         locations."/" = {
           proxyPass = "http://localhost:8080";
