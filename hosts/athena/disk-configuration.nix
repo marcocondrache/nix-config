@@ -22,18 +22,19 @@
               mountpoint = "/boot";
             };
           };
+
+          volume = {
+            name = "volume";
+            size = "25G";
+          };
+
           root = {
             name = "root";
-            size = "50%";
+            size = "100%";
             content = {
               type = "lvm_pv";
               vg = "pool";
             };
-          };
-
-          volume = {
-            name = "volume";
-            size = "50%";
           };
         };
       };
