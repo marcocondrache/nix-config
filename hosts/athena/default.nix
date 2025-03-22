@@ -21,5 +21,15 @@
     efiInstallAsRemovable = true;
   };
 
+  # TODO: required for longhorn https://github.com/longhorn/longhorn/issues/2166
+  systemd.tmpfiles.rules = [
+    "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
+  ];
+
+  services.openiscsi = {
+    enable = true;
+    name = "athena";
+  };
+
   system.stateVersion = "25.05";
 }

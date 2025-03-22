@@ -17,8 +17,6 @@
     "/persist".directories = [ "/var/lib/rancher" ];
   };
 
-  environment.systemPackages = [ pkgs.openiscsi ];
-
   systemd.services.k3s.path = [ pkgs.tailscale ];
 
   networking.firewall.allowedTCPPorts = [
