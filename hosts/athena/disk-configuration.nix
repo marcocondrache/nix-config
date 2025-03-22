@@ -24,15 +24,21 @@
           };
           root = {
             name = "root";
-            size = "100%";
+            size = "50%";
             content = {
               type = "lvm_pv";
               vg = "pool";
             };
           };
+
+          volume = {
+            name = "volume";
+            size = "50%";
+          };
         };
       };
     };
+
     lvm_vg = {
       pool = {
         type = "lvm_vg";
