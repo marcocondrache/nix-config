@@ -15,7 +15,6 @@
 
   networking.firewall.allowedTCPPorts = [
     6443
-    5001 # spegel
   ];
 
   services.tailscale = {
@@ -35,7 +34,6 @@
     ];
   };
 
-  # Manually connect to tailscale
   systemd.services.k3s = {
     after = [ "tailscaled-autoconnect.service" ];
     wants = [ "tailscaled-autoconnect.service" ];
