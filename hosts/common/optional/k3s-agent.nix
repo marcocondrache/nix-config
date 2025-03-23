@@ -5,6 +5,10 @@
   ...
 }:
 {
+  sops.secrets.k3s-vpn-auth = {
+    sopsFile = ../secrets.yaml;
+  };
+
   sops.secrets.k3s-token = {
     sopsFile = ../secrets.yaml;
   };
