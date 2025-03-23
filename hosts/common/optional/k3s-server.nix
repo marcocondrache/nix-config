@@ -16,7 +16,6 @@
       "--disable-network-policy"
       "--disable-kube-proxy"
       "--disable-helm-controller"
-      "--embedded-registry"
     ];
   };
 
