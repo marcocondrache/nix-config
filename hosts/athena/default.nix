@@ -31,5 +31,9 @@
     name = "athena";
   };
 
+  environment.persistence = {
+    "/persist".directories = [ "/var/lib/longhorn" ];
+  };
+
   system.stateVersion = "25.05";
 }
