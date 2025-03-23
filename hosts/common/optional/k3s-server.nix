@@ -3,7 +3,6 @@
     ./k3s-agent.nix
   ];
 
-  # TODO: find a way to provision node external ip from tailscale
   services.k3s = {
     role = "server";
     extraFlags = [
@@ -12,19 +11,12 @@
       "--disable=local-storage"
       "--disable=servicelb"
       "--disable=metrics-server"
-      "--flannel-backend=none"
       "--disable-network-policy"
       "--disable-kube-proxy"
       "--disable-helm-controller"
+
+      "--cluster-cidr=10.42.0.0/16"
+      "--service-cidr=10.43.0.0/16"
     ];
   };
-
-  # services.litestream = {
-  #   dbs = [
-  #     {
-  #       path = "/var/lib/rancher/k3s/server/db/state.db";
-  #       replicas = [ ];
-  #     }
-  #   ];
-  # };
 }

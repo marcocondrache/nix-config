@@ -11,8 +11,8 @@
     ../common/optional/systemd-initrd.nix
     ../common/optional/ephemeral-btrfs.nix
     ../common/optional/tailscale.nix
-    ../common/optional/sops.nix
     ../common/optional/k3s-server.nix
+    ../common/optional/sops.nix
     ../common/optional/sudo.nix
   ];
 
