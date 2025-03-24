@@ -12,13 +12,18 @@
     ../common/optional/persistence.nix
     ../common/optional/systemd-initrd.nix
     ../common/optional/ephemeral-btrfs.nix
-    ../common/optional/tailscale-exit-node.nix
+    ../common/optional/tailscale.nix
     ../common/optional/k3s-server.nix
     ../common/optional/sops.nix
     ../common/optional/podman.nix
     ../common/optional/acme.nix
     ../common/optional/sudo.nix
   ];
+
+  services.tailscale = {
+    useRoutingFeatures = "both";
+    extraUpFlags = [ "--accept-dns=false" ];
+  };
 
   services.k3s = {
     # NOTE: using hetzner cloud provider
@@ -30,9 +35,6 @@
       "--tls-san=10.0.1.1"
     ];
   };
-
-  networking.useNetworkd = true;
-  networking.useDHCP = false;
 
   boot.loader.grub = {
     efiSupport = true;

@@ -21,8 +21,10 @@
     efiInstallAsRemovable = true;
   };
 
-  networking.useNetworkd = true;
-  networking.useDHCP = false;
+  services.tailscale = {
+    useRoutingFeatures = "both";
+    extraUpFlags = [ "--accept-dns=false" ];
+  };
 
   services.k3s = {
     serverAddr = "https://10.0.1.1:6443";
