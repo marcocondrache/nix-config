@@ -24,8 +24,7 @@
   services.k3s = {
     serverAddr = "https://10.0.1.1:6443";
     extraFlags = [
-      "--node-ip=10.0.1.2"
-      "--advertise-address=10.0.1.2"
+      "--flannel-iface=enp7s0"
     ];
   };
 
