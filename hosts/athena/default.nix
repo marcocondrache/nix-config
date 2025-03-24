@@ -16,23 +16,17 @@
     ../common/optional/sudo.nix
   ];
 
+  services.k3s = {
+    # NOTE: using hetzner cloud provider
+    extraFlags = [
+      "--disable-cloud-controller"
+      "--kubelet-arg=cloud-provider=external"
+    ];
+  };
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
-  };
-
-  # TODO: required for longhorn https://github.com/longhorn/longhorn/issues/2166
-  systemd.tmpfiles.rules = [
-    "L+ /usr/local/bin - - - - /run/current-system/sw/bin/"
-  ];
-
-  services.openiscsi = {
-    enable = true;
-    name = "athena";
-  };
-
-  environment.persistence = {
-    "/persist".directories = [ "/var/lib/longhorn" ];
   };
 
   system.stateVersion = "25.05";
