@@ -23,7 +23,6 @@
 
   services.tailscale = {
     useRoutingFeatures = "both";
-    extraUpFlags = [ "--accept-dns=false" ];
   };
 
   services.k3s = {
