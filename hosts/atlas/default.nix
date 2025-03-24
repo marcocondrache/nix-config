@@ -23,6 +23,8 @@
   services.k3s = {
     # NOTE: using hetzner cloud provider
     extraFlags = [
+      "--node-ip=10.0.1.1"
+      "--advertise-address=10.0.1.1"
       "--disable-cloud-controller"
       "--kubelet-arg=cloud-provider=external"
       "--tls-san=atlas.tail13f4af.ts.net"
