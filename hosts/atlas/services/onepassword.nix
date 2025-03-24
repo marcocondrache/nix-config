@@ -4,6 +4,14 @@ let
   credentials_file = "/home/opuser/.op/1password-credentials.json";
 in
 {
+  # Create a dedicated network for 1Password containers
+  virtualisation.podman.networkOptions = {
+    "op-network" = {
+      dns_enabled = true;
+      subnet = "192.168.200.0/24";
+    };
+  };
+
   virtualisation.oci-containers = {
     backend = "podman";
     containers = {
@@ -14,6 +22,7 @@ in
           "onepassword:${data_dir}"
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"
         ];
+        extraOptions = [ "--network=op-network" ];
       };
       onepassword-sync = {
         image = "docker.io/1password/connect-sync:latest";
@@ -21,6 +30,7 @@ in
           "onepassword:${data_dir}"
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"
         ];
+        extraOptions = [ "--network=op-network" ];
       };
     };
   };
@@ -33,7 +43,7 @@ in
       "${config.virtualisation.oci-containers.containers.onepassword-connect.serviceName}.service"
     ];
 
-    # TODO: https://github.com/1Password/connect/issues/32
+    # TODO: https://github.com/1Password/connect/issues/32
     mode = "444";
   };
 }

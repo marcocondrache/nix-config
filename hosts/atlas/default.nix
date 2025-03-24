@@ -20,11 +20,6 @@
     ../common/optional/sudo.nix
   ];
 
-  services.tailscale = {
-    useRoutingFeatures = "both";
-    extraUpFlags = [ "--accept-dns=false" ];
-  };
-
   services.k3s = {
     # NOTE: using hetzner cloud provider
     extraFlags = [
