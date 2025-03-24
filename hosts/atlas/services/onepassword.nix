@@ -1,11 +1,9 @@
 { config, ... }:
 let
-  domain = "connect.marcocondrache.com";
   data_dir = "/home/opuser/.op/data";
   credentials_file = "/home/opuser/.op/1password-credentials.json";
 in
 {
-
   virtualisation.oci-containers = {
     backend = "podman";
     containers = {
@@ -24,28 +22,6 @@ in
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"
         ];
       };
-    };
-  };
-
-  services.nginx = {
-    virtualHosts = {
-      "${domain}" = {
-        acmeRoot = null;
-        enableACME = true;
-
-        forceSSL = true;
-
-        locations."/" = {
-          proxyPass = "http://localhost:8080";
-          proxyWebsockets = true;
-        };
-      };
-    };
-
-    tailscaleAuth = {
-      virtualHosts = [
-        domain
-      ];
     };
   };
 

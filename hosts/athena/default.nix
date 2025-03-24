@@ -11,23 +11,21 @@
     ../common/optional/systemd-initrd.nix
     ../common/optional/ephemeral-btrfs.nix
     ../common/optional/tailscale.nix
-    ../common/optional/k3s-server.nix
+    ../common/optional/k3s-agent.nix
     ../common/optional/sops.nix
     ../common/optional/sudo.nix
   ];
 
-  services.k3s = {
-    # NOTE: using hetzner cloud provider
-    extraFlags = [
-      "--disable-cloud-controller"
-      "--kubelet-arg=cloud-provider=external"
-      "--flannel-iface=enp7s0"
-    ];
-  };
-
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
+  };
+
+  services.k3s = {
+    serverAddr = "https://10.0.1.1:6443";
+    extraFlags = [
+      "--flannel-iface=enp7s0"
+    ];
   };
 
   system.stateVersion = "25.05";

@@ -13,13 +13,23 @@
     ../common/optional/systemd-initrd.nix
     ../common/optional/ephemeral-btrfs.nix
     ../common/optional/tailscale-exit-node.nix
+    ../common/optional/k3s-server.nix
     ../common/optional/sops.nix
     ../common/optional/podman.nix
     ../common/optional/acme.nix
-    ../common/optional/nginx.nix
-    ../common/optional/nginx-cf.nix
     ../common/optional/sudo.nix
   ];
+
+  services.k3s = {
+    # NOTE: using hetzner cloud provider
+    extraFlags = [
+      "--disable-cloud-controller"
+      "--kubelet-arg=cloud-provider=external"
+      "--flannel-iface=enp7s0"
+      "--tls-san=atlas.tail13f4af.ts.net"
+      "--tls-san=10.0.1.1"
+    ];
+  };
 
   boot.loader.grub = {
     efiSupport = true;
