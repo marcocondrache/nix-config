@@ -16,6 +16,13 @@
     ../common/optional/sudo.nix
   ];
 
+  networking.interfaces.enp1s0.ipv4.routes = [
+    {
+      address = "169.254.169.254";
+      prefixLength = 32;
+    }
+  ];
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
