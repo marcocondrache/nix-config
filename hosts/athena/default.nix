@@ -21,7 +21,8 @@
     efiInstallAsRemovable = true;
   };
 
-  networking.useDHCP = true;
+  networking.useNetworkd = true;
+  networking.useDHCP = false;
 
   services.k3s = {
     serverAddr = "https://10.0.1.1:6443";

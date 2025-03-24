@@ -31,7 +31,8 @@
     ];
   };
 
-  networking.useDHCP = true;
+  networking.useNetworkd = true;
+  networking.useDHCP = false;
 
   boot.loader.grub = {
     efiSupport = true;
