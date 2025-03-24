@@ -4,28 +4,6 @@ let
   credentials_file = "/home/opuser/.op/1password-credentials.json";
 in
 {
-  # Create a dedicated network for 1Password containers
-  environment.etc."containers/networks/op-network.json" = {
-    mode = "0644";
-    text = builtins.toJSON {
-      dns_enabled = true;
-      driver = "bridge";
-      id = "1111111111111111111111111111111111111111111111111111111111111111";
-      internal = false;
-      ipam_options = {
-        driver = "host-local";
-      };
-      ipv6_enabled = false;
-      name = "op-network";
-      network_interface = "op-network0";
-      subnets = [
-        {
-          gateway = "192.168.200.1";
-          subnet = "192.168.200.0/24";
-        }
-      ];
-    };
-  };
 
   virtualisation.oci-containers = {
     backend = "podman";
@@ -37,7 +15,7 @@ in
           "onepassword:${data_dir}"
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"
         ];
-        extraOptions = [ "--network=op-network" ];
+        extraOptions = [ "--network=host" ];
       };
       onepassword-sync = {
         image = "docker.io/1password/connect-sync:latest";
@@ -45,7 +23,7 @@ in
           "onepassword:${data_dir}"
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"
         ];
-        extraOptions = [ "--network=op-network" ];
+        extraOptions = [ "--network=host" ];
       };
     };
   };
