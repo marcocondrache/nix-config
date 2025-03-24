@@ -31,6 +31,8 @@
     ];
   };
 
+  networking.useDHCP = true;
+
   boot.loader.grub = {
     efiSupport = true;
     efiInstallAsRemovable = true;
