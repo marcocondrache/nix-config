@@ -25,7 +25,6 @@
     extraFlags = [
       "--disable-cloud-controller"
       "--kubelet-arg=cloud-provider=external"
-      "--flannel-iface=enp7s0"
       "--tls-san=atlas.tail13f4af.ts.net"
       "--tls-san=10.0.1.1"
     ];
