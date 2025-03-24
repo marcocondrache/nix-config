@@ -5,10 +5,25 @@ let
 in
 {
   # Create a dedicated network for 1Password containers
-  virtualisation.podman.networkOptions = {
-    "op-network" = {
+  environment.etc."containers/networks/op-network.json" = {
+    mode = "0644";
+    text = builtins.toJSON {
       dns_enabled = true;
-      subnet = "192.168.200.0/24";
+      driver = "bridge";
+      id = "1111111111111111111111111111111111111111111111111111111111111111";
+      internal = false;
+      ipam_options = {
+        driver = "host-local";
+      };
+      ipv6_enabled = false;
+      name = "op-network";
+      network_interface = "op-network0";
+      subnets = [
+        {
+          gateway = "192.168.200.1";
+          subnet = "192.168.200.0/24";
+        }
+      ];
     };
   };
 
