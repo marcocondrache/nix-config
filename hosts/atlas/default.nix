@@ -48,7 +48,7 @@
         prefixLength = 16;
         via = "10.0.0.1";
         options = {
-          protocol = "kernel";
+          scope = "link";
         };
       }
     ];
