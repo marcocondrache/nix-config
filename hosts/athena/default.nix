@@ -28,6 +28,7 @@
         "cilium_host"
         "cilium_net"
         "cilium_wg0"
+        "lxc*"
       ];
     };
 
