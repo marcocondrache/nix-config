@@ -26,7 +26,6 @@
   networking = {
     nftables.enable = true;
     firewall = {
-      enable = false;
       checkReversePath = lib.mkForce false;
 
       allowedTCPPorts = [
@@ -36,6 +35,9 @@
         9962 # agent prometheus metrics
         9963 # operator prometheus metrics
         9964 # envoy prometheus metrics
+
+        32524
+        30304
       ];
 
       allowedUDPPorts = [ 8472 ];
