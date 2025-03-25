@@ -20,6 +20,7 @@
   boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   networking = {
+    nftables.enable = true;
     firewall = {
       checkReversePath = lib.mkForce false;
 
@@ -33,6 +34,18 @@
       ];
 
       allowedUDPPorts = [ 8472 ];
+
+      trustedInterfaces = [
+        "enp7s0"
+        "cilium_host"
+        "cilium_net"
+        "cilium_wg0"
+        "lxc*"
+      ];
+
+      logRefusedPackets = true;
+      logRefusedConnections = true;
+      logReversePathDrops = true;
     };
 
     interfaces.enp1s0.ipv4.routes = [
