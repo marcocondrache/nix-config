@@ -55,6 +55,13 @@
         prefixLength = 32;
       }
     ];
+
+    interfaces.enp7s0.ipv4.routes = [
+      {
+        address = "10.42.0.0";
+        prefixLength = 16;
+      }
+    ];
   };
 
   boot.loader.grub = {
