@@ -42,6 +42,7 @@
       {
         address = "10.42.0.0";
         prefixLength = 16;
+        via = "10.0.0.1";
       }
     ];
   };
