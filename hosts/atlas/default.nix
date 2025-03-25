@@ -1,3 +1,4 @@
+{ lib, ... }:
 {
   imports = [
     ./services
@@ -25,15 +26,9 @@
   };
 
   networking = {
+    nftables.enable = true;
     firewall = {
-      trustedInterfaces = [
-        "enp7s0"
-
-        "cilium_host"
-        "cilium_net"
-        "cilium_wg*"
-        "lxc*"
-      ];
+      enable = lib.mkForce false;
     };
 
     interfaces.enp1s0.ipv4.routes = [
