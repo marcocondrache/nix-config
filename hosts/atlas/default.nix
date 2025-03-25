@@ -25,7 +25,7 @@
 
   networking = {
     firewall = {
-      checkReversePath = false;
+      checkReversePath = lib.mkForce false;
 
       allowedTCPPorts = [
         4240 # health check
