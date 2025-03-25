@@ -21,26 +21,9 @@
     ../common/optional/sudo.nix
   ];
 
-  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
-
   networking = {
     firewall = {
-      enable = lib.mkForce false;
       checkReversePath = lib.mkForce false;
-
-      allowedTCPPorts = [
-        4240 # health check
-        4244 # hubble server
-        4245 # hubble relay
-        9962 # agent prometheus metrics
-        9963 # operator prometheus metrics
-        9964 # envoy prometheus metrics
-
-        32524
-        30304
-      ];
-
-      allowedUDPPorts = [ 8472 ];
 
       trustedInterfaces = [
         "enp7s0"
@@ -48,25 +31,14 @@
         "cilium_net"
         "cilium_wg0"
         "cilium_vxlan"
-        "lxc*"
+        "lxc+"
       ];
-
-      logRefusedPackets = true;
-      logRefusedConnections = true;
-      logReversePathDrops = true;
     };
 
     interfaces.enp1s0.ipv4.routes = [
       {
         address = "169.254.169.254";
         prefixLength = 32;
-      }
-    ];
-
-    interfaces.enp7s0.ipv4.routes = [
-      {
-        address = "10.42.0.0";
-        prefixLength = 16;
       }
     ];
   };
