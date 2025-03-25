@@ -10,7 +10,7 @@ in
     containers = {
       onepassword-connect = {
         image = "docker.io/1password/connect-api:latest";
-        ports = [ "8080:8080" ];
+        ports = [ "8080:8090" ];
         volumes = [
           "onepassword:${data_dir}"
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"

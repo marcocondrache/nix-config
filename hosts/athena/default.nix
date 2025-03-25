@@ -17,18 +17,22 @@
     ../common/optional/sudo.nix
   ];
 
-  services.tailscale = {
-    useRoutingFeatures = "both";
-  };
-
-  boot.kernel.sysctl = {
-    "net.ipv4.conf.all.forwarding" = true;
-  };
+  boot.kernel.sysctl."net.ipv4.ip_forward" = 1;
 
   networking = {
-    nftables.enable = true;
     firewall = {
-      enable = lib.mkForce false;
+      checkReversePath = false;
+
+      allowedTCPPorts = [
+        4240 # health check
+        4244 # hubble server
+        4245 # hubble relay
+        9962 # agent prometheus metrics
+        9963 # operator prometheus metrics
+        9964 # envoy prometheus metrics
+      ];
+
+      allowedUDPPorts = [ 8472 ];
     };
 
     interfaces.enp1s0.ipv4.routes = [
