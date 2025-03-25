@@ -26,6 +26,7 @@
   networking = {
     nftables.enable = true;
     firewall = {
+      enable = lib.mkForce false;
       checkReversePath = lib.mkForce false;
 
       allowedTCPPorts = [
