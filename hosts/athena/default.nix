@@ -21,6 +21,10 @@
     useRoutingFeatures = "both";
   };
 
+  boot.kernel.sysctl = {
+    "net.ipv4.conf.all.forwarding" = true;
+  };
+
   networking = {
     nftables.enable = true;
     firewall = {
