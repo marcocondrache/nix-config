@@ -15,7 +15,6 @@ in
           "onepassword:${data_dir}"
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"
         ];
-        extraOptions = [ "--network=host" ];
       };
 
       onepassword-sync = {
@@ -24,7 +23,6 @@ in
           "onepassword:${data_dir}"
           "${config.sops.secrets.onepassword-credentials.path}:${credentials_file}"
         ];
-        extraOptions = [ "--network=host" ];
       };
     };
   };
