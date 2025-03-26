@@ -35,13 +35,13 @@
       }
     ];
 
-    interfaces.enp7s0.ipv4.routes = [
-      {
-        address = "10.42.0.0";
-        prefixLength = 16;
-        via = "10.0.0.1";
-      }
-    ];
+    # interfaces.enp7s0.ipv4.routes = [
+    #   {
+    #     address = "10.42.0.0";
+    #     prefixLength = 16;
+    #     via = "10.0.0.1";
+    #   }
+    # ];
   };
 
   boot.loader.grub = {
