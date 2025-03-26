@@ -1,7 +1,7 @@
 { lib, ... }:
 {
   imports = [
-    ./services
+    # ./services
 
     ./disk-configuration.nix
     ./hardware-configuration.nix
@@ -16,7 +16,7 @@
     ../common/optional/tailscale.nix
     ../common/optional/k3s-server.nix
     ../common/optional/sops.nix
-    ../common/optional/podman.nix
+    # ../common/optional/podman.nix
     ../common/optional/acme.nix
     ../common/optional/sudo.nix
   ];
@@ -27,10 +27,7 @@
 
       trustedInterfaces = [
         "enp7s0"
-        "cilium_host"
-        "cilium_net"
-        "cilium_wg0"
-        "cilium_vxlan"
+        "cilium+"
         "lxc+"
       ];
     };
@@ -52,7 +49,6 @@
   };
 
   services.k3s = {
-    # NOTE: using hetzner cloud provider
     extraFlags = [
       "--flannel-iface=enp7s0"
       "--disable-cloud-controller"

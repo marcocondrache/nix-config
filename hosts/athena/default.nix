@@ -23,10 +23,7 @@
 
       trustedInterfaces = [
         "enp7s0"
-        "cilium_host"
-        "cilium_net"
-        "cilium_wg0"
-        "cilium_vxlan"
+        "cilium+"
         "lxc+"
       ];
     };
