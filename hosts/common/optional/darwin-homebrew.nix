@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   inputs,
   ...
 }:
@@ -18,7 +19,6 @@
     };
 
     enable = true;
-    autoMigrate = true;
     mutableTaps = false;
   };
 
@@ -34,5 +34,8 @@
     global = {
       autoUpdate = false;
     };
+
+    # https://github.com/zhaofengli/nix-homebrew/issues/5#issuecomment-1878798641
+    taps = builtins.attrNames config.nix-homebrew.taps;
   };
 }

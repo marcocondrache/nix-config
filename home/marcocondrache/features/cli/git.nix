@@ -12,7 +12,7 @@
     userName = "Marco Mihai Condrache";
     userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
     signing = {
-      key = "209101AD5F0E04C6";
+      key = "0x209101AD5F0E04C6";
       format = "openpgp";
       signByDefault = lib.mkDefault true;
       signer = "${config.programs.gpg.package}/bin/gpg2";

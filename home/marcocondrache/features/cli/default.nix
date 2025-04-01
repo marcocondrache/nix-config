@@ -7,6 +7,7 @@
     ./git.nix
     ./gpg.nix
     ./fzf.nix
+    ./atuin.nix
     ./btop.nix
     ./k9s.nix
     ./docker.nix
