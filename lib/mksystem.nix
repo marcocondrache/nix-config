@@ -7,6 +7,7 @@
   host,
   system,
   darwin ? false,
+  name ? host,
 }:
 let
   lib = nixpkgs.lib;
@@ -28,6 +29,7 @@ systemFunction {
 
   specialArgs = {
     inherit host;
+    inherit name;
     inherit hosts;
     inherit darwin;
     inherit inputs;

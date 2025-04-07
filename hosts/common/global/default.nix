@@ -1,6 +1,7 @@
 {
   lib,
   host,
+  name,
   pkgs,
   hosts,
   darwin,
@@ -20,7 +21,7 @@ in
     stateVersion = lib.mkDefault "25.05";
   };
 
-  networking.hostName = host;
+  networking.hostName = name;
 
   nixpkgs = {
     config = {

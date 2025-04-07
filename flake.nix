@@ -74,6 +74,7 @@
       nixosConfigurations = {
         cronus = lib.mkSystem {
           host = "cronus";
+          name = "cronus-rh6w";
           system = "aarch64-linux";
         };
       };
