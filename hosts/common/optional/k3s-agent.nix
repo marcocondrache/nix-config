@@ -22,11 +22,4 @@
     role = lib.mkDefault "agent";
     tokenFile = config.sops.secrets.k3s-token.path;
   };
-
-  systemd.services.k3s = {
-    after = [ "tailscaled-autoconnect.service" ];
-    wants = [ "tailscaled-autoconnect.service" ];
-
-    path = [ pkgs.tailscale ];
-  };
 }

@@ -26,11 +26,17 @@
 
           root = {
             name = "root";
-            size = "100%";
+            size = "40G";
             content = {
               type = "lvm_pv";
               vg = "pool";
             };
+          };
+
+          empty = {
+            name = "empty";
+            size = "100%";
+            type = "8300";
           };
         };
       };

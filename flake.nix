@@ -22,6 +22,8 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
+    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
+
     # Taps
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
@@ -70,13 +72,8 @@
       };
 
       nixosConfigurations = {
-        atlas = lib.mkSystem {
-          host = "atlas";
-          system = "aarch64-linux";
-        };
-
-        athena = lib.mkSystem {
-          host = "athena";
+        cronus = lib.mkSystem {
+          host = "cronus";
           system = "aarch64-linux";
         };
       };

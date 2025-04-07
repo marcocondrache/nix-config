@@ -11,8 +11,8 @@
     isNormalUser = true;
     extraGroups = [
       "wheel"
-      "podman"
     ];
+    
     hashedPasswordFile = config.sops.secrets.marcocondrache-password.path;
     openssh.authorizedKeys.keys = lib.splitString "\n" (
       builtins.readFile ../../../../home/marcocondrache/ssh.pub

@@ -3,7 +3,6 @@
   "packages": [
     "sops@latest",
     "ssh-to-age@latest",
-    "gnupg@latest",
     "age@latest",
     "nixos-anywhere@latest"
   ],
