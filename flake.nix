@@ -22,8 +22,6 @@
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
 
-    nixos-hardware.url = "github:NixOS/nixos-hardware/master";
-
     # Taps
     homebrew-bundle = {
       url = "github:homebrew/homebrew-bundle";
@@ -68,14 +66,6 @@
           host = "xawed";
           system = "aarch64-darwin";
           darwin = true;
-        };
-      };
-
-      nixosConfigurations = {
-        cronus-rh6w = lib.mkSystem {
-          host = "cronus";
-          name = "cronus-rh6w";
-          system = "aarch64-linux";
         };
       };
     };
