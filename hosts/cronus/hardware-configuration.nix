@@ -7,17 +7,37 @@
 {
   imports = [
     inputs.nixos-hardware.nixosModules.raspberry-pi-4
-
-    ../common/optional/ephemeral-btrfs.nix
   ];
 
   boot = {
-    kernelPackages = pkgs.linuxPackages_latest;
+    kernelPackages = pkgs.linuxPackages;
+
+    # https://github.com/envoyproxy/envoy/issues/23339
+    # TODO: Consider using generic kernel instead
+    # kernelPatches = [
+    #   {
+    #     name = "va-bits";
+    #     patch = null;
+    #     extraConfig = ''
+    #       ARM64_VA_BITS_48 y
+    #     '';
+    #   }
+    # ];
+
     kernelParams = [
       "cgroup_enable=cpuset"
       "cgroup_enable=memory"
       "cgroup_memory=1"
     ];
+
+    initrd = {
+      availableKernelModules = [
+        "uas"
+        "xhci_pci"
+        "pcie-brcmstb"
+        "reset-raspberrypi"
+      ];
+    };
   };
 
   console.enable = false;

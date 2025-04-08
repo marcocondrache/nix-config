@@ -6,7 +6,7 @@
 }:
 {
   imports = [
-    ./disk-configuration.nix
+    # ./disk-configuration.nix
     ./hardware-configuration.nix
 
     ../common/global
@@ -20,6 +20,8 @@
 
     ../common/optional/k3s-server.nix
   ];
+
+  nix.settings.auto-optimise-store = false;
 
   environment.systemPackages = with pkgs; [
     libraspberrypi
