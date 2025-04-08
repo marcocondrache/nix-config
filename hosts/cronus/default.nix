@@ -6,8 +6,6 @@
 }:
 {
   imports = [
-    inputs.nixos-hardware.nixosModules.raspberry-pi-4
-
     ./disk-configuration.nix
     ./hardware-configuration.nix
 

@@ -1,6 +1,13 @@
-{ lib, pkgs, ... }:
+{
+  lib,
+  pkgs,
+  inputs,
+  ...
+}:
 {
   imports = [
+    inputs.nixos-hardware.nixosModules.raspberry-pi-4
+
     ../common/optional/ephemeral-btrfs.nix
   ];
 
