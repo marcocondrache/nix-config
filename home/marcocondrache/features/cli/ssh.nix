@@ -1,6 +1,5 @@
 {
   lib,
-  hosts,
   darwin,
   ...
 }:
@@ -19,14 +18,6 @@ in
 
     matchBlocks = {
       network = {
-        host = lib.concatStringsSep " " (
-          lib.flatten (
-            map (host: [
-              "${host}.ts.marcocondrache.com"
-            ]) hosts
-          )
-        );
-
         remoteForwards = [
           {
             # TODO: find a better way to do this on darwin systems

@@ -3,7 +3,6 @@
   host,
   name,
   pkgs,
-  hosts,
   darwin,
   ...
 }:
@@ -35,7 +34,7 @@ in
     backupFileExtension = "backup";
 
     extraSpecialArgs = {
-      inherit hosts darwin;
+      inherit darwin;
     };
 
     sharedModules = [
