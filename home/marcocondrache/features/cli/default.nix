@@ -22,6 +22,7 @@
   home.packages = with pkgs; [
     eza
     devbox
+    gnumake
 
     nil
     nixfmt-rfc-style
