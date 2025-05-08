@@ -30,13 +30,14 @@
       branch.sort = "committerdate";
     };
 
-    delta = {
-      enable = true;
+    maintenance = {
+      enable = lib.mkDefault true;
     };
 
     ignores = [
       ".npmrc"
       ".direnv"
+      ".devbox"
     ];
   };
 }
