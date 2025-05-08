@@ -15,6 +15,7 @@ in
     enable = true;
 
     shellAbbrs = rec {
+      ce = "cursor .";
       ls = lib.mkIf (hasPackage "eza") "eza";
       cd = lib.mkIf (hasPackage "zoxide") "z";
       lg = lib.mkIf (hasPackage "lazygit") "lazygit";
