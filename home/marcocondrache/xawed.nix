@@ -27,5 +27,11 @@ in
         feature.manyFiles = true;
       };
     }
+
+    # Private work configuration i cannot share
+    {
+      condition = "gitdir:${workEnv}/";
+      path = "${workEnv}/.gitconfig";
+    }
   ];
 }
