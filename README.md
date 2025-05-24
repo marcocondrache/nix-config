@@ -51,7 +51,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 git clone https://github.com/marcocondrache/nix-config.git && cd nix-config
 
 # Apply configuration
-nix run nix-darwin -- switch --flake .#hostname     # For Darwin
+sudo nix run nix-darwin -- switch --flake .#hostname     # For Darwin
 sudo nixos-rebuild switch --flake .#hostname        # For NixOS
 ```
 
