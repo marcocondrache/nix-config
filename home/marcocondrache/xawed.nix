@@ -1,4 +1,5 @@
 {
+  pkgs,
   ...
 }:
 let
@@ -11,6 +12,15 @@ in
     ./features/cli
     ./features/desktop
   ];
+
+  home.packages = with pkgs; [
+    coder
+  ];
+
+  # TODO: find a better way to do this
+  home.sessionVariables = {
+    CODER_SSH_CONFIG_FILE = "${workEnv}/.ssh/config";
+  };
 
   programs.lazygit = {
     settings.services = {
@@ -33,5 +43,9 @@ in
       condition = "gitdir:${workEnv}/";
       path = "${workEnv}/.gitconfig";
     }
+  ];
+
+  programs.ssh.includes = [
+    "${workEnv}/.ssh/config"
   ];
 }
