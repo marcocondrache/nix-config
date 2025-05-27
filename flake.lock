@@ -1,22 +1,5 @@
 {
   "nodes": {
-    "brew-src": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1746795192,
-        "narHash": "sha256-Cv+RXuzmn2iGBY2Ny/nXBTH+LFKDWIvMxf9a+btKI6M=",
-        "owner": "Homebrew",
-        "repo": "brew",
-        "rev": "6f39076b3c2251994419215279d0525ef667fc31",
-        "type": "github"
-      },
-      "original": {
-        "owner": "Homebrew",
-        "ref": "4.5.2",
-        "repo": "brew",
-        "type": "github"
-      }
-    },
     "disko": {
       "inputs": {
         "nixpkgs": [
@@ -57,22 +40,6 @@
         "type": "github"
       }
     },
-    "homebrew-bundle": {
-      "flake": false,
-      "locked": {
-        "lastModified": 1745335228,
-        "narHash": "sha256-TIKR2UgtyUmHLNZp255/vLs+1I10hXe+sciMEbAGFwE=",
-        "owner": "homebrew",
-        "repo": "homebrew-bundle",
-        "rev": "a3265c84b232e13048ecbf6fc18a2eedfadbeb08",
-        "type": "github"
-      },
-      "original": {
-        "owner": "homebrew",
-        "repo": "homebrew-bundle",
-        "type": "github"
-      }
-    },
     "impermanence": {
       "locked": {
         "lastModified": 1737831083,
@@ -108,24 +75,6 @@
         "type": "github"
       }
     },
-    "nix-homebrew": {
-      "inputs": {
-        "brew-src": "brew-src"
-      },
-      "locked": {
-        "lastModified": 1748305448,
-        "narHash": "sha256-G3PvFLCoq5LCcP0rn+6TP5pF1smtRlYCfOS+1Epn2Tk=",
-        "owner": "zhaofengli-wip",
-        "repo": "nix-homebrew",
-        "rev": "6f94d412d389a7ff8c0b3e295e34558ee6381890",
-        "type": "github"
-      },
-      "original": {
-        "owner": "zhaofengli-wip",
-        "repo": "nix-homebrew",
-        "type": "github"
-      }
-    },
     "nixpkgs": {
       "locked": {
         "lastModified": 1748217807,
@@ -146,10 +95,8 @@
       "inputs": {
         "disko": "disko",
         "home-manager": "home-manager",
-        "homebrew-bundle": "homebrew-bundle",
         "impermanence": "impermanence",
         "nix-darwin": "nix-darwin",
-        "nix-homebrew": "nix-homebrew",
         "nixpkgs": "nixpkgs",
         "sops-nix": "sops-nix",
         "systems": "systems"
