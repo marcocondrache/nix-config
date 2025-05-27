@@ -7,7 +7,6 @@
 }:
 let
   packageNames = map (p: p.pname or p.name or null) config.home.packages;
-  hasTailscale = darwin && osConfig.homebrew.enable && osConfig.homebrew.masApps.Tailscale != null;
   hasPackage = name: lib.any (x: x == name) packageNames;
 in
 {
@@ -24,10 +23,6 @@ in
 
     functions = {
       fish_greeting = "";
-
-      tailscale = lib.mkIf hasTailscale ''
-        /Applications/Tailscale.app/Contents/MacOS/Tailscale $argv
-      '';
 
       cd_git_root = ''
         if git rev-parse --git-dir &>/dev/null

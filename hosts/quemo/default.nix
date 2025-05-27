@@ -6,8 +6,6 @@
   imports = [
     ../common/global
     ../common/users/marcocondrache/darwin.nix
-    ../common/optional/darwin-homebrew.nix
-    ../common/optional/darwin-tailscale.nix
   ];
 
   users.users.marcocondrache.home = "/Users/marcocondrache";
