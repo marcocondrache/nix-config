@@ -37,4 +37,8 @@ in
   programs.ssh.includes = [
     "${workEnv}/.ssh/config"
   ];
+
+  programs.fish.shellAliases = {
+    tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
+  };
 }
