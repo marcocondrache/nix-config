@@ -50,54 +50,53 @@
       }
     },
     "github:NixOS/nixpkgs/nixpkgs-unstable": {
-      "last_modified": "2025-08-01T14:55:05Z",
-      "resolved": "github:NixOS/nixpkgs/e7eabdc701d7dbb810fd91a97ec358caa4c1fc50?lastModified=1754060105&narHash=sha256-di5L6e5Iiv%2BoegS07j9h23FdqEpXn0ZQqMlDOEMw1EY%3D"
+      "resolved": "github:NixOS/nixpkgs/199169a2135e6b864a888e89a2ace345703c025d?lastModified=1740791350&narHash=sha256-igS2Z4tVw5W%2Fx3lCZeeadt0vcU9fxtetZ%2FRyrqsCRQ0%3D"
     },
     "nixos-anywhere@latest": {
-      "last_modified": "2025-02-13T04:03:32Z",
-      "resolved": "github:NixOS/nixpkgs/2d55b4c1531187926c2a423f6940b3b1301399b5#nixos-anywhere",
+      "last_modified": "2025-07-16T16:36:02Z",
+      "resolved": "github:NixOS/nixpkgs/fa64ec5c1ca6f17746f3defedb988b9248e97616#nixos-anywhere",
       "source": "devbox-search",
-      "version": "1.7.0",
+      "version": "1.11.0",
       "systems": {
         "aarch64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/97bz5q8a43kajl8zrz3n86gnza1iksmw-nixos-anywhere-1.7.0",
+              "path": "/nix/store/81v3q06bphly0q6sdw4v2gdkg23ldc6q-nixos-anywhere-1.11.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/97bz5q8a43kajl8zrz3n86gnza1iksmw-nixos-anywhere-1.7.0"
+          "store_path": "/nix/store/81v3q06bphly0q6sdw4v2gdkg23ldc6q-nixos-anywhere-1.11.0"
         },
         "aarch64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/b0i1bh1rcnrixpqjxcbkxb3qdpfl0kzi-nixos-anywhere-1.7.0",
+              "path": "/nix/store/9d8kv9cbfhfcaz2nkdipjfavdpwv0gsm-nixos-anywhere-1.11.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/b0i1bh1rcnrixpqjxcbkxb3qdpfl0kzi-nixos-anywhere-1.7.0"
+          "store_path": "/nix/store/9d8kv9cbfhfcaz2nkdipjfavdpwv0gsm-nixos-anywhere-1.11.0"
         },
         "x86_64-darwin": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/jzip3m7871gj214b2w19pq1xcm16w0sc-nixos-anywhere-1.7.0",
+              "path": "/nix/store/kys8657yi5zp576c12ndfg84dwwj3cz6-nixos-anywhere-1.11.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/jzip3m7871gj214b2w19pq1xcm16w0sc-nixos-anywhere-1.7.0"
+          "store_path": "/nix/store/kys8657yi5zp576c12ndfg84dwwj3cz6-nixos-anywhere-1.11.0"
         },
         "x86_64-linux": {
           "outputs": [
             {
               "name": "out",
-              "path": "/nix/store/lsdk0rq977sci4jsqrv1wlrg1j3q859x-nixos-anywhere-1.7.0",
+              "path": "/nix/store/rz6gj4w4c15v035bqjmyirnfsyn1283j-nixos-anywhere-1.11.0",
               "default": true
             }
           ],
-          "store_path": "/nix/store/lsdk0rq977sci4jsqrv1wlrg1j3q859x-nixos-anywhere-1.7.0"
+          "store_path": "/nix/store/rz6gj4w4c15v035bqjmyirnfsyn1283j-nixos-anywhere-1.11.0"
         }
       }
     },
