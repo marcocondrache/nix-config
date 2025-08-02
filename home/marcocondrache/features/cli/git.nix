@@ -28,10 +28,8 @@
 
       push.autoSetupRemote = true;
       branch.sort = "committerdate";
-    };
 
-    maintenance = {
-      enable = lib.mkDefault true;
+      core.fsmonitor = true;
     };
 
     ignores = [
