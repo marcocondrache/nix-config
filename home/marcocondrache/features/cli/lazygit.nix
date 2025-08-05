@@ -10,6 +10,7 @@
       };
 
       notARepository = "quit";
+      promptToReturnFromSubprocess = false;
     };
   };
 }

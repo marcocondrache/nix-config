@@ -14,8 +14,14 @@ in
   ];
 
   programs.lazygit = {
-    settings.services = {
-      "dev.azure.com" = "azuredevops:dev.azure.com/danfoss";
+    settings = {
+      os = {
+        editPreset = "vscode";
+      };
+
+      services = {
+        "dev.azure.com" = "azuredevops:dev.azure.com/danfoss";
+      };
     };
   };
 
