@@ -34,6 +34,12 @@ in
     enableSshSupport = true;
     enableExtraSocket = true;
     sshKeys = [ "8A4248ED29B2E49BEA8D6D2560CD3EBBEADCE11D" ];
+
+    defaultCacheTtl = 4 * 3600;
+    defaultCacheTtlSsh = 4 * 3600;
+
+    maxCacheTtl = 24 * 3600;
+    maxCacheTtlSsh = 24 * 3600;
   };
 
   systemd.user.services = lib.mkIf (!darwin) {
