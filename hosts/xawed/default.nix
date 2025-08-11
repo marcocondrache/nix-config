@@ -11,6 +11,7 @@
 
   nix.linux-builder = {
     maxJobs = 4;
+    ephemeral = true;
     config = {
       virtualisation = {
         darwin-builder = {
@@ -21,8 +22,6 @@
         cores = 6;
       };
     };
-
-    # ephemeral = true;
   };
 
   security.pam.services.sudo_local.touchIdAuth = true;
