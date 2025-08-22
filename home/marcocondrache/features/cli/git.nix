@@ -7,7 +7,8 @@
 {
   programs.git = {
     enable = lib.mkDefault true;
-    package = lib.mkDefault pkgs.gitAndTools.gitFull;
+    # TODO: git full is broken: https://github.com/NixOS/nixpkgs/issues/208951#issuecomment-3178005013
+    package = lib.mkDefault pkgs.gitAndTools.git;
 
     userName = "Marco Mihai Condrache";
     userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
