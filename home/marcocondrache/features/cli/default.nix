@@ -10,6 +10,7 @@
     ./atuin.nix
     ./btop.nix
     ./k9s.nix
+    ./kubef.nix
     ./docker.nix
     ./lazygit.nix
     ./yubikey.nix

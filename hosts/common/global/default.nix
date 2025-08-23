@@ -4,6 +4,7 @@
   name,
   pkgs,
   darwin,
+  inputs,
   ...
 }:
 let
@@ -35,11 +36,13 @@ in
 
     extraSpecialArgs = {
       inherit darwin;
+      inherit inputs;
     };
 
     sharedModules = [
       #inputs.sops-nix.homeManagerModules.sops
-    ] ++ (builtins.attrValues homeModules);
+    ]
+    ++ (builtins.attrValues homeModules);
   };
 
   environment.systemPackages = lib.mkIf (!darwin) (

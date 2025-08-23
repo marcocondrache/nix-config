@@ -18,6 +18,9 @@
 
     disko.url = "github:nix-community/disko";
     disko.inputs.nixpkgs.follows = "nixpkgs";
+
+    kubef.url = "github:marcocondrache/kubef";
+    kubef.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
