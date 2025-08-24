@@ -23,6 +23,7 @@
   home.packages = with pkgs; [
     eza
     devbox
+    devenv
     gnumake
 
     nil

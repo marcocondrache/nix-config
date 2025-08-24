@@ -17,6 +17,7 @@ in
       ce = "cursor .";
       ls = lib.mkIf (hasPackage "eza") "eza";
       cd = lib.mkIf (hasPackage "zoxide") "z";
+      kf = lib.mkIf (hasPackage "kubef") "kubef";
       lg = lib.mkIf (hasPackage "lazygit") "lazygit";
       exa = ls;
     };
