@@ -58,8 +58,8 @@
         "super+7=goto_tab:7"
         "super+8=goto_tab:8"
         "super+9=goto_tab:9"
-        "super+ctrl+left=previous_tab"
-        "super+ctrl+right=next_tab"
+        "super+alt+left=previous_tab"
+        "super+alt+right=next_tab"
 
         # Scrollback/search
         "super+s=scroll_page_up"
