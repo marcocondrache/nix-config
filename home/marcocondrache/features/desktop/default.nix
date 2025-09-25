@@ -1,6 +1,6 @@
 {
   imports = [
-    ./brave.nix
+    # ./brave.nix
     # ./spotify.nix
     # ./raycast.nix
     # ./postman.nix
