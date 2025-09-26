@@ -10,7 +10,6 @@ in
   imports = [
     ./global
     ./features/cli
-    ./features/desktop
   ];
 
   programs.lazygit = {
