@@ -27,6 +27,7 @@
     devbox
     devenv
     gnumake
+    curlFull
 
     nil
     nixfmt-rfc-style
