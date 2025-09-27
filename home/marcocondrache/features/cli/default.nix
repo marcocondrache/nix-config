@@ -30,6 +30,7 @@
     curlFull
 
     nil
+    nixd
     nixfmt-rfc-style
   ];
 }
