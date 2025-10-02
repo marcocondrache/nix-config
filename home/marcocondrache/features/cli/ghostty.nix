@@ -9,7 +9,7 @@
       macos-titlebar-style = "transparent";
       macos-option-as-alt = "left";
 
-      font-family = "Hack";
+      font-family = "CommitMono";
       font-size = 14;
 
       window-padding-balance = true;

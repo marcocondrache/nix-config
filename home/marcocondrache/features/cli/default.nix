@@ -9,7 +9,7 @@
     ./fzf.nix
     ./atuin.nix
     ./btop.nix
-    ./fonts.nix
+    # ./fonts.nix
     ./ghostty.nix
     ./k9s.nix
     ./kubef.nix
