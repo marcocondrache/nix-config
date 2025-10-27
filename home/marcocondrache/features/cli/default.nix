@@ -11,6 +11,7 @@
     ./btop.nix
     # ./fonts.nix
     ./ghostty.nix
+    ./alacritty.nix
     ./k9s.nix
     ./kubef.nix
     ./docker.nix
