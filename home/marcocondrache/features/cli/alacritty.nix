@@ -25,7 +25,6 @@
         opacity = 1.0;
         blur = false;
         dynamic_padding = true;
-        decorations = "Transparent";
       };
 
       cursor = {

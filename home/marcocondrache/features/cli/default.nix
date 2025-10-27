@@ -16,6 +16,7 @@
     ./kubef.nix
     ./docker.nix
     ./lazygit.nix
+    ./gitui.nix
     ./yubikey.nix
     ./fish.nix
     ./zoxide.nix
