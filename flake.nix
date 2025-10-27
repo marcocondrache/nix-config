@@ -27,7 +27,6 @@
     inputs@{
       self,
       nixpkgs,
-      systems,
       ...
     }:
     let

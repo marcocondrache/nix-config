@@ -10,8 +10,6 @@
     # TODO: git full is broken: https://github.com/NixOS/nixpkgs/issues/208951#issuecomment-3178005013
     package = lib.mkDefault pkgs.gitAndTools.git;
 
-    userName = "Marco Mihai Condrache";
-    userEmail = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
     signing = {
       key = "0x209101AD5F0E04C6";
       format = "openpgp";
@@ -19,18 +17,25 @@
       signer = "${config.programs.gpg.package}/bin/gpg2";
     };
 
-    extraConfig = {
-      init.defaultBranch = "main";
+    settings = {
+      user = {
+        name = lib.mkDefault "Marco Mihai Condrache";
+        email = lib.mkDefault "52580954+marcocondrache@users.noreply.github.com";
+      };
 
-      diff.algorithm = "histogram";
-      merge.conflictStyle = "zdiff3";
+      extraConfig = {
+        init.defaultBranch = "main";
 
-      commit.verbose = true;
+        diff.algorithm = "histogram";
+        merge.conflictStyle = "zdiff3";
 
-      push.autoSetupRemote = true;
-      branch.sort = "committerdate";
+        commit.verbose = true;
 
-      core.fsmonitor = true;
+        push.autoSetupRemote = true;
+        branch.sort = "committerdate";
+
+        core.fsmonitor = true;
+      };
     };
 
     ignores = [

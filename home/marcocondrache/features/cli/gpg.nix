@@ -5,10 +5,6 @@
   ...
 }:
 let
-  gpg-autostart = ''
-    gpgconf --launch gpg-agent
-  '';
-
   # https://github.com/nix-community/home-manager/pull/5901
   # temporary until PR is merged
   gpg-agent-env = ''

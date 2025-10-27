@@ -12,11 +12,12 @@ in
     enable = true;
 
     shellAbbrs = rec {
-      ce = "cursor .";
+      ce = "zed .";
       ls = lib.mkIf (hasPackage "eza") "eza";
       cd = lib.mkIf (hasPackage "zoxide") "z";
       kf = lib.mkIf (hasPackage "kubef") "kubef";
       lg = lib.mkIf (hasPackage "lazygit") "lazygit";
+      grep = lib.mkIf (hasPackage "ripgrep") "rg";
       exa = ls;
     };
 

@@ -1,10 +1,5 @@
-{
-  pkgs,
-  ...
-}:
 let
   workEnv = "~/Work";
-  _personalEnv = "~/Personal";
 in
 {
   imports = [

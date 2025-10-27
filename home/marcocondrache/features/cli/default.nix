@@ -27,6 +27,7 @@
     devbox
     devenv
     gnumake
+    ripgrep
     curlFull
 
     nil
