@@ -1,3 +1,4 @@
+{ pkgs, ... }:
 let
   workEnv = "~/Work";
 in
@@ -18,6 +19,10 @@ in
       };
     };
   };
+
+  home.packages = with pkgs; [
+    coder
+  ];
 
   # Disable the login message
   home.file.".hushlogin" = {
