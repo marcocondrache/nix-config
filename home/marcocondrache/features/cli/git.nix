@@ -7,8 +7,7 @@
 {
   programs.git = {
     enable = lib.mkDefault true;
-    # TODO: git full is broken: https://github.com/NixOS/nixpkgs/issues/208951#issuecomment-3178005013
-    package = lib.mkDefault pkgs.gitAndTools.git;
+    package = lib.mkDefault pkgs.gitFull;
 
     signing = {
       key = "0x209101AD5F0E04C6";
