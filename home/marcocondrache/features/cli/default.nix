@@ -8,6 +8,7 @@
     ./gpg.nix
     ./fzf.nix
     ./atuin.nix
+    # ./mcfly.nix
     ./btop.nix
     # ./fonts.nix
     ./ghostty.nix
@@ -15,6 +16,7 @@
     ./k9s.nix
     ./kubef.nix
     ./docker.nix
+    ./yazi.nix
     ./lazygit.nix
     ./yubikey.nix
     ./fish.nix
@@ -30,6 +32,7 @@
     gnumake
     ripgrep
     curlFull
+    tailspin
 
     nil
     nixd
