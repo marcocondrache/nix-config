@@ -1,4 +1,3 @@
-{ pkgs, ... }:
 {
   programs.lazygit = {
     enable = true;
@@ -7,6 +6,10 @@
         commit = {
           signOff = true;
         };
+
+        overrideGpg = true;
+
+        autoForwardBranches = "allBranches";
       };
 
       notARepository = "quit";
