@@ -22,6 +22,7 @@ in
 
   home.packages = with pkgs; [
     coder
+    claude-code
   ];
 
   # Disable the login message
