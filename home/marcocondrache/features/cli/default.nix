@@ -5,6 +5,7 @@
     ./bun.nix
     ./gh.nix
     ./git.nix
+    ./mergiraf.nix
     ./gpg.nix
     ./fzf.nix
     ./atuin.nix

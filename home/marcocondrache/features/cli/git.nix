@@ -9,6 +9,10 @@
     enable = lib.mkDefault true;
     package = lib.mkDefault pkgs.gitFull;
 
+    attributes = [
+      "* merge=mergiraf"
+    ];
+
     signing = {
       key = "0x209101AD5F0E04C6";
       format = "openpgp";
@@ -34,6 +38,11 @@
         branch.sort = "committerdate";
 
         core.fsmonitor = true;
+
+        merge.mergiraf = {
+          name = "mergiraf";
+          driver = "mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P -l %L";
+        };
       };
     };
 
