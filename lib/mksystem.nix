@@ -1,7 +1,7 @@
 {
   nixpkgs,
   inputs,
-  outputs,
+  ...
 }:
 {
   host,
@@ -34,6 +34,9 @@ systemFunction {
   modules =
     (lib.optionals (!darwin) [
       inputs.disko.nixosModules.disko
+    ])
+    ++ (lib.optionals darwin [
+      inputs.determinate.darwinModules.default
     ])
     ++ [
       home-manager

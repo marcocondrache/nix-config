@@ -1,6 +1,6 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 let
-  workEnv = "~/Work";
+  workEnv = "${config.home.homeDirectory}/Work";
 in
 {
   imports = [
@@ -23,6 +23,7 @@ in
   home.packages = with pkgs; [
     coder
     claude-code
+    container
   ];
 
   # Disable the login message
@@ -46,7 +47,7 @@ in
   ];
 
   programs.ssh.includes = [
-    "${workEnv}/.ssh/config"
+    "${workEnv}/.ssh/coder"
   ];
 
   programs.fish.shellAliases = {

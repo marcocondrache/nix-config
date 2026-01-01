@@ -28,7 +28,6 @@
   # General packages that don't need configuration
   home.packages = with pkgs; [
     eza
-    devbox
     devenv
     gnumake
     ripgrep
