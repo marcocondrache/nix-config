@@ -51,7 +51,7 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 git clone https://github.com/marcocondrache/nix-config.git && cd nix-config
 
 # Apply configuration
-sudo nix run nix-darwin -- switch --flake .#hostname     # For Darwin
+sudo darwin-rebuild switch --flake .#hostname     # For Darwin
 sudo nixos-rebuild switch --flake .#hostname        # For NixOS
 ```
 
@@ -73,4 +73,4 @@ This configuration is provided under the **MIT License**. You are free to use, m
 - The **Nix Darwin** team for macOS support
 - The **Home Manager** project for user environment management
 - [Misterio77's nix-config](https://github.com/Misterio77/nix-config) for being the main inspiration for this configuration
-- All the FOSS projects that make this configuration possible 
+- All the FOSS projects that make this configuration possible

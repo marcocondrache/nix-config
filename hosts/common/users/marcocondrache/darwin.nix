@@ -15,6 +15,8 @@
     );
   };
 
+  nix.enable = false;
+
   system.primaryUser = "marcocondrache";
 
   home-manager.users.marcocondrache = import ../../../../home/marcocondrache/${config.networking.hostName}.nix;

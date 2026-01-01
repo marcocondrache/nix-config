@@ -1,6 +1,5 @@
 {
   lib,
-  host,
   name,
   pkgs,
   darwin,

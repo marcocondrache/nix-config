@@ -6,23 +6,7 @@
   imports = [
     ../common/global
     ../common/users/marcocondrache/darwin.nix
-    ../common/optional/darwin-builder.nix
   ];
-
-  nix.linux-builder = {
-    maxJobs = 4;
-    ephemeral = true;
-    config = {
-      virtualisation = {
-        darwin-builder = {
-          diskSize = 40 * 1024;
-          memorySize = 8 * 1024;
-        };
-
-        cores = 6;
-      };
-    };
-  };
 
   security.pam.services.sudo_local.touchIdAuth = true;
 

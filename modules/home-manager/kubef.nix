@@ -14,7 +14,7 @@ in
   options.programs.kubef = {
     enable = lib.mkEnableOption "kubef";
 
-    package = lib.mkPackageOption inputs.kubef.packages.${pkgs.system} "kubef" { };
+    package = lib.mkPackageOption inputs.kubef.packages.${pkgs.stdenv.hostPlatform.system} "kubef" { };
   };
 
   config = mkIf cfg.enable {
