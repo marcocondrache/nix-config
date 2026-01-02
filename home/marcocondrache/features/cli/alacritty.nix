@@ -44,6 +44,21 @@
         save_to_clipboard = true;
       };
 
+      keyboard = {
+        bindings = [
+          {
+            key = "Right";
+            mods = "Alt|Command";
+            action = "SelectNextTab";
+          }
+          {
+            key = "Left";
+            mods = "Alt|Command";
+            action = "SelectPreviousTab";
+          }
+        ];
+      };
+
       colors = {
         primary = {
           background = "#151515";
