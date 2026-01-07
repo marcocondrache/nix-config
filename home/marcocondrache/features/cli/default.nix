@@ -9,6 +9,7 @@
     ./gpg.nix
     ./fzf.nix
     ./atuin.nix
+    ./difftastic.nix
     # ./mcfly.nix
     ./btop.nix
     # ./fonts.nix
