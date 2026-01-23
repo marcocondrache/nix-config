@@ -19,7 +19,7 @@
     ./kubef.nix
     ./docker.nix
     ./yazi.nix
-    ./lazygit.nix
+    # ./lazygit.nix
     ./yubikey.nix
     ./fish.nix
     ./zoxide.nix
