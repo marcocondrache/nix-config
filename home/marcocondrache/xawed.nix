@@ -8,22 +8,9 @@ in
     ./features/cli
   ];
 
-  programs.lazygit = {
-    settings = {
-      os = {
-        editPreset = "vscode";
-      };
-
-      services = {
-        "dev.azure.com" = "azuredevops:dev.azure.com/danfoss";
-      };
-    };
-  };
-
   home.packages = with pkgs; [
     coder
     claude-code
-    container
   ];
 
   # Disable the login message
