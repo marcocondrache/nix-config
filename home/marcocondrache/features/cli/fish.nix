@@ -12,6 +12,7 @@ in
     enable = true;
 
     shellAbbrs = rec {
+      g = "git";
       ce = "zed .";
       ls = lib.mkIf (hasPackage "eza") "eza";
       cd = lib.mkIf (hasPackage "zoxide") "z";

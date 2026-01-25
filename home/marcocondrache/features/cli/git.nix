@@ -73,7 +73,7 @@
         b = "branch";
         ba = "branch -a";
         bd = "branch -d";
-        bD = "branch -D";
+        bdd = "branch -D";
 
         # Checkout & Switch
         co = "checkout";
