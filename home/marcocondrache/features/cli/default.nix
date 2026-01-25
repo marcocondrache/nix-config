@@ -1,29 +1,24 @@
 { pkgs, ... }:
 {
   imports = [
-    ./direnv.nix
+    ./alacritty.nix
+    ./atuin.nix
     ./bun.nix
+    ./difftastic.nix
+    ./direnv.nix
+    ./docker.nix
+    ./fish.nix
+    # ./fonts.nix
+    ./fzf.nix
     ./gh.nix
     ./git.nix
-    ./mergiraf.nix
     ./gpg.nix
-    ./fzf.nix
-    ./atuin.nix
-    ./difftastic.nix
-    # ./mcfly.nix
-    ./btop.nix
-    # ./fonts.nix
-    ./ghostty.nix
-    ./alacritty.nix
     ./k9s.nix
     ./kubef.nix
-    ./docker.nix
-    ./yazi.nix
-    # ./lazygit.nix
-    ./yubikey.nix
-    ./fish.nix
-    ./zoxide.nix
+    ./mergiraf.nix
     ./ssh.nix
+    ./yubikey.nix
+    ./zoxide.nix
   ];
 
   # General packages that don't need configuration

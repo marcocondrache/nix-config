@@ -1,5 +1,0 @@
-{
-  programs.mcfly = {
-    enable = true;
-  };
-}

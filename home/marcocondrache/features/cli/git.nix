@@ -141,6 +141,7 @@
       ".npmrc"
       ".direnv"
       ".devbox"
+      ".claude"
     ];
   };
 }
