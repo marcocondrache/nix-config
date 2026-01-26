@@ -4,7 +4,7 @@
 }:
 let
   gpgSocket =
-    if darwin then ''/%d/.gnupg/S.gpg-agent.extra'' else ''/%d/.gnupg-sockets/S.gpg-agent.extra'';
+    if darwin then "/%d/.gnupg/S.gpg-agent.extra" else "/%d/.gnupg-sockets/S.gpg-agent.extra";
 in
 {
   # TODO: find a better way to do this
@@ -14,14 +14,15 @@ in
 
   programs.ssh = {
     enable = true;
+    enableDefaultConfig = false;
 
     matchBlocks = {
       network = {
         remoteForwards = [
           {
             # TODO: find a better way to do this on darwin systems
-            bind.address = ''/%d/.gnupg-sockets/S.gpg-agent'';
-            host.address = ''${gpgSocket}'';
+            bind.address = "/%d/.gnupg-sockets/S.gpg-agent";
+            host.address = "${gpgSocket}";
           }
         ];
 
