@@ -44,6 +44,5 @@ in
         identityFile = "~/.ssh/id_rsa.pub";
       };
     };
-
   };
 }

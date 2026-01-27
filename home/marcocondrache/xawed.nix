@@ -23,6 +23,7 @@ in
       condition = "gitdir:${workEnv}/";
       contents = {
         feature.manyFiles = true;
+        url."git@danfoss.github.com:".insteadOf = "git@github.com:";
       };
     }
 
@@ -33,9 +34,20 @@ in
     }
   ];
 
-  programs.ssh.includes = [
-    "${workEnv}/.ssh/coder"
-  ];
+  programs.ssh = {
+    matchBlocks = {
+      danfossGithub = {
+        host = "danfoss.github.com";
+        hostname = "github.com";
+        identitiesOnly = true;
+        identityFile = "${workEnv}/.ssh/id_work_sk";
+      };
+    };
+
+    includes = [
+      "${workEnv}/.ssh/coder"
+    ];
+  };
 
   programs.fish.shellAliases = {
     tailscale = "/Applications/Tailscale.app/Contents/MacOS/Tailscale";
