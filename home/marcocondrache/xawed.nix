@@ -24,10 +24,6 @@ in
       contents = {
         feature.manyFiles = true;
         url."git@danfoss.github.com:".insteadOf = "git@github.com:";
-
-        # Use SSH signatures instead of GPG for work repos
-        gpg.format = "ssh";
-        user.signingKey = "${workEnv}/.ssh/id_work_sk";
       };
     }
 
