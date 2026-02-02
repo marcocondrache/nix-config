@@ -80,6 +80,7 @@
         cob = "checkout -b";
         sw = "switch";
         swc = "switch -c";
+        swr = "!git switch -c \"$(LC_ALL=C tr -dc 'a-z' < /dev/urandom | head -c 8)\"";
 
         # Add
         a = "add";
