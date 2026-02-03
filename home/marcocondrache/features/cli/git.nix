@@ -90,6 +90,7 @@
         # Rebase
         r = "rebase";
         ri = "rebase -i";
+        rib = "!f() { git rebase -i $(git merge-base HEAD ${"1:-main"}); }; f";
         rc = "rebase --continue";
         ra = "rebase --abort";
         rom = "rebase origin/main";
