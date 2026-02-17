@@ -39,7 +39,7 @@
 
       NSGlobalDomain = {
         KeyRepeat = 1;
-        InitialKeyRepeat = 15;
+        InitialKeyRepeat = 10;
 
         AppleKeyboardUIMode = 3;
         AppleInterfaceStyle = "Dark";
