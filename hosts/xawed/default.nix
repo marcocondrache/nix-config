@@ -22,9 +22,12 @@
     defaults = {
       dock = {
         autohide = true;
+        autohide-delay = 0.0;
+        autohide-time-modifier = 0.2;
         orientation = "bottom";
         magnification = false;
         mineffect = "genie";
+        mru-spaces = false;
         minimize-to-application = false;
         show-recents = false;
       };
@@ -41,6 +44,7 @@
         KeyRepeat = 1;
         InitialKeyRepeat = 10;
 
+        ApplePressAndHoldEnabled = false;
         AppleKeyboardUIMode = 3;
         AppleInterfaceStyle = "Dark";
 

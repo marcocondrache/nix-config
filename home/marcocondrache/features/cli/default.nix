@@ -8,7 +8,7 @@
     ./direnv.nix
     ./docker.nix
     ./fish.nix
-    # ./fonts.nix
+    ./fonts.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix

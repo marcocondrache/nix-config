@@ -4,8 +4,8 @@
     enable = true;
     fonts = [
       {
-        name = "Hack";
-        package = pkgs.hack-font;
+        name = "CommitMono";
+        package = pkgs.commit-mono;
       }
     ];
   };
