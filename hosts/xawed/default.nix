@@ -24,7 +24,7 @@
         autohide = true;
         autohide-delay = 0.0;
         autohide-time-modifier = 0.2;
-        orientation = "bottom";
+        orientation = "right";
         magnification = false;
         mineffect = "genie";
         mru-spaces = false;
