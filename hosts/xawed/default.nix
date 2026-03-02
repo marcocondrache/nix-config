@@ -5,6 +5,7 @@
 {
   imports = [
     ../common/global
+    ../common/optional/kanata.nix
     ../common/optional/determinate.nix
     ../common/users/marcocondrache/darwin.nix
   ];
