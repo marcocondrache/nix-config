@@ -1,4 +1,5 @@
 {
+  pkgs,
   darwin,
   ...
 }:
@@ -15,6 +16,7 @@ in
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
+    package = pkgs.openssh.override { withFIDO = true; };
 
     matchBlocks = {
       network = {

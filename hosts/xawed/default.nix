@@ -19,6 +19,10 @@
   system = {
     stateVersion = 6;
 
+    keyboard = {
+      enableKeyMapping = false;
+    };
+
     defaults = {
       dock = {
         autohide = true;
@@ -42,7 +46,7 @@
 
       NSGlobalDomain = {
         KeyRepeat = 1;
-        InitialKeyRepeat = 10;
+        InitialKeyRepeat = 20;
 
         ApplePressAndHoldEnabled = false;
         AppleKeyboardUIMode = 3;

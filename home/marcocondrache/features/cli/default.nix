@@ -19,6 +19,7 @@
     ./ssh.nix
     ./yubikey.nix
     ./zoxide.nix
+    ./zed.nix
   ];
 
   # General packages that don't need configuration
