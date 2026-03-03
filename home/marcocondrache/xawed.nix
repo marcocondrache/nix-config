@@ -23,18 +23,6 @@ in
     text = "";
   };
 
-  services.kanata = {
-    enable = true;
-    config = ''
-      (defsrc
-        caps
-      )
-      (deflayer default
-        esc
-      )
-    '';
-  };
-
   programs.git.includes = [
     {
       condition = "gitdir:${workEnv}/";

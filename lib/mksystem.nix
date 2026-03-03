@@ -14,7 +14,6 @@ let
 
   hostConfig = import (../hosts + "/${host}");
   systemFunction = if darwin then inputs.nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
-  darwinModules = import ../modules/darwin;
 
   home-manager =
     if darwin then
@@ -36,10 +35,9 @@ systemFunction {
     (lib.optionals (!darwin) [
       inputs.disko.nixosModules.disko
     ])
-    ++ (lib.optionals darwin (
-      [ inputs.determinate.darwinModules.default ]
-      ++ (builtins.attrValues darwinModules)
-    ))
+    ++ (lib.optionals darwin [
+      inputs.determinate.darwinModules.default
+    ])
     ++ [
       home-manager
       hostConfig

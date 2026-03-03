@@ -1,3 +1,0 @@
-{
-  kanata = import ./kanata.nix;
-}
