@@ -5,6 +5,10 @@
   ...
 }:
 {
+  home.packages = [
+    pkgs.git-town
+  ];
+
   programs.git = {
     enable = lib.mkDefault true;
     package = lib.mkDefault pkgs.gitFull;
