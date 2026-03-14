@@ -6,7 +6,7 @@
 }:
 {
   home.packages = [
-    pkgs.git-town
+    pkgs.git-absorb
   ];
 
   programs.git = {
@@ -37,15 +37,15 @@
       branch.sort = "committerdate";
       rerere.enabled = true;
       fetch.writeCommitGraph = true;
+      rebase = {
+        updateRefs = true;
+        autoSquash = true;
+        autoStash = true;
+      };
 
       core = {
         fsmonitor = true;
         untrackedcache = true;
-      };
-
-      maintenance = {
-        auto = false;
-        strategy = "incremental";
       };
 
       alias = {
@@ -134,11 +134,6 @@
         undo = "reset HEAD~1 --mixed";
         aliases = "config --get-regexp ^alias\\.";
       };
-    };
-
-    maintenance = {
-      enable = true;
-      repositories = [ ];
     };
 
     lfs.enable = true;
