@@ -18,7 +18,7 @@ in
     enable = lib.mkDefault true;
     publicKeys = [
       {
-        source = ../../pgp.asc;
+        source = ../pgp.asc;
         trust = 5;
       }
     ];
@@ -28,7 +28,7 @@ in
     enable = true;
     enableSshSupport = true;
     enableExtraSocket = true;
-    pinentryPackage = pkgs.pinentry_mac;
+    pinentry.package = pkgs.pinentry_mac;
     sshKeys = [ "8A4248ED29B2E49BEA8D6D2560CD3EBBEADCE11D" ];
 
     defaultCacheTtl = 28800;

@@ -10,7 +10,7 @@ in
 {
   # TODO: find a better way to do this
   home.file.".ssh/id_rsa.pub" = {
-    source = ../../ssh.pub;
+    source = ../ssh.pub;
   };
 
   programs.ssh = {
