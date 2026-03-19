@@ -5,7 +5,7 @@ in
 {
   imports = [
     ./global
-    ./features/cli
+    ./features
   ];
 
   home.packages = with pkgs; [
