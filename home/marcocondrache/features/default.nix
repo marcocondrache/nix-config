@@ -31,6 +31,7 @@
     ripgrep
     curlFull
     tailspin
+    speedtest-cli
 
     nil
     nixd
