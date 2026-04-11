@@ -7,9 +7,10 @@
     enable = lib.mkDefault true;
     settings = {
       k9s = {
-        liveViewAutoRefresh = true;
-        refreshRate = 1;
+        refreshRate = 2;
         ui = {
+          enableMouse = false;
+          splashless = true;
           headless = true;
         };
       };
