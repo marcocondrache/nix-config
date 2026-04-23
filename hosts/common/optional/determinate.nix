@@ -1,7 +1,10 @@
 {
   nix.enable = false;
 
-  determinateNix.customSettings = {
-    eval-cores = 0;
+  determinateNix = {
+    enable = true;
+    customSettings = {
+      eval-cores = 0;
+    };
   };
 }

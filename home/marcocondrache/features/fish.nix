@@ -16,6 +16,7 @@ in
       g = "git";
       ce = "zed .";
       ls = lib.mkIf (hasPackage "eza") "eza";
+      ll = lib.mkIf (hasPackage "eza") "eza -la";
       kf = lib.mkIf (hasPackage "kubef") "kubef";
       lg = lib.mkIf (hasPackage "lazygit") "lazygit";
       grep = lib.mkIf (hasPackage "ripgrep") "rg";
