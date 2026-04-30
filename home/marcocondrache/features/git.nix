@@ -11,7 +11,7 @@
 
   programs.git = {
     enable = lib.mkDefault true;
-    package = lib.mkDefault pkgs.gitFull;
+    package = lib.mkDefault (pkgs.gitFull.override { svnSupport = false; });
 
     attributes = [
       "* merge=mergiraf"
