@@ -7,7 +7,7 @@
     ./difftastic.nix
     ./direnv.nix
     ./docker.nix
-    ./fish.nix
+    ./fish
     ./fonts.nix
     ./fzf.nix
     ./gh.nix
