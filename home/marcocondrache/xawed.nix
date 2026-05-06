@@ -49,7 +49,7 @@ in
         extraOptions = {
           ControlMaster = "auto";
           ControlPath = "${workEnv}/.ssh/sockets/%r@%h-%p";
-          ControlPersist = "600";
+          ControlPersist = "4h";
         };
       };
     };
