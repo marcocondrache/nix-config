@@ -142,7 +142,6 @@
     ignores = [
       ".npmrc"
       ".direnv"
-      ".devbox"
       ".claude"
     ];
   };

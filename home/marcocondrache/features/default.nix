@@ -15,6 +15,7 @@
     ./gpg.nix
     ./k9s.nix
     ./kubef.nix
+    ./mise.nix
     ./mergiraf.nix
     ./ssh.nix
     ./yubikey.nix
@@ -31,6 +32,7 @@
     curlFull
     tailspin
     speedtest-cli
+    coreutils
 
     nil
     nixd
