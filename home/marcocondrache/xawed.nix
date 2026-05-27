@@ -10,6 +10,7 @@ in
 
   home.packages = with pkgs; [
     coder
+    codex
     claude-code
   ];
 
@@ -40,17 +41,14 @@ in
   ];
 
   programs.ssh = {
-    matchBlocks = {
-      danfossGithub = {
-        host = "danfoss.github.com";
-        hostname = "github.com";
-        identitiesOnly = true;
-        identityFile = "${workEnv}/.ssh/id_work_sk";
-        extraOptions = {
-          ControlMaster = "auto";
-          ControlPath = "${workEnv}/.ssh/sockets/%r@%h-%p";
-          ControlPersist = "4h";
-        };
+    settings = {
+      "danfoss.github.com" = {
+        HostName = "github.com";
+        IdentitiesOnly = true;
+        IdentityFile = "${workEnv}/.ssh/id_work_sk";
+        ControlMaster = "auto";
+        ControlPath = "${workEnv}/.ssh/sockets/%r@%h-%p";
+        ControlPersist = "4h";
       };
     };
 

@@ -18,9 +18,9 @@ in
     enableDefaultConfig = false;
     package = pkgs.openssh.override { withFIDO = true; };
 
-    matchBlocks = {
+    settings = {
       network = {
-        remoteForwards = [
+        RemoteForward = [
           {
             # TODO: find a better way to do this on darwin systems
             bind.address = "/%d/.gnupg-sockets/S.gpg-agent";
@@ -28,22 +28,18 @@ in
           }
         ];
 
-        forwardAgent = true;
-        extraOptions = {
-          StreamLocalBindUnlink = "yes";
-        };
+        ForwardAgent = true;
+        StreamLocalBindUnlink = "yes";
       };
 
-      github = {
-        host = "github.com";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_rsa.pub";
+      "github.com" = {
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_rsa.pub";
       };
 
-      azure = {
-        host = "azure.com";
-        identitiesOnly = true;
-        identityFile = "~/.ssh/id_rsa.pub";
+      "azure.com" = {
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_rsa.pub";
       };
     };
   };
