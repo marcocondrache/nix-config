@@ -53,7 +53,6 @@
         f = "fetch";
         fa = "fetch --all --prune";
         p = "pull";
-        pr = "pull --rebase";
 
         # Push
         ps = "push";
@@ -134,6 +133,9 @@
         wip = "commit -am 'WIP'";
         undo = "reset HEAD~1 --mixed";
         aliases = "config --get-regexp ^alias\\.";
+
+        # Extra
+        pr = "!gh pr create";
       };
     };
 
