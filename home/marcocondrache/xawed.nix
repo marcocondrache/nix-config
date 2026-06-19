@@ -12,6 +12,7 @@ in
     coder
     codex
     claude-code
+    github-copilot-cli
   ];
 
   # Disable the login message
