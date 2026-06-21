@@ -44,13 +44,6 @@ in
     ++ (builtins.attrValues homeModules);
   };
 
-  environment.systemPackages = lib.mkIf (!darwin) (
-    with pkgs;
-    [
-      ghostty.terminfo
-    ]
-  );
-
   environment.shells = [
     pkgs.fish
   ];
