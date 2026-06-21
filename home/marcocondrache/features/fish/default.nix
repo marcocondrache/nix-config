@@ -10,7 +10,6 @@ in
 {
   imports = [
     ./hydro.nix
-    ./zoxide.nix
   ];
   programs.fish = {
     enable = true;
@@ -21,7 +20,6 @@ in
       ls = lib.mkIf (hasPackage "eza") "eza";
       ll = lib.mkIf (hasPackage "eza") "eza -la";
       kf = lib.mkIf (hasPackage "kubef") "kubef";
-      lg = lib.mkIf (hasPackage "lazygit") "lazygit";
       grep = lib.mkIf (hasPackage "ripgrep") "rg";
       exa = ls;
     };

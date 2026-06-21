@@ -17,6 +17,7 @@
     ./kubef.nix
     ./mise.nix
     ./mergiraf.nix
+    ./nh.nix
     ./ssh.nix
     ./yubikey.nix
     ./zoxide.nix

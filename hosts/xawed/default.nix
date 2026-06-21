@@ -22,6 +22,8 @@
   system = {
     stateVersion = 6;
 
+    startup.chime = false;
+
     keyboard = {
       enableKeyMapping = false;
     };
@@ -37,6 +39,7 @@
         mru-spaces = false;
         minimize-to-application = false;
         show-recents = false;
+        show-process-indicators = true;
       };
 
       finder = {
@@ -45,6 +48,10 @@
         FXPreferredViewStyle = "Nlsv";
         FXEnableExtensionChangeWarning = false;
         NewWindowTarget = "Home";
+        ShowPathbar = true;
+        ShowStatusBar = true;
+        _FXSortFoldersFirst = true;
+        _FXShowPosixPathInTitle = true;
       };
 
       NSGlobalDomain = {
@@ -56,6 +63,31 @@
         AppleInterfaceStyle = "Dark";
 
         NSDocumentSaveNewDocumentsToCloud = false;
+
+        # Stop macOS from "helpfully" rewriting code and text
+        NSAutomaticCapitalizationEnabled = false;
+        NSAutomaticSpellingCorrectionEnabled = false;
+        NSAutomaticPeriodSubstitutionEnabled = false;
+        NSAutomaticQuoteSubstitutionEnabled = false;
+        NSAutomaticDashSubstitutionEnabled = false;
+
+        # Snappier window animations
+        NSWindowResizeTime = 0.001;
+        NSAutomaticWindowAnimationsEnabled = false;
+      };
+
+      trackpad = {
+        Clicking = true;
+        TrackpadThreeFingerDrag = true;
+      };
+
+      loginwindow = {
+        GuestEnabled = false;
+      };
+
+      menuExtraClock = {
+        Show24Hour = true;
+        ShowSeconds = false;
       };
 
       WindowManager = {
