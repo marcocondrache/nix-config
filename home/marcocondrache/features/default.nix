@@ -19,6 +19,7 @@
     ./mergiraf.nix
     ./nh.nix
     ./ssh.nix
+    ./tealdeer.nix
     ./yubikey.nix
     ./zoxide.nix
     ./zed.nix
@@ -34,6 +35,10 @@
     tailspin
     speedtest-cli
     coreutils
+
+    jq
+    fd
+    yq-go
 
     nil
     nixd

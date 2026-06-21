@@ -25,6 +25,10 @@
         opacity = 1.0;
         blur = false;
         dynamic_padding = true;
+
+        # Left Option acts as Alt (enables Alt-C and other meta bindings);
+        # right Option still types @ # [ ] {} on EU keyboard layouts.
+        option_as_alt = "OnlyLeft";
       };
 
       cursor = {
