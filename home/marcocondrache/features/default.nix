@@ -15,7 +15,6 @@
     ./gpg.nix
     ./k9s.nix
     ./kubef.nix
-    ./mise.nix
     ./mergiraf.nix
     ./nh.nix
     ./ssh.nix
