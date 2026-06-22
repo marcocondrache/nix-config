@@ -10,7 +10,9 @@ in
 {
   imports = [
     ./hydro.nix
+    ./zoxide.nix
   ];
+
   programs.fish = {
     enable = true;
 
