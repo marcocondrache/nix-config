@@ -37,6 +37,7 @@
         magnification = false;
         mineffect = "genie";
         mru-spaces = false;
+        expose-animation-duration = 0.1;
         minimize-to-application = false;
         show-recents = false;
         show-process-indicators = true;
@@ -92,6 +93,10 @@
 
       WindowManager = {
         EnableStandardClickToShowDesktop = false;
+      };
+
+      universalaccess = {
+        reduceMotion = true;
       };
 
       screencapture = {
