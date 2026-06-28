@@ -7,7 +7,7 @@
       font = {
         size = 14;
         normal = {
-          family = "CommitMono";
+          family = "CommitMono Nerd Font";
           style = "Regular";
         };
 
