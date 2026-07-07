@@ -79,7 +79,6 @@
 
       trackpad = {
         Clicking = true;
-        TrackpadThreeFingerDrag = true;
       };
 
       loginwindow = {
