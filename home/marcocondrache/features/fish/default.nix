@@ -18,7 +18,7 @@ in
 
     shellAbbrs = rec {
       g = "git";
-      ce = "zed .";
+      o = "opencode";
       ls = lib.mkIf (hasPackage "eza") "eza";
       ll = lib.mkIf (hasPackage "eza") "eza -la";
       kf = lib.mkIf (hasPackage "kubef") "kubef";
