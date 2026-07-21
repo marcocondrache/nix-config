@@ -39,7 +39,6 @@ in
     };
 
     sharedModules = [
-      #inputs.sops-nix.homeManagerModules.sops
     ]
     ++ (builtins.attrValues homeModules);
   };

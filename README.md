@@ -10,7 +10,6 @@ This repository contains my personal system configurations using [Nix Flakes](ht
 - **Darwin** configuration for personal and work MacBooks
 - Stateless system design with **opt-in persistence**
 - Secure mesh networking between all hosts
-- Encrypted secrets using **GPG** and **SSH** keys
 - Modular `home-manager` configuration with feature flags
 - Single **BTRFS** partition with snapshot management
 - Declarative configuration for all services
@@ -26,10 +25,6 @@ nix-config
 ├── modules/          # Custom NixOS/Darwin modules
 └── scripts/          # Utility scripts
 ```
-
-## Secrets management
-
-Secrets are encrypted using both a **GPG** key (stored on **YubiKey**) and each host's **SSH** key, requiring only one of them to decrypt. This dual-key approach allows for both interactive editing using the YubiKey and automated decryption during system activation using the host's SSH key. The setup uses `sops-nix` to handle the encryption and decryption process transparently.
 
 ## System impermanence
 

@@ -17,6 +17,7 @@
     ./kubef.nix
     ./mergiraf.nix
     ./nh.nix
+    ./opencode.nix
     ./ssh.nix
     ./tealdeer.nix
     ./yubikey.nix
