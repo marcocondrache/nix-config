@@ -6,7 +6,6 @@
   imports = [
     ../common/global
     ../common/optional/determinate.nix
-    ../common/optional/sops.nix
     ../common/users/marcocondrache/darwin.nix
   ];
 

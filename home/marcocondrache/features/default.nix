@@ -18,6 +18,7 @@
     ./mergiraf.nix
     ./nh.nix
     ./opencode.nix
+    ./sops.nix
     ./ssh.nix
     ./tealdeer.nix
     ./yubikey.nix

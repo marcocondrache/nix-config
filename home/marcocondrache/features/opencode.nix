@@ -1,5 +1,9 @@
 { lib, ... }:
 {
+  sops.secrets."opencode/labx-token" = {
+    sopsFile = ../secrets.yaml;
+  };
+
   programs.opencode = {
     enable = lib.mkDefault true;
     package = null; # installed with bun
@@ -13,7 +17,7 @@
           url = "https://ai.labx.sh/mcp";
           enabled = true;
           headers = {
-            Authorization = "Bearer {file:/run/secrets/opencode/labx-token}";
+            Authorization = "Bearer {file:/Users/marcocondrache/.secrets/opencode/labx-token}";
           };
         };
       };

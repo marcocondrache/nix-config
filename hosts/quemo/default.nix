@@ -5,7 +5,6 @@
 {
   imports = [
     ../common/global
-    ../common/optional/sops.nix
     ../common/users/marcocondrache/darwin.nix
   ];
 
