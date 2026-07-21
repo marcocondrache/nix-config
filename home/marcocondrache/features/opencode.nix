@@ -13,7 +13,7 @@
           url = "https://ai.labx.sh/mcp";
           enabled = true;
           headers = {
-            Authorization = "Bearer {env:OPENCODE_LABX_TOKEN}";
+            Authorization = "Bearer {file:/run/secrets/opencode/labx-token}";
           };
         };
       };

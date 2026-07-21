@@ -10,6 +10,7 @@ This repository contains my personal system configurations using [Nix Flakes](ht
 - **Darwin** configuration for personal and work MacBooks
 - Stateless system design with **opt-in persistence**
 - Secure mesh networking between all hosts
+- Encrypted secrets with [sops-nix](https://github.com/Mic92/sops-nix), decrypted on activation using a GPG key on **YubiKey**
 - Modular `home-manager` configuration with feature flags
 - Single **BTRFS** partition with snapshot management
 - Declarative configuration for all services
@@ -24,6 +25,15 @@ nix-config
 ├── lib/              # Custom Nix functions
 ├── modules/          # Custom NixOS/Darwin modules
 └── scripts/          # Utility scripts
+```
+
+## Secrets management
+
+Secrets are stored in `home/marcocondrache/secrets.yaml` and encrypted with the **GPG** key on the **YubiKey** (fingerprint in `.sops.yaml`). At activation time, `sops-nix` decrypts them to `/run/secrets/<key>` and applies the configured owner/mode. Reference a secret from any config with the opencode-native `{file:/run/secrets/<key>}` substitution, or load it into a shell via `set -gx VAR (cat /run/secrets/<key>)`.
+
+To edit secrets:
+```bash
+nix shell nixpkgs#sops --run sops home/marcocondrache/secrets.yaml
 ```
 
 ## System impermanence

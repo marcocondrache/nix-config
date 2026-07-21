@@ -1,0 +1,8 @@
+keys:
+  - &marcocondrache B88BEFC2DA78218F568EA53E209101AD5F0E04C6
+
+creation_rules:
+  - path_regex: home/marcocondrache/secrets\.ya?ml$
+    key_groups:
+      - pgp:
+        - *marcocondrache
