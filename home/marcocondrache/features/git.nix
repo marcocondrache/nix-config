@@ -82,6 +82,7 @@
         co = "checkout";
         cob = "checkout -b";
         sw = "switch";
+        swp = "switch -";
         swd = "switch main";
         swc = "switch -c";
         swr = "!git switch -c \"$(LC_ALL=C tr -dc 'a-z' < /dev/urandom | head -c 8)\"";
@@ -136,6 +137,7 @@
 
         # Extra
         pr = "!gh pr create";
+        pra = "!gh pr merge --auto -s -d";
       };
     };
 

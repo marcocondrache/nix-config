@@ -29,6 +29,7 @@
   # General packages that don't need configuration
   home.packages = with pkgs; [
     eza
+    lumen
     devenv
     gnumake
     ripgrep
