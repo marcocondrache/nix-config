@@ -6,6 +6,7 @@
     ./bun.nix
     ./difftastic.nix
     ./direnv.nix
+    ./devenv.nix
     ./docker.nix
     ./fish
     ./fonts.nix
@@ -30,7 +31,6 @@
   home.packages = with pkgs; [
     eza
     lumen
-    devenv
     gnumake
     ripgrep
     curlFull
