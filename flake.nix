@@ -25,8 +25,6 @@
       lib = import ./lib { inherit inputs; } // nixpkgs.lib;
     in
     {
-      inherit lib;
-
       darwinConfigurations = {
         # Personal laptop
         quemo = lib.mkSystem {

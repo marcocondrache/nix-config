@@ -2,17 +2,13 @@
 
 [![Built with Nix](https://img.shields.io/badge/Built_With-Nix-5277C3.svg?logo=nixos&labelColor=73C3D5)](https://nixos.org)
 
-This repository contains my personal system configurations using [Nix Flakes](https://nixos.wiki/wiki/Flakes). It manages both **NixOS** and **Darwin** (macOS) systems through a modular, declarative approach with an emphasis on security and reproducibility.
+This repository contains my personal system configurations using [Nix Flakes](https://nixos.wiki/wiki/Flakes). It manages **Darwin** (macOS) systems through a modular, declarative approach with an emphasis on security and reproducibility.
 
 ## Overview
 
-- Complete **NixOS** setup for desktop, laptop, and server machines
 - **Darwin** configuration for personal and work MacBooks
-- Stateless system design with **opt-in persistence**
-- Secure mesh networking between all hosts
 - Encrypted secrets with [sops-nix](https://github.com/Mic92/sops-nix), decrypted on activation using a GPG key on **YubiKey**
 - Modular `home-manager` configuration with feature flags
-- Single **BTRFS** partition with snapshot management
 - Declarative configuration for all services
 
 ## Repository structure
@@ -23,8 +19,7 @@ nix-config
 ├── home/             # Home-manager configurations
 ├── hosts/            # Host-specific configurations
 ├── lib/              # Custom Nix functions
-├── modules/          # Custom NixOS/Darwin modules
-└── scripts/          # Utility scripts
+└── modules/          # Custom Darwin/home-manager modules
 ```
 
 ## Secrets management
@@ -35,10 +30,6 @@ To edit secrets:
 ```bash
 nix shell nixpkgs#sops --run sops home/marcocondrache/secrets.yaml
 ```
-
-## System impermanence
-
-This configuration embraces a stateless system design where the root filesystem is reset to a clean state on every boot. Through the `impermanence` module, specific directories can be marked for persistence - an opt-in approach to state management. The underlying **BTRFS** filesystem handles snapshots and rollbacks, providing both the benefits of a clean system and the safety of easy recovery.
 
 ## Getting started
 
@@ -73,7 +64,7 @@ This configuration is provided under the **MIT License**. You are free to use, m
 
 ## Acknowledgments
 
-- The **NixOS** community for creating an amazing system
+- The **Nix** community for creating an amazing ecosystem
 - The **Nix Darwin** team for macOS support
 - The **Home Manager** project for user environment management
 - [Misterio77's nix-config](https://github.com/Misterio77/nix-config) for being the main inspiration for this configuration
