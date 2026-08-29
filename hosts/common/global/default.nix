@@ -1,5 +1,4 @@
 {
-  lib,
   name,
   pkgs,
   darwin,
@@ -15,10 +14,6 @@ in
     ./locale.nix
     ./fish.nix
   ];
-
-  system = {
-    stateVersion = lib.mkDefault "25.05";
-  };
 
   networking.hostName = name;
 

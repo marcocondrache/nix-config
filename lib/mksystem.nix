@@ -32,10 +32,7 @@ systemFunction {
   };
 
   modules =
-    (lib.optionals (!darwin) [
-      inputs.disko.nixosModules.disko
-    ])
-    ++ (lib.optionals darwin [
+    (lib.optionals darwin [
       inputs.determinate.darwinModules.default
     ])
     ++ [
