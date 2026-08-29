@@ -1,8 +1,6 @@
 {
-  lib,
   name,
   pkgs,
-  darwin,
   inputs,
   ...
 }:
@@ -15,10 +13,6 @@ in
     ./locale.nix
     ./fish.nix
   ];
-
-  system = {
-    stateVersion = lib.mkDefault "25.05";
-  };
 
   networking.hostName = name;
 
@@ -34,7 +28,6 @@ in
     backupFileExtension = "backup";
 
     extraSpecialArgs = {
-      inherit darwin;
       inherit inputs;
     };
 

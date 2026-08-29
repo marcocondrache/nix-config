@@ -1,9 +1,4 @@
+{ inputs, ... }:
 {
-  inputs,
-  outputs,
-  nixpkgs,
-  ...
-}:
-{
-  mkSystem = import ./mksystem.nix { inherit inputs nixpkgs outputs; };
+  mkSystem = import ./mksystem.nix { inherit inputs; };
 }

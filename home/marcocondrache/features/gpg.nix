@@ -1,7 +1,6 @@
 {
   lib,
   pkgs,
-  darwin,
   ...
 }:
 {
@@ -26,22 +25,5 @@
     defaultCacheTtlSsh = 28800;
     maxCacheTtl = 86400;
     maxCacheTtlSsh = 86400;
-  };
-
-  systemd.user.services = lib.mkIf (!darwin) {
-    # Link /run/user/$UID/gnupg to ~/.gnupg-sockets
-    # So that SSH config does not have to know the UID
-    link-gnupg-sockets = {
-      Unit = {
-        Description = "link gnupg sockets from /run to /home";
-      };
-      Service = {
-        Type = "oneshot";
-        ExecStart = "${pkgs.coreutils}/bin/ln -Tfs /run/user/%U/gnupg %h/.gnupg-sockets";
-        ExecStop = "${pkgs.coreutils}/bin/rm $HOME/.gnupg-sockets";
-        RemainAfterExit = true;
-      };
-      Install.WantedBy = [ "default.target" ];
-    };
   };
 }
