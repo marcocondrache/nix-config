@@ -1,7 +1,6 @@
 {
   name,
   pkgs,
-  darwin,
   inputs,
   ...
 }:
@@ -29,7 +28,6 @@ in
     backupFileExtension = "backup";
 
     extraSpecialArgs = {
-      inherit darwin;
       inherit inputs;
     };
 

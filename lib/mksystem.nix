@@ -1,42 +1,21 @@
-{
-  nixpkgs,
-  inputs,
-  ...
-}:
+{ inputs }:
 {
   host,
   system,
-  darwin ? false,
   name ? host,
 }:
 let
-  lib = nixpkgs.lib;
-
   hostConfig = import (../hosts + "/${host}");
-  systemFunction = if darwin then inputs.nix-darwin.lib.darwinSystem else nixpkgs.lib.nixosSystem;
-
-  home-manager =
-    if darwin then
-      inputs.home-manager.darwinModules.home-manager
-    else
-      inputs.home-manager.nixosModules.home-manager;
 in
-systemFunction {
+inputs.nix-darwin.lib.darwinSystem {
   inherit system;
 
   specialArgs = {
-    inherit host;
-    inherit name;
-    inherit darwin;
-    inherit inputs;
+    inherit host name inputs;
   };
 
-  modules =
-    (lib.optionals darwin [
-      inputs.determinate.darwinModules.default
-    ])
-    ++ [
-      home-manager
-      hostConfig
-    ];
+  modules = [
+    inputs.home-manager.darwinModules.home-manager
+    hostConfig
+  ];
 }

@@ -20,24 +20,9 @@
   };
 
   outputs =
-    inputs@{
-      self,
-      nixpkgs,
-      ...
-    }:
+    inputs@{ nixpkgs, ... }:
     let
-      inherit (self) outputs;
-
-      lib =
-        import ./lib {
-          inherit
-            self
-            inputs
-            nixpkgs
-            outputs
-            ;
-        }
-        // nixpkgs.lib;
+      lib = import ./lib { inherit inputs; } // nixpkgs.lib;
     in
     {
       inherit lib;
@@ -47,14 +32,12 @@
         quemo = lib.mkSystem {
           host = "quemo";
           system = "aarch64-darwin";
-          darwin = true;
         };
 
         # Work laptop
         xawed = lib.mkSystem {
           host = "xawed";
           system = "aarch64-darwin";
-          darwin = true;
         };
       };
     };

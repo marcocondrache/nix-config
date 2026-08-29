@@ -1,4 +1,7 @@
+{ inputs, ... }:
 {
+  imports = [ inputs.determinate.darwinModules.default ];
+
   nix.enable = false;
 
   determinateNix = {

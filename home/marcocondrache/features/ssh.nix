@@ -1,11 +1,9 @@
 {
   pkgs,
-  darwin,
   ...
 }:
 let
-  gpgSocket =
-    if darwin then "/%d/.gnupg/S.gpg-agent.extra" else "/%d/.gnupg-sockets/S.gpg-agent.extra";
+  gpgSocket = "/%d/.gnupg/S.gpg-agent.extra";
 in
 {
   # TODO: find a better way to do this
