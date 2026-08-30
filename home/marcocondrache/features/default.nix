@@ -34,6 +34,7 @@
     curlFull
     tailspin
     speedtest-cli
+    mole-cleaner
     coreutils
 
     jq
