@@ -12,11 +12,6 @@ in
     coder
   ];
 
-  # Disable the login message
-  home.file.".hushlogin" = {
-    text = "";
-  };
-
   programs.git.includes = [
     {
       condition = "gitdir:${workEnv}/";
