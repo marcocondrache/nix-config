@@ -21,7 +21,6 @@
     ./opencode.nix
     ./sops.nix
     ./ssh.nix
-    ./tealdeer.nix
     ./yubikey.nix
     ./zoxide.nix
     ./zed.nix
@@ -30,7 +29,6 @@
   # General packages that don't need configuration
   home.packages = with pkgs; [
     eza
-    lumen
     gnumake
     ripgrep
     curlFull
