@@ -17,11 +17,6 @@ in
     text = "";
   };
 
-  # Required by SSH connection multiplexing (ControlPath)
-  home.file."Work/.ssh/sockets/.keep" = {
-    text = "";
-  };
-
   programs.git.includes = [
     {
       condition = "gitdir:${workEnv}/";
@@ -44,9 +39,6 @@ in
         HostName = "github.com";
         IdentitiesOnly = true;
         IdentityFile = "${workEnv}/.ssh/id_work_sk";
-        ControlMaster = "auto";
-        ControlPath = "${workEnv}/.ssh/sockets/%r@%h-%p";
-        ControlPersist = "4h";
       };
     };
 

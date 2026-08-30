@@ -28,6 +28,7 @@
 
         ForwardAgent = true;
         StreamLocalBindUnlink = "yes";
+        ExitOnForwardFailure = true;
       };
 
       "github.com" = {
@@ -47,8 +48,15 @@
           {
             header = "Host *";
             ControlMaster = "auto";
-            ControlPath = "~/.ssh/sockets/%r@%h-%p";
+            # %n (host alias) keeps hosts that resolve to the same
+            # host/user/port but use different identities on separate sockets
+            ControlPath = "~/.ssh/sockets/%n-%r@%h-%p";
             ControlPersist = "4h";
+            ServerAliveInterval = 30;
+            ServerAliveCountMax = 3;
+            UpdateHostKeys = true;
+            HashKnownHosts = true;
+            AddKeysToAgent = true;
           }
         ];
   };
