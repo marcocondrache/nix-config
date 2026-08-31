@@ -144,9 +144,10 @@
     lfs.enable = true;
 
     ignores = [
+      ".env"
       ".npmrc"
       ".direnv"
-      ".claude"
+      ".DS_Store"
     ];
   };
 }
