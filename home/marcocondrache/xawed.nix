@@ -12,19 +12,27 @@ in
     coder
   ];
 
+  sops.secrets."git/work" = { };
+
   programs.git.includes = [
     {
       condition = "gitdir:${workEnv}/";
       contents = {
         feature.manyFiles = true;
-        url."git@danfoss.github.com:".insteadOf = "git@github.com:";
+        url."git@danfoss.github.com:".insteadOf = [
+          "git@github.com:"
+          "https://github.com/"
+        ];
+
+        gpg.format = "ssh";
+        gpg.ssh.program = "${config.programs.ssh.package}/bin/ssh-keygen";
+        gpg.ssh.allowedSignersFile = "${workEnv}/.ssh/allowed_signers";
+        user.signingKey = "${workEnv}/.ssh/id_work_ed25519.pub";
       };
     }
-
-    # Private work configuration i cannot share
     {
       condition = "gitdir:${workEnv}/";
-      path = "${workEnv}/.gitconfig";
+      path = config.sops.secrets."git/work".path;
     }
   ];
 
@@ -33,7 +41,8 @@ in
       "danfoss.github.com" = {
         HostName = "github.com";
         IdentitiesOnly = true;
-        IdentityFile = "${workEnv}/.ssh/id_work_sk";
+        IdentityFile = "${workEnv}/.ssh/id_work_ed25519";
+        AddKeysToAgent = false;
       };
     };
 
