@@ -3,7 +3,6 @@
   imports = [
     ./alacritty.nix
     ./atuin.nix
-    ./direnv.nix
     ./docker.nix
     ./fish
     ./fonts.nix
