@@ -1,5 +1,0 @@
-{
-  programs.devenv = {
-    enable = true;
-  };
-}

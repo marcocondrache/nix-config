@@ -1,13 +1,10 @@
-{ lib, ... }:
 {
   sops.secrets."opencode/labx-token" = {
     sopsFile = ../secrets.yaml;
   };
 
   programs.opencode = {
-    enable = lib.mkDefault true;
-    package = null; # installed with bun
-
+    enable = true;
     settings = {
       autoupdate = true;
       enabled_providers = [ "opencode-go" ];

@@ -3,10 +3,7 @@
   imports = [
     ./alacritty.nix
     ./atuin.nix
-    ./bun.nix
-    ./difftastic.nix
     ./direnv.nix
-    ./devenv.nix
     ./docker.nix
     ./fish
     ./fonts.nix
