@@ -5,7 +5,7 @@
 {
   home = {
     username = "marcocondrache";
-    stateVersion = lib.mkDefault "25.05";
+    stateVersion = lib.mkDefault "26.05";
     enableNixpkgsReleaseCheck = false;
 
     # Disable the login message

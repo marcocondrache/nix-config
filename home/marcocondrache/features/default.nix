@@ -17,6 +17,7 @@
     ./k9s.nix
     ./kubef.nix
     ./mergiraf.nix
+    ./mise.nix
     ./nh.nix
     ./opencode.nix
     ./sops.nix
