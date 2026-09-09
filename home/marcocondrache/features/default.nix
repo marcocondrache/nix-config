@@ -15,8 +15,8 @@
     ./mergiraf.nix
     ./mise.nix
     ./nh.nix
-    ./opencode.nix
     ./sops.nix
+    ./sofka.nix
     ./ssh.nix
     ./yubikey.nix
     ./zoxide.nix
@@ -33,6 +33,7 @@
     speedtest-cli
     mole-cleaner
     coreutils
+    opencode
 
     jq
     fd

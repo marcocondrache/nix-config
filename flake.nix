@@ -17,6 +17,9 @@
 
     kubef.url = "github:marcocondrache/kubef";
     kubef.inputs.nixpkgs.follows = "nixpkgs";
+
+    sofka.url = "github:nklmilojevic/sofka";
+    sofka.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

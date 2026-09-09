@@ -1,0 +1,5 @@
+{
+  programs.sofka = {
+    enable = true;
+  };
+}

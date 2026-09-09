@@ -314,7 +314,28 @@
         "kubef": "kubef",
         "nix-darwin": "nix-darwin",
         "nixpkgs": "nixpkgs_3",
+        "sofka": "sofka",
         "sops-nix": "sops-nix"
+      }
+    },
+    "sofka": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
+      "locked": {
+        "lastModified": 1788944218,
+        "narHash": "sha256-xxgVo3QTejmhawGstwPyX9kHqMA+P3KLK/wbkmMt5Qw=",
+        "owner": "nklmilojevic",
+        "repo": "sofka",
+        "rev": "ffe49761af72cbffaf3982ed7a5345218e432c39",
+        "type": "github"
+      },
+      "original": {
+        "owner": "nklmilojevic",
+        "repo": "sofka",
+        "type": "github"
       }
     },
     "sops-nix": {
