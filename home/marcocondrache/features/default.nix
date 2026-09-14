@@ -10,7 +10,6 @@
     ./gh.nix
     ./git.nix
     ./gpg.nix
-    ./k9s.nix
     ./kubef.nix
     ./mergiraf.nix
     ./mise.nix
