@@ -19,7 +19,8 @@ in
     shellAbbrs = rec {
       g = "git";
       o = "opencode";
-      k = "sofka";
+      k = lib.mkIf (hasPackage "sofka") "sofka";
+      m = lib.mkIf (hasPackage "mise") "mise";
       ls = lib.mkIf (hasPackage "eza") "eza";
       ll = lib.mkIf (hasPackage "eza") "eza -la";
       kf = lib.mkIf (hasPackage "kubef") "kubef";
