@@ -32,7 +32,6 @@
     speedtest-cli
     mole-cleaner
     coreutils
-    opencode
 
     jq
     fd

@@ -4,7 +4,7 @@
     package = null;
 
     mutableUserKeymaps = false;
-    mutableUserSettings = false;
+    mutableUserSettings = true;
 
     userKeymaps = [
       {
