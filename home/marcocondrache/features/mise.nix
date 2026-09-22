@@ -3,6 +3,7 @@
   programs.mise = {
     enable = true;
     enableFishIntegration = true;
+    enableMutableConfig = true;
 
     globalConfig = {
       settings = {

@@ -10,7 +10,6 @@
     ./gh.nix
     ./git.nix
     ./gpg.nix
-    ./kubef.nix
     ./mergiraf.nix
     ./mise.nix
     ./nh.nix
@@ -29,7 +28,6 @@
     ripgrep
     curlFull
     tailspin
-    speedtest-cli
     mole-cleaner
     coreutils
 

@@ -1,5 +1,0 @@
-{
-  programs.kubef = {
-    enable = true;
-  };
-}

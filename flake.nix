@@ -15,9 +15,6 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
-    kubef.url = "github:marcocondrache/kubef";
-    kubef.inputs.nixpkgs.follows = "nixpkgs";
-
     sofka.url = "github:nklmilojevic/sofka";
     sofka.inputs.nixpkgs.follows = "nixpkgs";
   };
