@@ -10,6 +10,7 @@
     ./gh.nix
     ./git.nix
     ./gpg.nix
+    ./herdr.nix
     ./mergiraf.nix
     ./mise.nix
     ./nh.nix

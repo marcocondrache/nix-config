@@ -17,6 +17,9 @@
 
     sofka.url = "github:nklmilojevic/sofka";
     sofka.inputs.nixpkgs.follows = "nixpkgs";
+
+    herdr.url = "github:herdrdev/herdr-nix";
+    herdr.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
