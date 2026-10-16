@@ -1,0 +1,3 @@
+{
+  volumes = import ./volumes.nix;
+}

@@ -6,13 +6,15 @@
 }:
 let
   homeModules = import ../../../modules/home-manager;
+  darwinModules = import ../../../modules/darwin;
 in
 {
   imports = [
     ./nix.nix
     ./locale.nix
     ./fish.nix
-  ];
+  ]
+  ++ (builtins.attrValues darwinModules);
 
   networking.hostName = name;
 
