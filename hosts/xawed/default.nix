@@ -94,10 +94,6 @@
         EnableStandardClickToShowDesktop = false;
       };
 
-      universalaccess = {
-        reduceMotion = true;
-      };
-
       screencapture = {
         target = "clipboard";
       };
