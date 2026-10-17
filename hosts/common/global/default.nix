@@ -33,6 +33,7 @@ in
 
     sharedModules = [
       inputs.sops-nix.homeManagerModules.sops
+      inputs.sofka.homeManagerModules.default
     ]
     ++ (builtins.attrValues homeModules);
   };

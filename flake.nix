@@ -15,8 +15,9 @@
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
+    # No nixpkgs follows so the package substitutes from nkl-sofka.cachix.org
     sofka.url = "github:nklmilojevic/sofka";
-    sofka.inputs.nixpkgs.follows = "nixpkgs";
+    sofka.inputs.home-manager.follows = "home-manager";
 
     herdr.url = "github:herdrdev/herdr-nix";
     herdr.inputs.nixpkgs.follows = "nixpkgs";
