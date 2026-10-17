@@ -30,7 +30,7 @@
       diff.algorithm = "histogram";
       commit.verbose = true;
       push.autoSetupRemote = true;
-      branch.sort = "committerdate";
+      branch.sort = "-committerdate";
       tag.sort = "version:refname";
       column.ui = "auto";
       help.autocorrect = "prompt";
