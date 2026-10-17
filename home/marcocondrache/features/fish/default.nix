@@ -3,10 +3,6 @@
   config,
   ...
 }:
-let
-  packageNames = map (p: p.pname or p.name or null) config.home.packages;
-  hasPackage = name: lib.any (x: x == name) packageNames;
-in
 {
   imports = [
     ./hydro.nix
@@ -18,13 +14,13 @@ in
 
     shellAbbrs = rec {
       g = "git";
+      # opencode is installed through mise
       o = "opencode";
-      k = lib.mkIf (hasPackage "sofka") "sofka";
-      m = lib.mkIf (hasPackage "mise") "mise";
-      ls = lib.mkIf (hasPackage "eza") "eza";
-      ll = lib.mkIf (hasPackage "eza") "eza -la";
-      kf = lib.mkIf (hasPackage "kubef") "kubef";
-      grep = lib.mkIf (hasPackage "ripgrep") "rg";
+      k = lib.mkIf config.programs.sofka.enable "sofka";
+      m = lib.mkIf config.programs.mise.enable "mise";
+      ls = "eza";
+      ll = "eza -la";
+      grep = "rg";
       exa = ls;
     };
 

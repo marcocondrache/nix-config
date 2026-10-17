@@ -21,7 +21,6 @@ in
   services.gpg-agent = {
     enable = true;
     enableSshSupport = true;
-    enableExtraSocket = true;
     # pinentry_mac doesn't need the per-shell GPG_TTY/updatestartuptty refresh
     enableFishIntegration = false;
     pinentry.package = pkgs.pinentry_mac;

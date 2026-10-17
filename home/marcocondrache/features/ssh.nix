@@ -1,5 +1,6 @@
 {
   pkgs,
+  config,
   ...
 }:
 {
@@ -13,7 +14,7 @@
   programs.ssh = {
     enable = true;
     enableDefaultConfig = false;
-    package = pkgs.openssh.override { withFIDO = true; };
+    package = pkgs.openssh;
 
     settings = {
       "github.com" = {
@@ -21,12 +22,14 @@
         IdentityFile = "~/.ssh/id_rsa.pub";
       };
 
-      "azure.com" = {
+      "ssh.dev.azure.com vs-ssh.visualstudio.com" = {
         IdentitiesOnly = true;
         IdentityFile = "~/.ssh/id_rsa.pub";
       };
 
       "*" = {
+        # GUI apps inherit launchd's SSH_AUTH_SOCK, which is Apple's empty agent
+        IdentityAgent = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
         ControlMaster = "auto";
         # %C keeps the path under the 104-byte unix socket limit; aliases
         # that share host/user/port with another identity need their own

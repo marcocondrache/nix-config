@@ -27,14 +27,18 @@
       };
 
       init.defaultBranch = "main";
-      diff.algorithm = "histogram";
+      diff = {
+        algorithm = "histogram";
+        colorMoved = "plain";
+        # Decrypted diffs for files marked diff=sopsdiffer in .gitattributes
+        sopsdiffer.textconv = "${lib.getExe pkgs.sops} decrypt";
+      };
       commit.verbose = true;
       push.autoSetupRemote = true;
       branch.sort = "-committerdate";
       tag.sort = "version:refname";
       column.ui = "auto";
       help.autocorrect = "prompt";
-      diff.colorMoved = "plain";
       rerere = {
         enabled = true;
         autoUpdate = true;
@@ -100,7 +104,7 @@
         # Rebase
         r = "rebase";
         ri = "rebase -i";
-        rib = "!f() { git rebase -i $(git merge-base HEAD ${"1:-main"}); }; f";
+        rib = "!f() { git rebase -i $(git merge-base HEAD \${1:-main}); }; f";
         rc = "rebase --continue";
         ra = "rebase --abort";
         rom = "rebase origin/main";

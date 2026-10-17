@@ -1,6 +1,8 @@
+{ pkgs, ... }:
 {
   programs.atuin = {
     enable = true;
+    package = pkgs.atuin.overrideAttrs { doCheck = false; };
     forceOverwriteSettings = true;
 
     settings = {

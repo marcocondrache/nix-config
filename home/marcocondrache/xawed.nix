@@ -8,8 +8,9 @@ in
     ./features
   ];
 
-  home.packages = with pkgs; [
-    coder
+  home.packages = [
+    # The CLI never runs the provisioner, and unfree terraform isn't cached
+    (pkgs.coder.override { terraform = pkgs.emptyDirectory; })
   ];
 
   sops.secrets."git/work" = { };
@@ -24,9 +25,13 @@ in
           "https://github.com/"
         ];
 
-        gpg.format = "ssh";
-        gpg.ssh.program = "${config.programs.ssh.package}/bin/ssh-keygen";
-        gpg.ssh.allowedSignersFile = "${workEnv}/.ssh/allowed_signers";
+        gpg = {
+          format = "ssh";
+          ssh = {
+            program = "${config.programs.ssh.package}/bin/ssh-keygen";
+            allowedSignersFile = "${workEnv}/.ssh/allowed_signers";
+          };
+        };
         user.signingKey = "${workEnv}/.ssh/id_work_ed25519.pub";
       };
     }
@@ -44,6 +49,11 @@ in
         IdentityFile = "${workEnv}/.ssh/id_work_ed25519";
         AddKeysToAgent = false;
         ControlPath = "~/.ssh/sockets/work-%C";
+      };
+
+      # A lingering master connection can hold off workspace autostop
+      "coder.* *.coder" = {
+        ControlPersist = "5m";
       };
     };
 

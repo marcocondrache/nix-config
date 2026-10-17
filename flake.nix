@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
 
-    nix-darwin.url = "github:LnL7/nix-darwin";
+    nix-darwin.url = "github:nix-darwin/nix-darwin";
     nix-darwin.inputs.nixpkgs.follows = "nixpkgs";
 
     determinate.url = "https://flakehub.com/f/DeterminateSystems/determinate/3";
@@ -18,9 +18,6 @@
     # No nixpkgs follows so the package substitutes from nkl-sofka.cachix.org
     sofka.url = "github:nklmilojevic/sofka";
     sofka.inputs.home-manager.follows = "home-manager";
-
-    herdr.url = "github:herdrdev/herdr-nix";
-    herdr.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =
@@ -30,6 +27,8 @@
     in
     {
       inherit lib;
+
+      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
       darwinConfigurations = {
         # Personal laptop

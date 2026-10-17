@@ -25,10 +25,6 @@
 
     startup.chime = false;
 
-    keyboard = {
-      enableKeyMapping = false;
-    };
-
     defaults = {
       dock = {
         autohide = true;

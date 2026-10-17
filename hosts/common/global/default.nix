@@ -1,5 +1,5 @@
 {
-  name,
+  host,
   pkgs,
   inputs,
   ...
@@ -14,13 +14,10 @@ in
     ./fish.nix
   ];
 
-  networking.hostName = name;
+  networking.hostName = host;
 
-  nixpkgs = {
-    config = {
-      allowUnfree = true;
-    };
-  };
+  # Saves ~5% of eval; user package man pages still resolve through PATH
+  documentation.enable = false;
 
   home-manager = {
     useGlobalPkgs = true;

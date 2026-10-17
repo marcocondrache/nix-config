@@ -2,18 +2,15 @@
 
 [![Built with Nix](https://img.shields.io/badge/Built_With-Nix-5277C3.svg?logo=nixos&labelColor=73C3D5)](https://nixos.org)
 
-This repository contains my personal system configurations using [Nix Flakes](https://nixos.wiki/wiki/Flakes). It manages both **NixOS** and **Darwin** (macOS) systems through a modular, declarative approach with an emphasis on security and reproducibility.
+This repository contains my personal system configurations using [Nix Flakes](https://nixos.wiki/wiki/Flakes). It manages my **Darwin** (macOS) machines through a modular, declarative approach with an emphasis on security and reproducibility.
 
 ## Overview
 
-- Complete **NixOS** setup for desktop, laptop, and server machines
-- **Darwin** configuration for personal and work MacBooks
-- Stateless system design with **opt-in persistence**
-- Secure mesh networking between all hosts
+- [nix-darwin](https://github.com/nix-darwin/nix-darwin) configuration for my personal (`quemo`) and work (`xawed`) MacBooks
+- [Determinate Nix](https://determinate.systems) on `xawed`, upstream Nix managed by nix-darwin on `quemo`
 - Encrypted secrets with [sops-nix](https://github.com/Mic92/sops-nix), decrypted on activation using a GPG key on **YubiKey**
-- Modular `home-manager` configuration with feature flags
-- Single **BTRFS** partition with snapshot management
-- Declarative configuration for all services
+- Modular `home-manager` configuration split into features
+- Weekly cleanup of old generations through a `nh clean` launchd daemon
 
 ## Repository structure
 
@@ -23,30 +20,30 @@ nix-config
 ├── home/             # Home-manager configurations
 ├── hosts/            # Host-specific configurations
 ├── lib/              # Custom Nix functions
-├── modules/          # Custom NixOS/Darwin modules
-└── scripts/          # Utility scripts
+└── modules/          # Custom home-manager modules
 ```
 
 ## Secrets management
 
-Secrets are stored in `home/marcocondrache/secrets.yaml` and encrypted with the **GPG** key on the **YubiKey** (fingerprint in `.sops.yaml`). At activation time, `sops-nix` decrypts them to `/run/secrets/<key>` and applies the configured owner/mode. Reference a secret from any config with the opencode-native `{file:/run/secrets/<key>}` substitution, or load it into a shell via `set -gx VAR (cat /run/secrets/<key>)`.
+Secrets are stored in `home/marcocondrache/secrets.yaml` and encrypted with the **GPG** key on the **YubiKey** (fingerprint in `.sops.yaml`). At activation time, the `sops-nix` launchd agent decrypts them to `~/.secrets/<key>`. Reference a secret from home-manager with `config.sops.secrets."<key>".path`, or load it into a shell via `set -gx VAR (cat ~/.secrets/<key>)`.
 
 To edit secrets:
 ```bash
-nix shell nixpkgs#sops --run sops home/marcocondrache/secrets.yaml
+nix shell nixpkgs#sops --command sops home/marcocondrache/secrets.yaml
 ```
 
-## System impermanence
-
-This configuration embraces a stateless system design where the root filesystem is reset to a clean state on every boot. Through the `impermanence` module, specific directories can be marked for persistence - an opt-in approach to state management. The underlying **BTRFS** filesystem handles snapshots and rollbacks, providing both the benefits of a clean system and the safety of easy recovery.
+`git diff` shows secrets decrypted through the `sopsdiffer` driver configured in the git feature.
 
 ## Getting started
 
-### Darwin setup
+### Install Nix
 
 ```bash
-# Install Nix
+# xawed: Determinate Nix (the installer's default)
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+# quemo: upstream Nix, managed by nix-darwin
+curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --prefer-upstream-nix
 ```
 
 ### Quick start
@@ -55,7 +52,10 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 # Clone and enter repository
 git clone https://github.com/marcocondrache/nix-config.git && cd nix-config
 
-# Apply configuration
+# First activation, before nh is installed
+sudo nix run nix-darwin -- switch --flake .#hostname
+
+# Afterwards
 nh darwin switch .#hostname
 ```
 

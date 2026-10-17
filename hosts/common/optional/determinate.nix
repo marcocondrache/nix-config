@@ -2,10 +2,9 @@
 {
   imports = [ inputs.determinate.darwinModules.default ];
 
-  nix.enable = false;
-
   determinateNix = {
     enable = true;
+    determinateNixd.telemetry.sentry.endpoint = null;
     # nix.settings is ignored when Determinate manages nix
     customSettings = {
       eval-cores = 0;
