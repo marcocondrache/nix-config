@@ -1,3 +1,0 @@
-{
-  volumes = import ./volumes.nix;
-}
