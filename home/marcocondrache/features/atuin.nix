@@ -1,10 +1,13 @@
 {
   programs.atuin = {
     enable = true;
-    # settings = {
-    #   auto_sync = true;
-    #   sync_address = "https://sh.marcocondrache.com";
-    #   update_check = false;
-    # };
+    forceOverwriteSettings = true;
+
+    settings = {
+      auto_sync = false;
+      update_check = false;
+      enter_accept = true;
+      sync.records = true;
+    };
   };
 }

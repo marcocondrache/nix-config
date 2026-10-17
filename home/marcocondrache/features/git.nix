@@ -13,10 +13,6 @@
     enable = lib.mkDefault true;
     package = pkgs.gitFull;
 
-    attributes = [
-      "* merge=mergiraf"
-    ];
-
     signing = {
       key = "0x209101AD5F0E04C6";
       format = "openpgp";
@@ -35,8 +31,18 @@
       commit.verbose = true;
       push.autoSetupRemote = true;
       branch.sort = "committerdate";
-      rerere.enabled = true;
-      fetch.writeCommitGraph = true;
+      tag.sort = "version:refname";
+      column.ui = "auto";
+      help.autocorrect = "prompt";
+      diff.colorMoved = "plain";
+      rerere = {
+        enabled = true;
+        autoUpdate = true;
+      };
+      fetch = {
+        prune = true;
+        writeCommitGraph = true;
+      };
       rebase = {
         updateRefs = true;
         autoSquash = true;
@@ -44,7 +50,6 @@
       };
 
       core = {
-        fsmonitor = true;
         untrackedcache = true;
       };
 

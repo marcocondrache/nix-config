@@ -10,11 +10,11 @@ in
 {
   imports = [
     ./hydro.nix
-    ./zoxide.nix
   ];
 
   programs.fish = {
     enable = true;
+    generateCompletions = false;
 
     shellAbbrs = rec {
       g = "git";

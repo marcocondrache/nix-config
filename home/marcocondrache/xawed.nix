@@ -43,6 +43,7 @@ in
         IdentitiesOnly = true;
         IdentityFile = "${workEnv}/.ssh/id_work_ed25519";
         AddKeysToAgent = false;
+        ControlPath = "~/.ssh/sockets/work-%C";
       };
     };
 

@@ -12,6 +12,9 @@
     file.".hushlogin".text = "";
   };
 
+  # Building the options manpage costs ~10% of eval time
+  manual.manpages.enable = false;
+
   programs = {
     home-manager.enable = true;
   };

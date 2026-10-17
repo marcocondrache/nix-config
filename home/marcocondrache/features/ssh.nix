@@ -48,9 +48,9 @@
           {
             header = "Host *";
             ControlMaster = "auto";
-            # %n (host alias) keeps hosts that resolve to the same
-            # host/user/port but use different identities on separate sockets
-            ControlPath = "~/.ssh/sockets/%n-%r@%h-%p";
+            # %C keeps the path under the 104-byte unix socket limit; aliases
+            # that share host/user/port with another identity need their own
+            ControlPath = "~/.ssh/sockets/%C";
             ControlPersist = "4h";
             ServerAliveInterval = 30;
             ServerAliveCountMax = 3;

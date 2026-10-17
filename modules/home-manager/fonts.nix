@@ -37,7 +37,6 @@ in
   };
 
   config = lib.mkIf config.home.fontProfiles.enable {
-    fonts.fontconfig.enable = true;
     home.packages = map (font: font.package) config.home.fontProfiles.fonts;
   };
 }
