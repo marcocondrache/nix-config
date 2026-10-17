@@ -103,6 +103,15 @@
       };
 
       SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
+
+      CustomUserPreferences = {
+        "com.apple.assistant.support"."Assistant Enabled" = false;
+        "com.apple.Siri" = {
+          StatusMenuVisible = false;
+          UserHasDeclinedEnable = true;
+          VoiceTriggerUserEnabled = false;
+        };
+      };
     };
   };
 }
