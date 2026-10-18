@@ -17,6 +17,7 @@
     ./sops.nix
     ./sofka.nix
     ./ssh.nix
+    ./xdg.nix
     ./yubikey.nix
     ./zoxide.nix
     ./zed.nix
