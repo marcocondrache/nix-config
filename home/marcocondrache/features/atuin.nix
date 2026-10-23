@@ -2,7 +2,7 @@
 {
   programs.atuin = {
     enable = true;
-    package = pkgs.atuin.overrideAttrs { doCheck = false; };
+    package = pkgs.atuin;
     forceOverwriteSettings = true;
 
     settings = {
