@@ -1,114 +1,56 @@
 {
-  host,
-  ...
-}:
-{
   imports = [
     ../common/global
-    ../common/optional/determinate.nix
     ../common/users/marcocondrache/darwin.nix
   ];
 
-  security.pam.services.sudo_local = {
-    touchIdAuth = true;
-    watchIdAuth = true;
-    reattach = true;
-  };
+  system.defaults = {
+    dock = {
+      autohide-delay = 0.0;
+      autohide-time-modifier = 0.2;
+      orientation = "right";
+      mru-spaces = false;
+      expose-animation-duration = 0.1;
+      show-process-indicators = true;
+    };
 
-  networking = {
-    computerName = host;
-    localHostName = host;
-  };
+    finder = {
+      NewWindowTarget = "Home";
+      ShowPathbar = true;
+      ShowStatusBar = true;
+      _FXSortFoldersFirst = true;
+      _FXShowPosixPathInTitle = true;
+    };
 
-  system = {
-    stateVersion = 6;
+    NSGlobalDomain = {
+      InitialKeyRepeat = 14;
 
-    startup.chime = false;
+      NSDocumentSaveNewDocumentsToCloud = false;
 
-    defaults = {
-      dock = {
-        autohide = true;
-        autohide-delay = 0.0;
-        autohide-time-modifier = 0.2;
-        orientation = "right";
-        magnification = false;
-        mineffect = "genie";
-        mru-spaces = false;
-        expose-animation-duration = 0.1;
-        minimize-to-application = false;
-        show-recents = false;
-        show-process-indicators = true;
-      };
+      # Snappier window animations
+      NSWindowResizeTime = 0.001;
+      NSAutomaticWindowAnimationsEnabled = false;
+    };
 
-      finder = {
-        CreateDesktop = false;
-        AppleShowAllExtensions = true;
-        FXPreferredViewStyle = "Nlsv";
-        FXEnableExtensionChangeWarning = false;
-        NewWindowTarget = "Home";
-        ShowPathbar = true;
-        ShowStatusBar = true;
-        _FXSortFoldersFirst = true;
-        _FXShowPosixPathInTitle = true;
-      };
+    trackpad = {
+      Clicking = true;
+    };
 
-      NSGlobalDomain = {
-        KeyRepeat = 1;
-        InitialKeyRepeat = 14;
+    loginwindow = {
+      GuestEnabled = false;
+    };
 
-        ApplePressAndHoldEnabled = false;
-        AppleKeyboardUIMode = 3;
-        AppleInterfaceStyle = "Dark";
+    menuExtraClock = {
+      Show24Hour = true;
+      ShowSeconds = false;
+    };
 
-        NSDocumentSaveNewDocumentsToCloud = false;
+    WindowManager = {
+      EnableStandardClickToShowDesktop = false;
+    };
 
-        # Stop macOS from "helpfully" rewriting code and text
-        NSAutomaticCapitalizationEnabled = false;
-        NSAutomaticSpellingCorrectionEnabled = false;
-        NSAutomaticPeriodSubstitutionEnabled = false;
-        NSAutomaticQuoteSubstitutionEnabled = false;
-        NSAutomaticDashSubstitutionEnabled = false;
-
-        # Snappier window animations
-        NSWindowResizeTime = 0.001;
-        NSAutomaticWindowAnimationsEnabled = false;
-      };
-
-      trackpad = {
-        Clicking = true;
-      };
-
-      loginwindow = {
-        GuestEnabled = false;
-      };
-
-      menuExtraClock = {
-        Show24Hour = true;
-        ShowSeconds = false;
-      };
-
-      WindowManager = {
-        EnableStandardClickToShowDesktop = false;
-      };
-
-      screencapture = {
-        target = "clipboard";
-      };
-
-      controlcenter = {
-        BatteryShowPercentage = true;
-      };
-
-      SoftwareUpdate.AutomaticallyInstallMacOSUpdates = true;
-
-      CustomUserPreferences = {
-        "com.apple.assistant.support"."Assistant Enabled" = false;
-        "com.apple.Siri" = {
-          StatusMenuVisible = false;
-          UserHasDeclinedEnable = true;
-          VoiceTriggerUserEnabled = false;
-        };
-      };
+    screencapture = {
+      target = "clipboard";
     };
   };
 }

@@ -31,12 +31,6 @@
       formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
 
       darwinConfigurations = {
-        # Personal laptop
-        quemo = lib.mkSystem {
-          host = "quemo";
-          system = "aarch64-darwin";
-        };
-
         # Work laptop
         xawed = lib.mkSystem {
           host = "xawed";

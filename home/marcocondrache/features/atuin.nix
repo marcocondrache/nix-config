@@ -1,8 +1,6 @@
-{ pkgs, ... }:
 {
   programs.atuin = {
     enable = true;
-    package = pkgs.atuin;
     forceOverwriteSettings = true;
 
     settings = {

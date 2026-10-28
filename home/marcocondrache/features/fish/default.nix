@@ -12,7 +12,7 @@
     enable = true;
     generateCompletions = false;
 
-    shellAbbrs = rec {
+    shellAbbrs = {
       g = "git";
       # opencode is installed through mise
       o = "opencode";
@@ -21,7 +21,6 @@
       ls = "eza";
       ll = "eza -la";
       grep = "rg";
-      exa = ls;
     };
 
     functions = {

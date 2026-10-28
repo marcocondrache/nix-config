@@ -37,7 +37,6 @@
     fd
     yq-go
 
-    nil
     nixd
     nixfmt
   ];

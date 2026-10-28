@@ -6,8 +6,8 @@ This repository contains my personal system configurations using [Nix Flakes](ht
 
 ## Overview
 
-- [nix-darwin](https://github.com/nix-darwin/nix-darwin) configuration for my personal (`quemo`) and work (`xawed`) MacBooks
-- [Determinate Nix](https://determinate.systems) on `xawed`, upstream Nix managed by nix-darwin on `quemo`
+- [nix-darwin](https://github.com/nix-darwin/nix-darwin) configuration for my work MacBook (`xawed`)
+- [Determinate Nix](https://determinate.systems), configured through its nix-darwin module
 - Encrypted secrets with [sops-nix](https://github.com/Mic92/sops-nix), decrypted on activation using a GPG key on **YubiKey**
 - Modular `home-manager` configuration split into features
 - Weekly cleanup of old generations through a `nh clean` launchd daemon
@@ -39,11 +39,7 @@ nix shell nixpkgs#sops --command sops home/marcocondrache/secrets.yaml
 ### Install Nix
 
 ```bash
-# xawed: Determinate Nix (the installer's default)
 curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-
-# quemo: upstream Nix, managed by nix-darwin
-curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install --prefer-upstream-nix
 ```
 
 ### Quick start
@@ -53,10 +49,10 @@ curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix 
 git clone https://github.com/marcocondrache/nix-config.git && cd nix-config
 
 # First activation, before nh is installed
-sudo nix run nix-darwin -- switch --flake .#hostname
+sudo nix run nix-darwin -- switch --flake .#xawed
 
 # Afterwards
-nh darwin switch .#hostname
+nh darwin switch .#xawed
 ```
 
 ## Contributing

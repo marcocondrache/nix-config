@@ -72,7 +72,6 @@
         s = "status -sb";
         d = "diff";
         ds = "diff --staged";
-        dc = "diff --cached";
 
         # Commit
         c = "commit";

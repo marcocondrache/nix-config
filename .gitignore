@@ -1,44 +1,10 @@
-# General system and editor files
-*.swp
-*.swo
-*.bak
-*.tmp
-*~
-
-# macOS system files
 .DS_Store
-
-# Logs and temporary files
-logs/
-*.log
+*.swp
+*~
 
 # Nix build outputs
 /result
-/result*
+/result-*
 
-# Nix specific files
-*.drv
-*.gcroots/
-.nix-defexpr/
-.nix-profile/
-.nix-channels
-.cache/
-
-# Optional: Ignore private secrets or environment-specific files
-secrets/
 .direnv
 .env
-
-# Generated files
-*.o
-*.so
-*.d
-*.a
-*.hi
-*.pyc
-*.pyo
-*.class
-
-# Other Nix files
-*.check
-*.lockfile
