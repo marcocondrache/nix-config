@@ -156,6 +156,8 @@
       ".npmrc"
       ".direnv"
       ".DS_Store"
+      "*.local.*"
+      "*.local"
     ];
   };
 }
