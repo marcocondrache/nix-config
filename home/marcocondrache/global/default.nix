@@ -1,5 +1,6 @@
 {
   lib,
+  config,
   inputs,
   ...
 }:
@@ -8,6 +9,9 @@
     username = "marcocondrache";
     stateVersion = lib.mkDefault "26.05";
     enableNixpkgsReleaseCheck = false;
+
+    # Where standalone installers (mise, uv, ...) drop binaries
+    sessionPath = [ "${config.home.homeDirectory}/.local/bin" ];
 
     # Disable the login message
     file.".hushlogin".text = "";
