@@ -13,6 +13,7 @@
     ./mergiraf.nix
     ./mise.nix
     ./nh.nix
+    ./rex.nix
     ./sops.nix
     ./sofka.nix
     ./ssh.nix
