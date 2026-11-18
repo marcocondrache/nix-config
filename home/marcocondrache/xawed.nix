@@ -42,7 +42,6 @@ in
     ./features/nh.nix
     ./features/packages.nix
     ./features/rex.nix
-    ./features/sops.nix
     ./features/ssh.nix
     ./features/xdg.nix
     ./features/zoxide.nix

@@ -9,7 +9,7 @@ This repository contains my personal system configurations using [Nix Flakes](ht
 - [nix-darwin](https://github.com/nix-darwin/nix-darwin) configuration for my work MacBook (`xawed`)
 - NixOS dev VM (`devbox`) running headless in UTM on the MacBook, reached over SSH
 - [Determinate Nix](https://determinate.systems), configured through its nix-darwin module
-- Encrypted secrets with [sops-nix](https://github.com/Mic92/sops-nix), decrypted on activation using a GPG key on **YubiKey**
+- Encrypted secrets with [sops-nix](https://github.com/Mic92/sops-nix), decrypted on `devbox` with an age key generated on the VM
 - Modular `home-manager` configuration split into features
 - Weekly cleanup of old generations through a `nh clean` launchd daemon
 
@@ -26,7 +26,7 @@ nix-config
 
 ## Secrets management
 
-Secrets are stored in `home/marcocondrache/secrets.yaml` and encrypted with the **GPG** key on the **YubiKey** (fingerprint in `.sops.yaml`). At activation time, the `sops-nix` launchd agent decrypts them to `~/.secrets/<key>`. Reference a secret from home-manager with `config.sops.secrets."<key>".path`, or load it into a shell via `set -gx VAR (cat ~/.secrets/<key>)`.
+Secrets are stored in `home/marcocondrache/secrets.yaml` and encrypted to both the **GPG** key on the **YubiKey** and `devbox`'s age key (recipients in `.sops.yaml`). Only `devbox` consumes them: at activation, `sops-nix` decrypts them there to `~/.secrets/<key>` using `~/.config/sops/age/keys.txt`. Reference a secret from home-manager with `config.sops.secrets."<key>".path`, or load it into a shell via `set -gx VAR (cat ~/.secrets/<key>)`.
 
 To edit secrets:
 ```bash
