@@ -13,6 +13,9 @@ in
     pkgs.ripgrep
   ];
 
+  # gitFull's svn, send-email and gui have no use on a thin client
+  programs.git.package = pkgs.git;
+
   xdg.enable = true;
   home.preferXdgDirectories = true;
 
@@ -39,13 +42,11 @@ in
 
   imports = [
     ./global
-    ./features/atuin.nix
     ./features/fish
     ./features/git.nix
     ./features/gpg.nix
     ./features/nh.nix
     ./features/ssh.nix
-    ./features/zoxide.nix
     ./features/darwin
   ];
 

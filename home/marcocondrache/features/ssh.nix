@@ -18,11 +18,6 @@
         IdentityFile = "~/.ssh/id_rsa.pub";
       };
 
-      "ssh.dev.azure.com vs-ssh.visualstudio.com" = {
-        IdentitiesOnly = true;
-        IdentityFile = "~/.ssh/id_rsa.pub";
-      };
-
       "*" = {
         ControlMaster = "auto";
         # %C keeps the path under the 104-byte unix socket limit; aliases

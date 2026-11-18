@@ -48,6 +48,11 @@ in
         ControlPath = "~/.ssh/sockets/work-%C";
       };
 
+      "ssh.dev.azure.com vs-ssh.visualstudio.com" = {
+        IdentitiesOnly = true;
+        IdentityFile = "~/.ssh/id_rsa.pub";
+      };
+
       # A lingering master connection can hold off workspace autostop
       "coder.* *.coder" = {
         ControlPersist = "5m";

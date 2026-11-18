@@ -7,7 +7,7 @@
 {
   programs.git = {
     enable = lib.mkDefault true;
-    package = pkgs.gitFull;
+    package = lib.mkDefault pkgs.gitFull;
 
     signing = {
       key = "0x209101AD5F0E04C6";
