@@ -1,10 +1,6 @@
-{ lib, pkgs, ... }:
+{ lib, ... }:
 {
-  programs.rex = {
-    enable = true;
-    # The Rex app ships its own rex on macOS
-    package = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin null;
-  };
+  programs.rex.enable = true;
 
   # nix-darwin resets PATH on shell start, dropping the rex bin dir Rex prepends
   programs.fish.interactiveShellInit = lib.mkOrder 2000 ''

@@ -44,7 +44,6 @@ in
     ./features/git.nix
     ./features/gpg.nix
     ./features/nh.nix
-    ./features/rex.nix
     ./features/ssh.nix
     ./features/zoxide.nix
     ./features/darwin
