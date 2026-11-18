@@ -17,4 +17,6 @@
   # /run/user/1000/gnupg over ssh, so a local agent must never claim that socket
   programs.gpg.settings.no-autostart = true;
   systemd.user.tmpfiles.rules = [ "d %t/gnupg 0700 - - -" ];
+  home.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
+  systemd.user.sessionVariables.SSH_AUTH_SOCK = "/run/user/1000/gnupg/S.gpg-agent.ssh";
 }

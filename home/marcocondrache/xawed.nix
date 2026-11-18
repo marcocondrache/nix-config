@@ -52,14 +52,17 @@ in
         ControlPath = "~/.ssh/sockets/work-%C";
       };
 
-      # A lingering master connection can hold off workspace autostop
+      # Fixed paths instead of ForwardAgent: Rex terminals on the VM aren't ssh
+      # logins, so they never see a per-connection SSH_AUTH_SOCK
       devbox = {
         HostName = "devbox.local";
-        # A path, not `true`: Zed and other GUI apps lack the gpg SSH_AUTH_SOCK
-        ForwardAgent = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
-        RemoteForward = "/run/user/1000/gnupg/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra";
+        RemoteForward = [
+          "/run/user/1000/gnupg/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra"
+          "/run/user/1000/gnupg/S.gpg-agent.ssh ${config.programs.gpg.homedir}/S.gpg-agent.ssh"
+        ];
       };
 
+      # A lingering master connection can hold off workspace autostop
       "coder.* *.coder" = {
         ControlPersist = "5m";
       };
