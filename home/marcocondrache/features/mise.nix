@@ -30,6 +30,13 @@
     };
   };
 
+  programs.fish.shellAbbrs = {
+    m = "mise";
+    # opencode is installed through mise
+    o = "opencode";
+    k = "sofka";
+  };
+
   programs.fish.interactiveShellInit = lib.mkAfter ''
     if command -q mise
       mise activate fish | source

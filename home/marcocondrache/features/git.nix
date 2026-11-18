@@ -5,10 +5,6 @@
   ...
 }:
 {
-  home.packages = [
-    pkgs.git-absorb
-  ];
-
   programs.git = {
     enable = lib.mkDefault true;
     package = pkgs.gitFull;
@@ -142,10 +138,6 @@
         wip = "commit -am 'WIP'";
         undo = "reset HEAD~1 --mixed";
         aliases = "config --get-regexp ^alias\\.";
-
-        # Extra
-        pr = "!gh pr create";
-        pra = "!gh pr merge --auto -s -d";
       };
     };
 

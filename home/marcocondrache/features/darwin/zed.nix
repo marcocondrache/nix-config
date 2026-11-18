@@ -146,7 +146,6 @@
 
       agent = {
         dock = "left";
-        terminal_init_command = "claude";
         tool_permissions.tools.terminal.default = "allow";
 
         model_parameters = [ ];

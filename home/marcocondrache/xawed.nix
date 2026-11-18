@@ -6,7 +6,15 @@ let
   '';
 in
 {
-  home.packages = [ utmctl ];
+  # Development happens on devbox; the Mac only keeps what its own shell uses
+  home.packages = [
+    utmctl
+    pkgs.eza
+    pkgs.ripgrep
+  ];
+
+  xdg.enable = true;
+  home.preferXdgDirectories = true;
 
   # Apple Virtualization VMs live inside the UTM process, so UTM has to run;
   # keep it out of the Dock and alive with no windows open
@@ -33,20 +41,13 @@ in
     ./global
     ./features/atuin.nix
     ./features/fish
-    # ./features/fzf.nix
-    # ./features/gh.nix
     ./features/git.nix
     ./features/gpg.nix
-    # ./features/mergiraf.nix
-    # ./features/mise.nix
     ./features/nh.nix
-    ./features/packages.nix
     ./features/rex.nix
     ./features/ssh.nix
-    ./features/xdg.nix
     ./features/zoxide.nix
     ./features/darwin
-    # ./features/work.nix
   ];
 
   # Fixed paths instead of ForwardAgent: Rex terminals on the VM aren't ssh

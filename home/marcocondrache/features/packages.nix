@@ -15,5 +15,7 @@
 
     nixd
     nixfmt
+
+    git-absorb
   ];
 }
