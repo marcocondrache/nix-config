@@ -27,11 +27,7 @@ in
       inherit inputs;
     };
 
-    sharedModules = [
-      inputs.sops-nix.homeManagerModules.sops
-      inputs.rex.homeManagerModules.default
-    ]
-    ++ (builtins.attrValues homeModules);
+    sharedModules = builtins.attrValues homeModules;
   };
 
   environment.shells = [

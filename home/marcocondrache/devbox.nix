@@ -1,6 +1,13 @@
-{ pkgs, config, ... }:
+{
+  pkgs,
+  config,
+  inputs,
+  ...
+}:
 {
   imports = [
+    inputs.sops-nix.homeManagerModules.sops
+    inputs.rex.homeManagerModules.default
     ./global
     ./features
     ./features/docker.nix
