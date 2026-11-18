@@ -9,6 +9,16 @@
 
   programs.mise.package = pkgs.mise;
 
+  # mise compiles from source on NixOS by default; nix-ld runs its prebuilt binaries
+  programs.mise.globalConfig.settings.all_compile = false;
+
+  home.packages = with pkgs; [
+    # rustup and cargo need a cc to link; macOS gets one from Xcode
+    gcc
+    # mise installs cargo: tools as prebuilt binaries when this is on PATH
+    cargo-binstall
+  ];
+
   # No YubiKey in the VM, so sops decrypts with a key generated on the VM
   sops.age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
 
