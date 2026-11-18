@@ -7,6 +7,7 @@ This repository contains my personal system configurations using [Nix Flakes](ht
 ## Overview
 
 - [nix-darwin](https://github.com/nix-darwin/nix-darwin) configuration for my work MacBook (`xawed`)
+- NixOS dev VM (`devbox`) running headless in UTM on the MacBook, reached over SSH
 - [Determinate Nix](https://determinate.systems), configured through its nix-darwin module
 - Encrypted secrets with [sops-nix](https://github.com/Mic92/sops-nix), decrypted on activation using a GPG key on **YubiKey**
 - Modular `home-manager` configuration split into features
@@ -54,6 +55,27 @@ sudo nix run nix-darwin -- switch --flake .#xawed
 # Afterwards
 nh darwin switch .#xawed
 ```
+
+## NixOS VM
+
+`devbox` is an aarch64 NixOS VM in [UTM](https://mac.getutm.app) (Apple Virtualization backend) where development happens; macOS keeps the GUI apps. The YubiKey stays on the Mac: the `devbox` ssh host entry forwards both the SSH agent and the gpg-agent extra socket, so `git push` and commit signing inside the VM still go through the YubiKey. The disk layout is declared with [disko](https://github.com/nix-community/disko) and installed with [nixos-anywhere](https://github.com/nix-community/nixos-anywhere).
+
+### Bootstrap
+
+1. Download the aarch64 minimal ISO from [nixos.org](https://nixos.org/download/#nixos-iso).
+2. In UTM: **Create a New Virtual Machine → Virtualize → Linux**, tick **Use Apple Virtualization**, pick the ISO, give it 8 GB RAM, 6 cores and a 100 GB disk. Optionally add a shared directory; it is mounted at `/host`.
+3. Boot it, then in the VM console set a temporary root password and note the IP:
+   ```bash
+   sudo passwd root
+   ip -4 addr show
+   ```
+4. From the Mac, install (the build runs inside the VM):
+   ```bash
+   SSHPASS='<password>' nix run github:nix-community/nixos-anywhere -- \
+     --env-password --build-on remote --flake .#devbox --target-host root@<ip>
+   ```
+5. Remove the ISO from the VM's drive in UTM and boot. Apply the Mac side once with `nh darwin switch .#xawed`, then `ssh devbox`.
+6. Inside the VM, clone this repository to `~/Personal/nix-config`; from then on `nh os switch` rebuilds it.
 
 ## Contributing
 

@@ -1,11 +1,9 @@
 { pkgs, ... }:
 {
   imports = [
-    ./alacritty.nix
     ./atuin.nix
     ./docker.nix
     ./fish
-    ./fonts.nix
     ./fzf.nix
     ./gh.nix
     ./git.nix
@@ -18,9 +16,7 @@
     ./sofka.nix
     ./ssh.nix
     ./xdg.nix
-    ./yubikey.nix
     ./zoxide.nix
-    ./zed.nix
   ];
 
   # General packages that don't need configuration
@@ -30,7 +26,6 @@
     ripgrep
     curlFull
     tailspin
-    mole-cleaner
     coreutils
 
     jq

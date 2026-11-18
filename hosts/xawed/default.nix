@@ -1,6 +1,7 @@
 {
   imports = [
     ../common/global
+    ../common/darwin
     ../common/users/marcocondrache/darwin.nix
   ];
 

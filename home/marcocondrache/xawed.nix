@@ -6,6 +6,7 @@ in
   imports = [
     ./global
     ./features
+    ./features/darwin
   ];
 
   home.packages = [
@@ -52,6 +53,12 @@ in
       };
 
       # A lingering master connection can hold off workspace autostop
+      devbox = {
+        HostName = "devbox.local";
+        ForwardAgent = true;
+        RemoteForward = "/run/user/1000/gnupg/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra";
+      };
+
       "coder.* *.coder" = {
         ControlPersist = "5m";
       };

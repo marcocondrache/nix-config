@@ -9,8 +9,6 @@ let
 in
 {
   imports = [
-    ./darwin.nix
-    ./nix.nix
     ./locale.nix
     ./fish.nix
   ];

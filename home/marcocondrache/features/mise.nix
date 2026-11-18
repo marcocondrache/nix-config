@@ -6,7 +6,7 @@
 {
   programs.mise = {
     enable = true;
-    package = null;
+    package = lib.mkDefault null;
     enableBashIntegration = false;
     enableZshIntegration = false;
     enableFishIntegration = false;

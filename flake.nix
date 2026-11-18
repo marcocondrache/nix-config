@@ -12,6 +12,9 @@
     sops-nix.url = "github:Mic92/sops-nix";
     sops-nix.inputs.nixpkgs.follows = "nixpkgs";
 
+    disko.url = "github:nix-community/disko";
+    disko.inputs.nixpkgs.follows = "nixpkgs";
+
     home-manager.url = "github:nix-community/home-manager";
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
@@ -28,13 +31,23 @@
     {
       inherit lib;
 
-      formatter.aarch64-darwin = nixpkgs.legacyPackages.aarch64-darwin.nixfmt-tree;
+      formatter = nixpkgs.lib.genAttrs [ "aarch64-darwin" "aarch64-linux" ] (
+        system: nixpkgs.legacyPackages.${system}.nixfmt-tree
+      );
 
       darwinConfigurations = {
         # Work laptop
         xawed = lib.mkSystem {
           host = "xawed";
           system = "aarch64-darwin";
+        };
+      };
+
+      nixosConfigurations = {
+        # NixOS dev VM running in UTM on xawed
+        devbox = lib.mkSystem {
+          host = "devbox";
+          system = "aarch64-linux";
         };
       };
     };
