@@ -1,5 +1,34 @@
-{ config, ... }:
+{ config, pkgs, ... }:
+let
+  # UTM is installed outside nix; utmctl drives the running app over Apple Events
+  utmctl = pkgs.writeShellScriptBin "utmctl" ''
+    exec /Applications/UTM.app/Contents/MacOS/utmctl "$@"
+  '';
+in
 {
+  home.packages = [ utmctl ];
+
+  # Apple Virtualization VMs live inside the UTM process, so UTM has to run;
+  # keep it out of the Dock and alive with no windows open
+  targets.darwin.defaults."com.utmapp.UTM" = {
+    HideDockIcon = true;
+    ShowMenuIcon = true;
+    KeepRunningAfterLastWindowClosed = true;
+  };
+
+  launchd.agents.devbox = {
+    enable = true;
+    config = {
+      ProgramArguments = [
+        "${utmctl}/bin/utmctl"
+        "start"
+        "--hide"
+        "devbox"
+      ];
+      RunAtLoad = true;
+    };
+  };
+
   imports = [
     ./global
     ./features
