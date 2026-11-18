@@ -7,6 +7,9 @@
 
   programs.mise.package = pkgs.mise;
 
+  # nkl-sofka.cachix.org has no aarch64-linux build, and compiling it OOMs the installer
+  programs.sofka.enable = false;
+
   # Personal server for the Mac's Rex app over ssh://devbox; lingering keeps it alive
   services.rex.enable = true;
 

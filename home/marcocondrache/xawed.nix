@@ -42,10 +42,6 @@ in
     }
   ];
 
-  programs.rex.config = ''
-    rex.host { label = "devbox", endpoint = "ssh://devbox" }
-  '';
-
   programs.ssh = {
     settings = {
       "danfoss.github.com" = {
@@ -59,7 +55,8 @@ in
       # A lingering master connection can hold off workspace autostop
       devbox = {
         HostName = "devbox.local";
-        ForwardAgent = true;
+        # A path, not `true`: Zed and other GUI apps lack the gpg SSH_AUTH_SOCK
+        ForwardAgent = "${config.programs.gpg.homedir}/S.gpg-agent.ssh";
         RemoteForward = "/run/user/1000/gnupg/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra";
       };
 

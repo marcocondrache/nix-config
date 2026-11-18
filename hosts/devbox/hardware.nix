@@ -19,6 +19,9 @@
   fileSystems."/host" = {
     device = "share";
     fsType = "virtiofs";
-    options = [ "nofail" ];
+    options = [
+      "nofail"
+      "x-systemd.automount"
+    ];
   };
 }

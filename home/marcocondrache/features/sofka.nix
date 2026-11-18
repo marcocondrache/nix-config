@@ -1,5 +1,6 @@
+{ lib, ... }:
 {
   programs.sofka = {
-    enable = true;
+    enable = lib.mkDefault true;
   };
 }
