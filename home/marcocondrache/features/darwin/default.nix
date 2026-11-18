@@ -1,7 +1,6 @@
 { pkgs, ... }:
 {
   imports = [
-    ./alacritty.nix
     ./fonts.nix
     ./gpg-agent.nix
     ./sops.nix
