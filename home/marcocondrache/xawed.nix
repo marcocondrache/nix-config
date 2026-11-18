@@ -31,7 +31,21 @@ in
 
   imports = [
     ./global
-    ./features
+    ./features/atuin.nix
+    ./features/fish
+    ./features/fzf.nix
+    ./features/gh.nix
+    ./features/git.nix
+    ./features/gpg.nix
+    ./features/mergiraf.nix
+    ./features/mise.nix
+    ./features/nh.nix
+    ./features/packages.nix
+    ./features/rex.nix
+    ./features/sops.nix
+    ./features/ssh.nix
+    ./features/xdg.nix
+    ./features/zoxide.nix
     ./features/darwin
     ./features/work.nix
   ];
