@@ -20,6 +20,13 @@
           credential_command = "${lib.getExe pkgs.gh} auth token";
         };
       };
+
+      tools = {
+        bun = "latest";
+        claude = "latest";
+        fnox = "latest";
+        sofka = "latest";
+      };
     };
   };
 

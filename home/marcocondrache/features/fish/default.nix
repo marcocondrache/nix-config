@@ -16,7 +16,7 @@
       g = "git";
       # opencode is installed through mise
       o = "opencode";
-      k = lib.mkIf config.programs.sofka.enable "sofka";
+      k = "sofka";
       m = lib.mkIf config.programs.mise.enable "mise";
       ls = "eza";
       ll = "eza -la";

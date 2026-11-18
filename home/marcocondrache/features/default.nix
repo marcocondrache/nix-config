@@ -12,7 +12,6 @@
     ./nh.nix
     ./rex.nix
     ./sops.nix
-    ./sofka.nix
     ./ssh.nix
     ./xdg.nix
     ./zoxide.nix

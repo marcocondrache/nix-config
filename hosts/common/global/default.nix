@@ -29,7 +29,6 @@ in
 
     sharedModules = [
       inputs.sops-nix.homeManagerModules.sops
-      inputs.sofka.homeManagerModules.default
       inputs.rex.homeManagerModules.default
     ]
     ++ (builtins.attrValues homeModules);

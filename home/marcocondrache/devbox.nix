@@ -22,9 +22,6 @@
   # No YubiKey in the VM, so sops decrypts with a key generated on the VM
   sops.age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
 
-  # nkl-sofka.cachix.org has no aarch64-linux build, and compiling it OOMs the installer
-  programs.sofka.enable = false;
-
   # Personal server for the Mac's Rex app over ssh://devbox; lingering keeps it alive
   services.rex.enable = true;
 
