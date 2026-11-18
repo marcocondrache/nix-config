@@ -1,11 +1,16 @@
-{ pkgs, ... }:
+{ pkgs, config, ... }:
 {
   imports = [
     ./global
     ./features
+    ./features/docker.nix
+    ./features/work.nix
   ];
 
   programs.mise.package = pkgs.mise;
+
+  # No YubiKey in the VM, so sops decrypts with a key generated on the VM
+  sops.age.keyFile = "${config.xdg.configHome}/sops/age/keys.txt";
 
   # nkl-sofka.cachix.org has no aarch64-linux build, and compiling it OOMs the installer
   programs.sofka.enable = false;

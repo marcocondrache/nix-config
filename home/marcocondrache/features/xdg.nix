@@ -16,7 +16,5 @@ in
     BUN_INSTALL_CACHE_DIR = "${cacheHome}/bun";
     AZURE_CONFIG_DIR = "${configHome}/azure";
     KUBECACHEDIR = "${cacheHome}/kube";
-    # Not via programs.docker-cli: its read-only config.json breaks `docker login`
-    DOCKER_CONFIG = "${configHome}/docker";
   };
 }

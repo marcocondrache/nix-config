@@ -13,11 +13,17 @@
   services.avahi = {
     enable = true;
     nssmdns4 = true;
+    # Rotating IPv6 privacy addresses go stale in the Mac's mDNS cache
+    settings.server.use-ipv6 = false;
     settings.publish = {
       disable-publishing = false;
       publish-addresses = true;
     };
   };
+
+  # enp0s1 is UTM's NAT network, reachable only from the Mac: dev servers in
+  # the VM open at http://devbox.local:<port>
+  networking.firewall.trustedInterfaces = [ "enp0s1" ];
 
   virtualisation.docker = {
     enable = true;

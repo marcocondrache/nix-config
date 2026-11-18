@@ -2,7 +2,6 @@
 {
   imports = [
     ./atuin.nix
-    ./docker.nix
     ./fish
     ./fzf.nix
     ./gh.nix
