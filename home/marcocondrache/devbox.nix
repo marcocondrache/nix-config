@@ -14,8 +14,6 @@
     ./features/work.nix
   ];
 
-  programs.mise.package = pkgs.mise;
-
   # mise compiles from source on NixOS by default; nix-ld runs its prebuilt binaries
   programs.mise.globalConfig.settings.all_compile = false;
 
