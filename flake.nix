@@ -21,6 +21,9 @@
     # No nixpkgs follows so the package substitutes from nkl-sofka.cachix.org
     sofka.url = "github:nklmilojevic/sofka";
     sofka.inputs.home-manager.follows = "home-manager";
+
+    rex.url = "https://pkgs.superlogical.com/rex/nix/preview.tar.gz";
+    rex.inputs.nixpkgs.follows = "nixpkgs";
   };
 
   outputs =

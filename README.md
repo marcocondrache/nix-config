@@ -77,6 +77,8 @@ nh darwin switch .#xawed
 5. Remove the ISO from the VM's drive in UTM and boot. Apply the Mac side once with `nh darwin switch .#xawed`, then `ssh devbox`.
 6. Inside the VM, clone this repository to `~/Personal/nix-config`; from then on `nh os switch` rebuilds it.
 
+The VM runs a personal [Rex](https://superlogical.com) server as a systemd user service. The Mac's `~/.config/rex/init.lua` declares it as the `devbox` host over `ssh://devbox`, so it shows up in the Rex app and `rex -S devbox ls` works. After the first switch on the Mac, run `rex config reload` to pick up the host.
+
 ## Contributing
 
 This configuration is shared as a reference for the **Nix** community. You can:

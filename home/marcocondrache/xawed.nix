@@ -42,6 +42,10 @@ in
     }
   ];
 
+  programs.rex.config = ''
+    rex.host { label = "devbox", endpoint = "ssh://devbox" }
+  '';
+
   programs.ssh = {
     settings = {
       "danfoss.github.com" = {
