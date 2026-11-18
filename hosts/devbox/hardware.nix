@@ -14,14 +14,4 @@
       "usb_storage"
     ];
   };
-
-  # UTM exposes the shared directory under the "share" virtiofs tag
-  fileSystems."/host" = {
-    device = "share";
-    fsType = "virtiofs";
-    options = [
-      "nofail"
-      "x-systemd.automount"
-    ];
-  };
 }

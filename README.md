@@ -63,7 +63,7 @@ nh darwin switch .#xawed
 ### Bootstrap
 
 1. Download the aarch64 minimal ISO from [nixos.org](https://nixos.org/download/#nixos-iso).
-2. In UTM: **Create a New Virtual Machine → Virtualize → Linux**, tick **Use Apple Virtualization**, pick the ISO, give it 8 GB RAM, 6 cores and a 100 GB disk. Optionally add a shared directory; it is mounted at `/host`.
+2. In UTM: **Create a New Virtual Machine → Virtualize → Linux**, tick **Use Apple Virtualization**, pick the ISO, give it 8 GB RAM, 6 cores and a 100 GB disk.
 3. Boot it, then in the VM console set a temporary root password and note the IP:
    ```bash
    sudo passwd root
