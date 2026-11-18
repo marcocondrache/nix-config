@@ -4,9 +4,6 @@
   inputs,
   ...
 }:
-let
-  homeModules = import ../../../modules/home-manager;
-in
 {
   imports = [
     ./locale.nix
@@ -26,8 +23,6 @@ in
     extraSpecialArgs = {
       inherit inputs;
     };
-
-    sharedModules = builtins.attrValues homeModules;
   };
 
   environment.shells = [

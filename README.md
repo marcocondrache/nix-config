@@ -20,8 +20,7 @@ nix-config
 ├── flake.nix         # Main flake configuration
 ├── home/             # Home-manager configurations
 ├── hosts/            # Host-specific configurations
-├── lib/              # Custom Nix functions
-└── modules/          # Custom home-manager modules
+└── lib/              # Custom Nix functions
 ```
 
 ## Secrets management

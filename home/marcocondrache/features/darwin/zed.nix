@@ -56,7 +56,6 @@
       };
 
       ui_font_size = 16;
-      buffer_font_family = "CommitMono";
       buffer_font_size = 14;
 
       cursor_blink = false;
