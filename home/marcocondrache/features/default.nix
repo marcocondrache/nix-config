@@ -10,7 +10,6 @@
     ./mergiraf.nix
     ./mise.nix
     ./nh.nix
-    ./nvim.nix
     ./packages.nix
     ./rex.nix
     ./sops.nix
