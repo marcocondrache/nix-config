@@ -50,7 +50,7 @@ in
 
       "ssh.dev.azure.com vs-ssh.visualstudio.com" = {
         IdentitiesOnly = true;
-        IdentityFile = "~/.ssh/id_rsa.pub";
+        IdentityFile = "${../ssh.pub}";
       };
 
       # A lingering master connection can hold off workspace autostop
@@ -59,7 +59,6 @@ in
       };
     };
 
-    # Written by `coder config-ssh`, per machine
     includes = [
       "${workEnv}/.ssh/coder"
     ];

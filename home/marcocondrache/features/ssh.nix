@@ -1,10 +1,5 @@
 { pkgs, ... }:
 {
-  # TODO: find a better way to do this
-  home.file.".ssh/id_rsa.pub" = {
-    source = ../ssh.pub;
-  };
-
   home.file.".ssh/sockets/.keep".text = "";
 
   programs.ssh = {
@@ -15,7 +10,7 @@
     settings = {
       "github.com" = {
         IdentitiesOnly = true;
-        IdentityFile = "~/.ssh/id_rsa.pub";
+        IdentityFile = "${../ssh.pub}";
       };
 
       "*" = {

@@ -26,7 +26,6 @@
       diff = {
         algorithm = "histogram";
         colorMoved = "plain";
-        # Decrypted diffs for files marked diff=sopsdiffer in .gitattributes
         sopsdiffer.textconv = "${lib.getExe pkgs.sops} decrypt";
       };
       commit.verbose = true;
@@ -54,35 +53,29 @@
       };
 
       alias = {
-        # Fetch & Pull
         f = "fetch";
         fa = "fetch --all --prune";
         p = "pull";
 
-        # Push
         ps = "push";
         psf = "push --force-with-lease";
         psu = "push -u origin HEAD";
 
-        # Status & Diff
         s = "status -sb";
         d = "diff";
         ds = "diff --staged";
 
-        # Commit
         c = "commit";
         cm = "commit -m";
         ca = "commit --amend";
         can = "commit --amend --no-edit";
         caan = "commit --all --amend --no-edit";
 
-        # Branch
         b = "branch";
         ba = "branch -a";
         bd = "branch -d";
         bdd = "branch -D";
 
-        # Checkout & Switch
         co = "checkout";
         cob = "checkout -b";
         sw = "switch";
@@ -91,12 +84,10 @@
         swc = "switch -c";
         swr = "!git switch -c \"$(LC_ALL=C tr -dc 'a-z' < /dev/urandom | head -c 8)\"";
 
-        # Add
         a = "add";
         aa = "add --all";
         ap = "add --patch";
 
-        # Rebase
         r = "rebase";
         ri = "rebase -i";
         rib = "!f() { git rebase -i $(git merge-base HEAD \${1:-main}); }; f";
@@ -105,35 +96,29 @@
         rom = "rebase origin/main";
         riom = "rebase -i origin/main";
 
-        # Merge
         m = "merge";
         ma = "merge --abort";
 
-        # Reset
         rs = "reset";
         rsh = "reset --hard";
         rss = "reset --soft";
         unstage = "reset HEAD --";
 
-        # Stash
         st = "stash";
         stp = "stash pop";
         stl = "stash list";
         sta = "stash apply";
         std = "stash drop";
 
-        # Log
         l = "log --oneline -20";
         lg = "log --oneline --graph --all -20";
         ll = "log --pretty=format:'%C(yellow)%h%Creset %s %C(dim)— %an, %ar%Creset' -20";
         last = "log -1 HEAD --stat";
 
-        # Cherry-pick
         cp = "cherry-pick";
         cpa = "cherry-pick --abort";
         cpc = "cherry-pick --continue";
 
-        # Misc
         cl = "clone";
         wip = "commit -am 'WIP'";
         undo = "reset HEAD~1 --mixed";

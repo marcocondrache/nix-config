@@ -12,7 +12,6 @@
 
   networking.hostName = host;
 
-  # Saves ~5% of eval; user package man pages still resolve through PATH
   documentation.enable = false;
 
   home-manager = {

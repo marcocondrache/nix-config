@@ -1,6 +1,5 @@
 { pkgs, config, ... }:
 {
-  # The daemon and docker CLI come from virtualisation.docker on the host
   home.packages = with pkgs; [
     dive
     lazydocker

@@ -19,7 +19,6 @@ in
     nhs = "nh ${os} switch";
     nhb = "nh ${os} build";
     nhu = "nh ${os} switch --update";
-    # Evaluated on the Mac, built on the VM: deploys uncommitted changes
     nhd = lib.mkIf pkgs.stdenv.hostPlatform.isDarwin "nh os switch -H devbox --target-host devbox --build-host devbox -e passwordless";
   };
 }

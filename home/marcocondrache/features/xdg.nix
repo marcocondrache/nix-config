@@ -6,7 +6,6 @@ in
   xdg.enable = true;
   home.preferXdgDirectories = true;
 
-  # Tools that default to a dotdir in ~ and only move when told to
   home.sessionVariables = {
     CARGO_HOME = "${dataHome}/cargo";
     RUSTUP_HOME = "${dataHome}/rustup";

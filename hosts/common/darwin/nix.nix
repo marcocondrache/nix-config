@@ -14,7 +14,6 @@
     customSettings = import ../global/nix-settings.nix;
   };
 
-  # Store GC alone can't reclaim paths still rooted by old generations
   launchd.daemons.nh-clean = {
     command = "${lib.getExe pkgs.nh} clean all --keep 10 --keep-since 14d";
     path = [

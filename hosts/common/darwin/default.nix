@@ -41,7 +41,6 @@
         AppleKeyboardUIMode = 3;
         AppleInterfaceStyle = "Dark";
 
-        # Stop macOS from "helpfully" rewriting code and text
         NSAutomaticCapitalizationEnabled = false;
         NSAutomaticSpellingCorrectionEnabled = false;
         NSAutomaticPeriodSubstitutionEnabled = false;

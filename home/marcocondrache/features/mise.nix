@@ -32,7 +32,6 @@
 
   programs.fish.shellAbbrs = {
     m = "mise";
-    # opencode is installed through mise
     o = "opencode";
     k = "sofka";
   };

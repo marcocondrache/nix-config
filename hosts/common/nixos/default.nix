@@ -12,10 +12,8 @@
     };
   };
 
-  # Login is key-only through the YubiKey, so there is no password to type
   security.sudo.wheelNeedsPassword = false;
 
-  # Prebuilt binaries from mise, Zed's remote server and friends expect an FHS loader
   programs.nix-ld.enable = true;
 
   environment.enableAllTerminfo = true;

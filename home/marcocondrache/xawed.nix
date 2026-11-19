@@ -1,19 +1,24 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  inputs,
+  ...
+}:
 let
-  # UTM is installed outside nix; utmctl drives the running app over Apple Events
+  devboxGnupgDir =
+    dirOf
+      inputs.self.nixosConfigurations.devbox.config.home-manager.users.${config.home.username}.home.sessionVariables.SSH_AUTH_SOCK;
   utmctl = pkgs.writeShellScriptBin "utmctl" ''
     exec /Applications/UTM.app/Contents/MacOS/utmctl "$@"
   '';
 in
 {
-  # Development happens on devbox; the Mac only keeps what its own shell uses
   home.packages = [
     utmctl
     pkgs.eza
     pkgs.ripgrep
   ];
 
-  # gitFull's svn, send-email and gui have no use on a thin client
   programs.git.package = pkgs.git;
 
   xdg.enable = true;
@@ -50,13 +55,11 @@ in
     ./features/darwin
   ];
 
-  # Fixed paths instead of ForwardAgent: Rex terminals on the VM aren't ssh
-  # logins, so they never see a per-connection SSH_AUTH_SOCK
   programs.ssh.settings.devbox = {
     HostName = "devbox.local";
     RemoteForward = [
-      "/run/user/1000/gnupg/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra"
-      "/run/user/1000/gnupg/S.gpg-agent.ssh ${config.programs.gpg.homedir}/S.gpg-agent.ssh"
+      "${devboxGnupgDir}/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra"
+      "${devboxGnupgDir}/S.gpg-agent.ssh ${config.programs.gpg.homedir}/S.gpg-agent.ssh"
     ];
   };
 }

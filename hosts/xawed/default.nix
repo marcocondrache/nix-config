@@ -28,7 +28,6 @@
 
       NSDocumentSaveNewDocumentsToCloud = false;
 
-      # Snappier window animations
       NSWindowResizeTime = 0.001;
       NSAutomaticWindowAnimationsEnabled = false;
     };

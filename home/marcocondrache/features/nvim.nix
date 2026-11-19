@@ -12,6 +12,7 @@
     globals.mapleader = " ";
 
     opts = {
+      sessionoptions = "blank,buffers,curdir,folds,help,tabpages,winsize,winpos,terminal";
       number = true;
       relativenumber = true;
       signcolumn = "yes";
@@ -24,7 +25,6 @@
       termguicolors = true;
     };
 
-    # Matches the Tomorrow Night palette Rex uses
     colorschemes.base16 = {
       enable = true;
       colorscheme = "tomorrow-night";
@@ -55,6 +55,16 @@
           mode = "n";
           key = "<leader>/";
           action = "<cmd>Telescope live_grep<cr>";
+        }
+        {
+          mode = "n";
+          key = "<leader>p";
+          action = "<cmd>Telescope zoxide list<cr>";
+        }
+        {
+          mode = "n";
+          key = "<leader>P";
+          action = "<cmd>tabnew | Telescope zoxide list<cr>";
         }
         {
           mode = "n";
@@ -108,8 +118,8 @@
           nixd.enable = true;
           rust_analyzer = {
             enable = true;
-            # Toolchains come from rustup/mise, not nix
-            package = null;
+            # cargo and rustc come from rustup via mise; its rust-analyzer proxy
+            # loops back into mise's shim when the component isn't installed
             installCargo = false;
             installRustc = false;
             settings.cargo.targetDir = true;
@@ -132,7 +142,27 @@
 
       telescope = {
         enable = true;
-        extensions.fzf-native.enable = true;
+        extensions = {
+          fzf-native.enable = true;
+          zoxide = {
+            enable = true;
+            settings.mappings.default.action.__raw = ''
+              function(selection) vim.cmd.tcd(selection.path) end
+            '';
+          };
+        };
+      };
+
+      auto-session = {
+        enable = true;
+        settings = {
+          suppressed_dirs = [
+            "~/"
+            "/"
+            "/tmp"
+          ];
+          pre_save_cmds = [ "tabdo Neotree close" ];
+        };
       };
 
       neo-tree = {
@@ -153,7 +183,6 @@
       neogit.enable = true;
       diffview.enable = true;
 
-      # Covers Zed's q (any quotes) and b (any brackets) text objects
       mini-ai.enable = true;
       web-devicons.enable = true;
     };

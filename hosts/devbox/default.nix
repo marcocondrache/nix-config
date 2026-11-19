@@ -1,4 +1,7 @@
 { inputs, ... }:
+let
+  utmNatInterface = "enp0s1";
+in
 {
   imports = [
     inputs.disko.nixosModules.disko
@@ -9,7 +12,6 @@
     ../common/users/marcocondrache/nixos.nix
   ];
 
-  # Reachable from the Mac as devbox.local
   services.avahi = {
     enable = true;
     nssmdns4 = true;
@@ -21,9 +23,7 @@
     };
   };
 
-  # enp0s1 is UTM's NAT network, reachable only from the Mac: dev servers in
-  # the VM open at http://devbox.local:<port>
-  networking.firewall.trustedInterfaces = [ "enp0s1" ];
+  networking.firewall.trustedInterfaces = [ utmNatInterface ];
 
   virtualisation.docker = {
     enable = true;

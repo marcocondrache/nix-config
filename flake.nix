@@ -38,7 +38,6 @@
       );
 
       darwinConfigurations = {
-        # Work laptop
         xawed = lib.mkSystem {
           host = "xawed";
           system = "aarch64-darwin";
@@ -46,7 +45,6 @@
       };
 
       nixosConfigurations = {
-        # NixOS dev VM running in UTM on xawed
         devbox = lib.mkSystem {
           host = "devbox";
           system = "aarch64-linux";
