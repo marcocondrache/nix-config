@@ -1,6 +1,7 @@
 {
   imports = [
     ./atuin.nix
+    ./delta.nix
     ./fish
     ./fzf.nix
     ./gh.nix

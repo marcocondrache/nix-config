@@ -86,11 +86,6 @@
           key = "<leader>e";
           action = "<cmd>Neotree toggle reveal<cr>";
         }
-        {
-          mode = "n";
-          key = "<leader>g";
-          action = "<cmd>Neogit<cr>";
-        }
       ];
 
     plugins = {
@@ -161,7 +156,10 @@
             "/"
             "/tmp"
           ];
-          pre_save_cmds = [ "tabdo Neotree close" ];
+          close_filetypes_on_save = [
+            "checkhealth"
+            "neo-tree"
+          ];
         };
       };
 
@@ -180,8 +178,6 @@
           current_line_blame_formatter = "<author>, <author_time:%R>";
         };
       };
-      neogit.enable = true;
-      diffview.enable = true;
 
       mini-ai.enable = true;
       web-devicons.enable = true;
