@@ -1,6 +1,9 @@
 { lib, ... }:
 {
-  programs.rex.enable = true;
+  programs.rex = {
+    enable = true;
+    config = ./rex/init.lua;
+  };
 
   # nix-darwin resets PATH on shell start, dropping the rex bin dir Rex prepends
   programs.fish.interactiveShellInit = lib.mkOrder 2000 ''
