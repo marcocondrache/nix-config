@@ -57,8 +57,6 @@ in
 
   programs.ssh.settings.devbox = {
     HostName = "devbox.local";
-    # The VM sits behind UTM's host-only NAT, so a Mac-local key is enough to
-    # log in; the YubiKey stays required for push and signing via the forwards
     IdentityFile = "~/.ssh/id_devbox";
     IdentitiesOnly = true;
     IdentityAgent = "none";
