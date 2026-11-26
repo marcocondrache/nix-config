@@ -57,6 +57,9 @@ in
 
   programs.ssh.settings.devbox = {
     HostName = "devbox.local";
+    IdentityFile = "~/.ssh/id_devbox";
+    IdentitiesOnly = true;
+    IdentityAgent = "none";
     RemoteForward = [
       "${devboxGnupgDir}/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra"
       "${devboxGnupgDir}/S.gpg-agent.ssh ${config.programs.gpg.homedir}/S.gpg-agent.ssh"
