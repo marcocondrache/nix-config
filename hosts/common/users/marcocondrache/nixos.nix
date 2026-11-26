@@ -10,7 +10,10 @@
     uid = 1000;
     shell = pkgs.fish;
     extraGroups = [ "wheel" ] ++ lib.optional config.virtualisation.docker.enable "docker";
-    openssh.authorizedKeys.keyFiles = [ ../../../../home/marcocondrache/ssh.pub ];
+    openssh.authorizedKeys.keyFiles = [
+      ../../../../home/marcocondrache/ssh.pub
+      ../../../../home/marcocondrache/devbox.pub
+    ];
     linger = true;
   };
 

@@ -57,6 +57,11 @@ in
 
   programs.ssh.settings.devbox = {
     HostName = "devbox.local";
+    # The VM sits behind UTM's host-only NAT, so a Mac-local key is enough to
+    # log in; the YubiKey stays required for push and signing via the forwards
+    IdentityFile = "~/.ssh/id_devbox";
+    IdentitiesOnly = true;
+    IdentityAgent = "none";
     RemoteForward = [
       "${devboxGnupgDir}/S.gpg-agent ${config.programs.gpg.homedir}/S.gpg-agent.extra"
       "${devboxGnupgDir}/S.gpg-agent.ssh ${config.programs.gpg.homedir}/S.gpg-agent.ssh"
